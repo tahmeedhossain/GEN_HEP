@@ -1,0 +1,4349 @@
+{
+ "title": "Standard Model Epistemic Graph",
+ "version": "1.2",
+ "description": "13 steps; Step 12 clustered final view; Step 13 synthesis with the method-in-action view (phases and ops per step)",
+ "scope": "QED + electroweak sector + Higgs; strong sector omitted",
+ "generated": "2026-11-12",
+ "conventions": {
+  "layers": [
+   "S state",
+   "M model",
+   "O observable"
+  ],
+  "edge_kinds": {
+   "s2m": "state → model",
+   "m2o": "model → observable; st = pred | fit | frame | cand; weak = framework edge not counted as explanation",
+   "m2s": "model → state back-edge",
+   "m2m": "model → model / lineage"
+  },
+  "and_routes": "legs = (sector, n) or (group, n); jointly enter the target",
+  "badges": {
+   "A": "observed before explained",
+   "P": "predicted before observed",
+   "F": "calibration"
+  },
+  "unexplained_rule": "O node with no incoming m2o edge of status pred/fit/frame (weak and cand excluded)",
+  "clusters": "step.clusters: members and lineage",
+  "phases": "scientific-method phases active in a step: observe, deficit, hypothesize, restructure, predict, calibrate, reduce",
+  "ops": "graph operations of a step: [OPERATION, layer or edge kind, description]",
+  "rich_text": "^{} superscript, _{} subscript"
+ },
+ "nodes": {
+  "H1": {
+   "layer": "S",
+   "kind": "hilbert",
+   "label": "H_{1} — one-particle Hilbert space",
+   "sub": "rays |ψ⟩; no particle-number degree of freedom",
+   "years": "1925–32",
+   "desc": "A state is a ray in a separable Hilbert space H_{1}. The space describes exactly one particle: there is no operator in the one-particle framework whose eigenvalue is a particle number.",
+   "refs": [
+    "von Neumann 1932"
+   ]
+  },
+  "u_vac": {
+   "layer": "S",
+   "kind": "uir",
+   "label": "p^{μ} = 0",
+   "sub": "trivial representation (vacuum)",
+   "inst": "becomes |0⟩ of every Fock sector",
+   "years": "1939"
+  },
+  "u_m0": {
+   "layer": "S",
+   "kind": "uir",
+   "label": "m > 0, s = 0",
+   "sub": "massive scalar; little group SO(3)",
+   "inst": "no instance in 1939 (π^{±} 1947, H 2012)",
+   "years": "1939"
+  },
+  "u_mh": {
+   "layer": "S",
+   "kind": "uir",
+   "label": "m > 0, s = ½",
+   "sub": "massive spinor",
+   "inst": "e^{−} (1897), p (1919), n (1932), μ (1937)",
+   "years": "1939"
+  },
+  "u_m1": {
+   "layer": "S",
+   "kind": "uir",
+   "label": "m > 0, s = 1",
+   "sub": "massive vector",
+   "inst": "no instance in 1939 (ρ 1961; W, Z 1983)",
+   "years": "1939"
+  },
+  "u_0h": {
+   "layer": "S",
+   "kind": "uir",
+   "label": "m = 0, h = ±½",
+   "sub": "massless; little group ISO(2), helicity ½",
+   "inst": "ν (hypothesis 1930; detected 1956)",
+   "years": "1939"
+  },
+  "u_01": {
+   "layer": "S",
+   "kind": "uir",
+   "label": "m = 0, h = ±1",
+   "sub": "massless, helicity 1",
+   "inst": "γ",
+   "years": "1939"
+  },
+  "u_02": {
+   "layer": "S",
+   "kind": "uir",
+   "label": "m = 0, h = ±2",
+   "sub": "massless, helicity 2",
+   "inst": "graviton (hypothetical; not detected)",
+   "years": "1939"
+  },
+  "u_cs": {
+   "layer": "S",
+   "kind": "uir",
+   "dashed": true,
+   "label": "m = 0, continuous spin",
+   "sub": "infinite-dimensional ISO(2) representations",
+   "inst": "no known instance",
+   "years": "1939"
+  },
+  "u_tach": {
+   "layer": "S",
+   "kind": "uir",
+   "dashed": true,
+   "label": "m^{2} < 0",
+   "sub": "tachyonic; little group SO(2,1)",
+   "inst": "no known instance",
+   "years": "1939"
+  },
+  "s_e": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "e^{−}",
+   "uir": "m>0, s=½",
+   "stat": "f",
+   "years": "1897 / field 1928",
+   "desc": "Fock sector built on the electron UIR. The Dirac field ψ_{e} annihilates e^{−} and creates e^{+}, so the N-particle nodes count electrons and positrons together.",
+   "refs": [
+    "Dirac 1928",
+    "Anderson 1933"
+   ]
+  },
+  "s_p": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "p",
+   "uir": "m>0, s=½",
+   "stat": "f",
+   "years": "1919",
+   "desc": "Proton sector (Rutherford 1919). Treated as elementary in Fermi's theory; replaced by quark sectors at Step 9 (the proton is a bound state of the strong sector, which is outside this graph)."
+  },
+  "s_n": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "n",
+   "uir": "m>0, s=½",
+   "stat": "f",
+   "years": "1932",
+   "desc": "Neutron sector (Chadwick 1932). Replaced by quark sectors at Step 9.",
+   "refs": [
+    "Chadwick 1932"
+   ]
+  },
+  "s_nu": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "ν",
+   "uir": "m=0, h=∓½",
+   "stat": "f",
+   "years": "1930 / 1956",
+   "desc": "Neutrino sector as assumed from Pauli (1930) to 1962: a single massless species. Detected by Cowan & Reines (1956). Split into ν_{e} and ν_{μ} at Step 7.",
+   "refs": [
+    "Cowan et al. 1956"
+   ]
+  },
+  "s_g": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "γ",
+   "uir": "m=0, h=±1",
+   "stat": "b",
+   "years": "field 1927",
+   "desc": "Photon sector: the quantized radiation field A_{μ} of Dirac (1927). Bosonic ladder: symmetrized N-photon states.",
+   "refs": [
+    "Dirac 1927"
+   ]
+  },
+  "s_mu": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "μ",
+   "uir": "m>0, s=½",
+   "stat": "f",
+   "years": "1937",
+   "desc": "Muon sector (Neddermeyer & Anderson 1937). Shown not to be Yukawa's strongly interacting meson by Conversi, Pancini & Piccioni (1947).",
+   "refs": [
+    "Neddermeyer & Anderson 1937",
+    "Conversi et al. 1947"
+   ]
+  },
+  "s_nue": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "ν_{e}",
+   "uir": "m=0, h=−½",
+   "stat": "f",
+   "years": "1962",
+   "desc": "Electron-neutrino sector. In the SM as drawn it is massless and left-handed only (no right-handed state), which is what blocks a mass term at Step 11.",
+   "refs": [
+    "Danby et al. 1962"
+   ]
+  },
+  "s_num": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "ν_{μ}",
+   "uir": "m=0, h=−½",
+   "stat": "f",
+   "years": "1962",
+   "desc": "Muon-neutrino sector, distinguished from ν_{e} by Danby et al. (1962): neutrinos from π→μν produce μ, not e.",
+   "refs": [
+    "Danby et al. 1962"
+   ]
+  },
+  "s_u": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "u",
+   "uir": "m>0, s=½",
+   "stat": "f",
+   "years": "1964 / 1969",
+   "desc": "Up-quark sector (Gell-Mann 1964; Zweig 1964; point-like constituents seen in deep inelastic scattering, SLAC 1969). Colour and the gluon sector are not drawn.",
+   "refs": [
+    "Gell-Mann 1964",
+    "Bloom et al. 1969"
+   ]
+  },
+  "s_d": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "d",
+   "uir": "m>0, s=½",
+   "stat": "f",
+   "years": "1964 / 1969",
+   "desc": "Down-quark sector. In the charged current it enters as the Cabibbo-rotated combination d' = cos θ_{C} d + sin θ_{C} s (Cabibbo 1963).",
+   "refs": [
+    "Cabibbo 1963"
+   ]
+  },
+  "s_W": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "W^{±}",
+   "uir": "m>0, s=1",
+   "stat": "b",
+   "years": "1983",
+   "desc": "Charged weak boson sector, M_{W} ≈ 80.4 GeV. First observed at the CERN SPS collider (UA1, UA2, 1983).",
+   "refs": [
+    "Arnison et al. 1983",
+    "Banner et al. 1983"
+   ]
+  },
+  "s_Z": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "Z^{0}",
+   "uir": "m>0, s=1",
+   "stat": "b",
+   "years": "1983",
+   "desc": "Neutral weak boson sector, M_{Z} ≈ 91.19 GeV (UA1/UA2 1983; LEP precision 1989–2000).",
+   "refs": [
+    "Arnison et al. 1983b",
+    "LEP EWWG 2006"
+   ]
+  },
+  "s_H": {
+   "layer": "S",
+   "kind": "sector",
+   "label": "H",
+   "uir": "m>0, s=0",
+   "stat": "b",
+   "years": "2012",
+   "desc": "Higgs-boson sector, m_{H} ≈ 125 GeV (ATLAS, CMS 2012). The scalar doublet Φ has one physical excitation after three components are absorbed by W^{±}, Z.",
+   "refs": [
+    "ATLAS 2012",
+    "CMS 2012"
+   ]
+  },
+  "m_U": {
+   "layer": "M",
+   "kind": "frame",
+   "label": "Unitary evolution U(t) = e^{−iĤt/ħ}",
+   "sub": "one-parameter unitary group on H_{1}",
+   "years": "1926–32",
+   "desc": "Time evolution is a strongly continuous one-parameter unitary group generated by the Hamiltonian (Stone 1932). It maps H_{1} onto H_{1}: the back-edge to the state layer. Particle number is conserved by construction.",
+   "refs": [
+    "Schrödinger 1926",
+    "Stone 1932"
+   ]
+  },
+  "m_A": {
+   "layer": "M",
+   "kind": "frame",
+   "label": "Observable postulate: Â = Â^{†}, Born rule",
+   "sub": "outcomes = spectrum; p = |⟨a|ψ⟩|^{2}",
+   "years": "1927–32",
+   "desc": "Every self-adjoint operator on H_{1} is an observable; its spectrum lists the possible outcomes and the Born rule gives their probabilities (von Neumann 1932). This node sends one edge to each Hermitian operator in the observable layer.",
+   "refs": [
+    "von Neumann 1932",
+    "Born 1926"
+   ]
+  },
+  "m_L": {
+   "layer": "M",
+   "kind": "frame",
+   "label": "Particle Lagrangian L = ½mẋ^{2} − V(x)",
+   "sub": "Legendre transform → Ĥ = p̂^{2}/2m + V(x̂)",
+   "years": "1926",
+   "desc": "The one-particle Lagrangian fixes the Hamiltonian and therefore both the evolution U(t) and the energy spectrum (e.g. E_{n} = −13.6 eV/n^{2} for hydrogen). Replaced by relativistic wave equations at Step 2 and by the free-field Lagrangian at Step 4.",
+   "refs": [
+    "Schrödinger 1926",
+    "Dirac 1933"
+   ]
+  },
+  "m_field": {
+   "layer": "M",
+   "kind": "frame",
+   "label": "Quantum field on Fock space (a, a^{†})",
+   "sub": "φ(x) = Σ_{p}(a_{p}u_{p} + a_{p}^{†}u_{p}^{*}); L_{0} of free fields",
+   "years": "1927–40",
+   "desc": "The field is the operator that adds or removes one quantum of a given UIR. The Fock space of a species is ⊕_{N} Sym^{N}H_{1} (bosons) or ⊕_{N} Λ^{N}H_{1} (fermions) (Fock 1932); spin–statistics proved by Fierz (1939) and Pauli (1940). The free Lagrangian L_{0} = ψ̄(iγ·∂ − m)ψ − ¼F_{μν}F^{μν} + … reproduces the UIR wave equations. With L_{int} = 0 the S-matrix is 1: no transitions.",
+   "refs": [
+    "Dirac 1927",
+    "Jordan & Wigner 1928",
+    "Heisenberg & Pauli 1929",
+    "Fock 1932",
+    "Fierz 1939",
+    "Pauli 1940"
+   ]
+  },
+  "m_qed": {
+   "layer": "M",
+   "kind": "fund",
+   "label": "QED vertex −e ψ̄γ^{μ}ψ A_{μ}",
+   "sub": "minimal coupling of the quantized fields; e(1) ∧ γ(1)",
+   "years": "1927–49",
+   "desc": "Minimal coupling p → p − eA applied to the quantized fields gives the single interaction term −e ψ̄γ^{μ}ψA_{μ}. One vertex changes N_{γ} by ±1 and N_{e} by 0 (scattering) or ±2 (pair creation/annihilation). Renormalized to all orders by Tomonaga, Schwinger, Feynman and Dyson (1946–49). At Step 9 it is identified as the electromagnetic part of the SU(2)_{L}×U(1)_{Y} gauge interaction with e = g sin θ_{W}.",
+   "refs": [
+    "Dirac 1927",
+    "Heisenberg & Pauli 1929",
+    "Tomonaga 1946",
+    "Schwinger 1948",
+    "Feynman 1949",
+    "Dyson 1949"
+   ]
+  },
+  "m_fermi": {
+   "layer": "M",
+   "kind": "eff",
+   "label": "Fermi contact term G_{F}(p̄γ^{μ}n)(ēγ_{μ}ν)",
+   "sub": "four fermions at one point; n(1)∧p(1)∧e(1)∧ν̄(1)",
+   "years": "1934",
+   "desc": "Fermi copied the structure of the QED vertex: a nucleon current in place of the electron current and the created pair (e, ν̄) in place of the emitted photon. Gamow & Teller (1936) added axial-vector/tensor terms for ΔJ = 1 transitions. G_{F} ≈ 1.166×10^{−5} GeV^{−2} is dimensionful; the amplitude grows like G_{F}s and partial-wave unitarity fails at √s of order a few hundred GeV (textbook argument), so the node cannot be fundamental.",
+   "refs": [
+    "Fermi 1934a",
+    "Fermi 1934b",
+    "Gamow & Teller 1936"
+   ]
+  },
+  "m_mu": {
+   "layer": "M",
+   "kind": "eff",
+   "label": "Muon-decay contact term (G_{F}/√2)(ν̄_{μ}γ^{μ}μ)(ēγ_{μ}ν_{e})",
+   "sub": "same G_{F} as β decay: universal Fermi interaction",
+   "years": "1947–50",
+   "desc": "A second four-fermion node for μ → e ν̄_{e} ν_{μ} and for μ capture. The decisive fact is that one constant fits β decay, μ decay and μ capture (Puppi 1948; Klein 1948; Tiomno & Wheeler 1949; Lee, Rosenbluth & Yang 1949). τ_{μ}^{−1} = G_{F}^{2}m_{μ}^{5}/192π^{3} (with small corrections) makes τ_{μ} the most precise source of G_{F}.",
+   "refs": [
+    "Puppi 1948",
+    "Klein 1948",
+    "Tiomno & Wheeler 1949",
+    "Lee, Rosenbluth & Yang 1949",
+    "Michel 1950"
+   ]
+  },
+  "m_va": {
+   "layer": "M",
+   "kind": "eff",
+   "label": "Universal V−A current–current (G_{F}/√2) J_{μ}J^{μ†}",
+   "sub": "J^{μ} = Σ ψ̄γ^{μ}(1−γ^{5})ψ′; one node for β, μ decay, μ capture",
+   "years": "1958",
+   "desc": "Feynman & Gell-Mann (1958) and Sudarshan & Marshak (1958) replaced the two contact nodes by one current–current term with vector-minus-axial currents. It fixes the Michel parameter ρ = ¾, the neutrino helicity −1 and the parity-violating asymmetries. The hadronic current carries |g_{A}/g_{V}| ≈ 1.27 and, after Cabibbo (1963), cos θ_{C}. Still dimensionful: an effective node.",
+   "refs": [
+    "Feynman & Gell-Mann 1958",
+    "Sudarshan & Marshak 1958",
+    "Cabibbo 1963"
+   ]
+  },
+  "m_cc": {
+   "layer": "M",
+   "kind": "fund",
+   "label": "Charged-current gauge vertex (g/√2) W^{+}_{μ} J^{μ}_{CC} + h.c.",
+   "sub": "J^{μ}_{CC} = ν̄_{L}γ^{μ}e_{L} + ν̄_{μL}γ^{μ}μ_{L} + ū_{L}γ^{μ}d′_{L}",
+   "years": "1961–67",
+   "desc": "W exchange replaces the contact term. For q^{2} ≪ M_{W}^{2} the propagator reduces to 1/M_{W}^{2} and the V−A node is recovered with G_{F}/√2 = g^{2}/(8M_{W}^{2}): the effective node is the low-energy limit of this one (Weinberg 1979). Renormalizable in the spontaneously broken gauge theory ('t Hooft 1971; 't Hooft & Veltman 1972).",
+   "refs": [
+    "Schwinger 1957",
+    "Bludman 1958",
+    "Glashow 1961",
+    "Weinberg 1967",
+    "Salam 1968",
+    "'t Hooft 1971",
+    "'t Hooft & Veltman 1972"
+   ]
+  },
+  "m_nc": {
+   "layer": "M",
+   "kind": "fund",
+   "label": "Neutral-current vertex (g/cosθ_{W}) Z_{μ} J^{μ}_{NC}",
+   "sub": "J^{μ}_{NC} = Σ f̄γ^{μ}(T^{3}P_{L} − Q sin^{2}θ_{W})f; predicted 1961–67",
+   "years": "1961–67",
+   "desc": "The gauge group contains a neutral generator besides the photon; the Z couples to every fermion with strength fixed by T^{3}, Q and one new parameter sin^{2}θ_{W}. Observed by Gargamelle (1973), ten years after the prediction, and measured precisely at LEP/SLC.",
+   "refs": [
+    "Glashow 1961",
+    "Weinberg 1967",
+    "Hasert et al. 1973",
+    "LEP EWWG 2006"
+   ]
+  },
+  "m_gs": {
+   "layer": "M",
+   "kind": "fund",
+   "label": "Gauge self-interactions ⊃ WWγ, WWZ, WWWW, WWZZ",
+   "sub": "−¼W^{a}_{μν}W^{aμν} (non-abelian); W(2)∧γ(1), W(2)∧Z(1), W(4)",
+   "years": "1954 / 1961",
+   "desc": "The field strength of a non-abelian gauge field contains cubic and quartic terms (Yang & Mills 1954). In SU(2)_{L}×U(1)_{Y} they fix the trilinear WWγ and WWZ couplings, tested through e^{+}e^{−} → W^{+}W^{−} at LEP2 (1996–2000).",
+   "refs": [
+    "Yang & Mills 1954",
+    "Glashow 1961",
+    "LEP2 EWWG 2013"
+   ]
+  },
+  "m_hg": {
+   "layer": "M",
+   "kind": "fund",
+   "label": "Higgs–gauge |D_{μ}Φ|^{2} → M_{W} = gv/2, M_{Z} = M_{W}/cosθ_{W}",
+   "sub": "HWW, HZZ; v = (√2 G_{F})^{−1/2} = 246 GeV; H(1)∧W(2), H(1)∧Z(2)",
+   "years": "1964–67",
+   "desc": "A scalar doublet with vacuum value v breaks SU(2)_{L}×U(1)_{Y} → U(1)_{em}; three components become the longitudinal W^{±}, Z. The gauge-boson masses and the HWW, HZZ couplings follow from the same term, so the W and Z mass edges of Step 9 are now derived here (Englert & Brout 1964; Higgs 1964; Guralnik, Hagen & Kibble 1964; Weinberg 1967).",
+   "refs": [
+    "Englert & Brout 1964",
+    "Higgs 1964",
+    "Guralnik, Hagen & Kibble 1964",
+    "Weinberg 1967"
+   ]
+  },
+  "m_yuk": {
+   "layer": "M",
+   "kind": "fund",
+   "label": "Yukawa couplings −y_{f} Φ f̄_{L}f_{R} + h.c. → m_{f} = y_{f}v/√2",
+   "sub": "H(1)∧f(2); one y_{f} per massive fermion",
+   "years": "1967",
+   "desc": "Gauge symmetry forbids direct masses for chiral fermions; the Yukawa term gives m_{f} = y_{f}v/√2 and an Hf̄f vertex proportional to m_{f}. The y_{f} are free parameters: the mass edges are calibrations, while the pattern of H → ττ, bb̄ rates relative to the gauge channels is a prediction.",
+   "refs": [
+    "Weinberg 1967"
+   ]
+  },
+  "m_pot": {
+   "layer": "M",
+   "kind": "fund",
+   "label": "Higgs potential V = −μ^{2}Φ^{†}Φ + λ(Φ^{†}Φ)^{2} → m_{H}^{2} = 2λv^{2}",
+   "sub": "self-coupling HHH = 3m_{H}^{2}/v; H(3)",
+   "years": "1964",
+   "desc": "The potential fixes v^{2} = μ^{2}/λ and the physical scalar mass m_{H}^{2} = 2λv^{2}. The measured m_{H} fixes λ ≈ 0.13 (calibration); the trilinear coupling λ_{HHH} is then predicted but not yet measured, only bounded by di-Higgs searches.",
+   "refs": [
+    "Higgs 1964",
+    "ATLAS 2012",
+    "CMS 2012"
+   ]
+  },
+  "m_numass": {
+   "layer": "M",
+   "kind": "cand",
+   "label": "Candidate: ν mass term (LΦ)(LΦ)/Λ or ν_{R} Yukawa",
+   "sub": "Weinberg 1979 / seesaw; not established; ν(2)∧H(2)",
+   "years": "1977–79",
+   "desc": "Two repairs are available in the literature. (i) The dimension-5 operator (LΦ)(LΦ)/Λ uses only existing sectors and gives Majorana masses m_{ν} ~ v^{2}/Λ (Weinberg 1979). (ii) New right-handed sectors ν_{R} with Dirac Yukawa couplings, possibly with Majorana masses M_{R} (seesaw: Minkowski 1977; Gell-Mann, Ramond & Slansky 1979; Yanagida 1979; Mohapatra & Senjanović 1980). Current data do not decide between them (Dirac vs Majorana nature untested).",
+   "refs": [
+    "Weinberg 1979b",
+    "Minkowski 1977",
+    "Mohapatra & Senjanović 1980"
+   ]
+  },
+  "c_gf": {
+   "layer": "M",
+   "kind": "cluster",
+   "label": "Gauge–fermion term Σ f̄ iγ^{μ}D_{μ} f ⊃ EM, CC, NC vertices",
+   "sub": "D_{μ} = ∂_{μ} − igT^{a}W^{a}_{μ} − ig′YB_{μ}; e = g sinθ_{W}",
+   "years": "1961–67",
+   "desc": "One term of the SM Lagrangian, written with the covariant derivative of SU(2)_{L}×U(1)_{Y}. Expanding D_{μ} gives exactly three vertex types: the electromagnetic vertex (Step 5), the charged current (Step 9) and the neutral current (Step 9). The three effective nodes of Steps 6–8 sit inside this cluster because the charged-current member reproduces them at q^{2} ≪ M_{W}^{2}; the matching condition G_{F}/√2 = g^{2}/8M_{W}^{2} is the lineage edge.",
+   "refs": [
+    "Glashow 1961",
+    "Weinberg 1967",
+    "Salam 1968"
+   ]
+  },
+  "c_gg": {
+   "layer": "M",
+   "kind": "cluster",
+   "label": "Gauge kinetic term −¼W^{a}_{μν}W^{aμν} − ¼B_{μν}B^{μν}",
+   "sub": "non-abelian part ⊃ WWγ, WWZ, WWWW, WWZZ, WWγγ, WWZγ",
+   "years": "1954 / 1961",
+   "desc": "The Yang–Mills field strength contains the cubic and quartic self-couplings of the W and Z. No effective node was ever written for these vertices; they were predicted and then tested (LEP2).",
+   "refs": [
+    "Yang & Mills 1954",
+    "LEP2 EWWG 2013"
+   ]
+  },
+  "c_hg": {
+   "layer": "M",
+   "kind": "cluster",
+   "label": "Higgs–gauge term |D_{μ}Φ|^{2}",
+   "sub": "→ M_{W}, M_{Z}; HWW, HZZ, HHWW, HHZZ",
+   "years": "1964–67",
+   "desc": "The gauge-covariant kinetic term of the scalar doublet. With ⟨Φ⟩ = v/√2 it produces the W and Z masses and the Higgs–gauge vertices.",
+   "refs": [
+    "Englert & Brout 1964",
+    "Higgs 1964",
+    "Guralnik, Hagen & Kibble 1964"
+   ]
+  },
+  "c_yuk": {
+   "layer": "M",
+   "kind": "cluster",
+   "label": "Yukawa term −y_{f} f̄_{L}Φ f_{R} + h.c.",
+   "sub": "→ m_{f} = y_{f}v/√2; H f̄ f vertex ∝ m_{f}/v",
+   "years": "1967",
+   "desc": "The only SM term that distinguishes the fermion generations; its couplings are inputs (calibration edges).",
+   "refs": [
+    "Weinberg 1967"
+   ]
+  },
+  "c_pot": {
+   "layer": "M",
+   "kind": "cluster",
+   "label": "Higgs potential −V(Φ), V = −μ^{2}Φ^{†}Φ + λ(Φ^{†}Φ)^{2}",
+   "sub": "→ v^{2} = μ^{2}/λ, m_{H}^{2} = 2λv^{2}; HHH, HHHH",
+   "years": "1964",
+   "desc": "Fixes the vacuum value and the Higgs mass; the self-couplings it predicts are the least tested part of the model.",
+   "refs": [
+    "Higgs 1964"
+   ]
+  },
+  "c_bsm": {
+   "layer": "M",
+   "kind": "cluster",
+   "dashed": true,
+   "label": "Beyond the SM: candidate ν-mass term",
+   "sub": "not established; the only cluster with no confirmed member",
+   "years": "1977–",
+   "desc": "Holds the candidate repairs for the neutrino-oscillation observable. It is drawn dashed because none of its members is established.",
+   "refs": [
+    "Weinberg 1979b",
+    "Minkowski 1977",
+    "Mohapatra & Senjanović 1980"
+   ]
+  },
+  "o_x": {
+   "layer": "O",
+   "label": "Position x̂",
+   "sub": "spectrum ℝ; probability |ψ(x)|^{2}",
+   "years": "1926"
+  },
+  "o_p": {
+   "layer": "O",
+   "label": "Momentum p̂",
+   "sub": "spectrum ℝ; de Broglie p = ħk",
+   "years": "1926"
+  },
+  "o_E": {
+   "layer": "O",
+   "label": "Energy levels (spectrum of Ĥ)",
+   "sub": "hydrogen E_{n} = −13.6 eV/n^{2}; Balmer lines",
+   "years": "1926",
+   "driver": "A",
+   "desc": "The discrete spectra observed since Balmer (1885) are the eigenvalues of Ĥ; Schrödinger (1926) derived the hydrogen levels. Dirac (1928) adds the fine structure. Observed first, explained later: anomaly-driven."
+  },
+  "o_L": {
+   "layer": "O",
+   "label": "Orbital angular momentum L̂^{2}, L̂_{z}",
+   "sub": "l(l+1)ħ^{2}, m_{l}ħ; Zeeman splitting",
+   "years": "1926"
+  },
+  "o_S": {
+   "layer": "O",
+   "label": "Spin Ŝ_{z} = ±ħ/2",
+   "sub": "Stern–Gerlach 1922; Uhlenbeck & Goudsmit 1925",
+   "years": "1925–27",
+   "driver": "A",
+   "desc": "Spin was observed (Stern–Gerlach 1922) and postulated (Uhlenbeck & Goudsmit 1925) before Pauli (1927) and Dirac (1928) gave it a place in the formalism: anomaly-driven."
+  },
+  "o_m": {
+   "layer": "O",
+   "label": "Mass m (Casimir P^{μ}P_{μ} = m^{2})",
+   "sub": "invariant label of the UIR",
+   "years": "1939",
+   "driver": "P",
+   "desc": "In the Poincaré-covariant theory mass is the eigenvalue of the Casimir operator P^{2}; it labels the representation rather than being a dynamical variable."
+  },
+  "o_s": {
+   "layer": "O",
+   "label": "Spin s / helicity h (Casimir W^{μ}W_{μ})",
+   "sub": "W^{2} = −m^{2}s(s+1); h = J·p̂ for m = 0",
+   "years": "1939",
+   "driver": "P",
+   "desc": "The Pauli–Lubański Casimir gives spin for m > 0; for m = 0 the invariant is the helicity. Both are representation labels."
+  },
+  "o_prod": {
+   "layer": "O",
+   "label": "Particle production and decay",
+   "sub": "γ emission/absorption; β decay; e^{+}e^{−} pair creation",
+   "years": "1917–34",
+   "driver": "A",
+   "desc": "(i) Emission and absorption of light, Einstein A and B coefficients (1917). (ii) β decay with a continuous electron spectrum (Chadwick 1914; Ellis & Wooster 1927); the electron is not a nuclear constituent. (iii) e^{+}e^{−} pairs created by γ rays (Anderson 1933; Blackett & Occhialini 1933). In each case the final state has a different number of particles than the initial one, which no node acting within H_{1} can produce.",
+   "refs": [
+    "Einstein 1917",
+    "Chadwick 1914",
+    "Ellis & Wooster 1927",
+    "Anderson 1933",
+    "Blackett & Occhialini 1933"
+   ]
+  },
+  "o_G": {
+   "layer": "O",
+   "label": "Decay width Γ (lifetime τ = ħ/Γ)",
+   "sub": "Γ = 2π|⟨f|H_{int}|i⟩|^{2}ρ(E) · Γ-type family",
+   "years": "1927–",
+   "driver": "A",
+   "desc": "The generic transition-rate observable. Dirac (1927) derived the rate formula later called Fermi's golden rule. Without an interaction term the rate is zero, so this family stays unexplained until Step 5.",
+   "refs": [
+    "Dirac 1927"
+   ]
+  },
+  "o_sig": {
+   "layer": "O",
+   "label": "Cross section σ, dσ/dΩ",
+   "sub": "σ ∝ |⟨f|S|i⟩|^{2}/flux · σ-type family",
+   "years": "1937–",
+   "driver": "A",
+   "desc": "The generic scattering observable, defined through S-matrix elements (Wheeler 1937; Heisenberg 1943; Dyson 1949). S = 1 for the free field.",
+   "refs": [
+    "Wheeler 1937",
+    "Heisenberg 1943",
+    "Dyson 1949"
+   ]
+  },
+  "o_compton": {
+   "layer": "O",
+   "label": "Compton scattering dσ/dΩ",
+   "sub": "Klein–Nishina 1929 · σ-type · O(α^{2})",
+   "years": "1923 / 1929",
+   "driver": "A",
+   "desc": "Compton (1923) measured the wavelength shift and intensity; the Klein–Nishina formula (1929), the first QED cross section from the Dirac equation, reproduces the angular distribution and the high-energy fall-off.",
+   "refs": [
+    "Klein & Nishina 1929"
+   ]
+  },
+  "o_pair": {
+   "layer": "O",
+   "label": "e^{+}e^{−} pair production σ(γ → e^{+}e^{−})",
+   "sub": "Bethe–Heitler 1934 · σ-type",
+   "years": "1932–34",
+   "driver": "P",
+   "desc": "Dirac's hole theory (1930–31) implied an anti-electron; Anderson (1933) and Blackett & Occhialini (1933) observed it. The Bethe–Heitler cross section (1934) in the field of a nucleus follows from the QED vertex at order α^{3}.",
+   "refs": [
+    "Dirac 1931",
+    "Bethe & Heitler 1934"
+   ]
+  },
+  "o_ae": {
+   "layer": "O",
+   "label": "Electron anomaly a_{e} = (g−2)/2",
+   "sub": "measured 0.00119(5) (1948); α/2π = 0.00116",
+   "years": "1947–48",
+   "driver": "A",
+   "desc": "Kusch & Foley (1948) found g = 2(1.00119 ± 0.00005). Schwinger (1948) computed the one-loop value α/2π. Today a_{e} is known to ~10^{−13} and agrees with the five-loop QED calculation (PDG).",
+   "refs": [
+    "Kusch & Foley 1948",
+    "Schwinger 1948"
+   ]
+  },
+  "o_lamb": {
+   "layer": "O",
+   "label": "Lamb shift 2S_{1/2} − 2P_{1/2}",
+   "sub": "≈1000 MHz measured (1947); Bethe 1047 MHz",
+   "years": "1947",
+   "driver": "A",
+   "desc": "Lamb & Retherford (1947) measured a splitting of about 1000 MHz that the Dirac equation sets to zero; Bethe (1947) obtained ≈1040 MHz from the electron self-energy with a nonrelativistic cut-off. The modern value is 1057.8 MHz.",
+   "refs": [
+    "Lamb & Retherford 1947",
+    "Bethe 1947"
+   ]
+  },
+  "o_alpha": {
+   "layer": "O",
+   "label": "Fine-structure constant α ≈ 1/137.036",
+   "sub": "fixes the vertex coupling e · parameter",
+   "years": "1916–",
+   "driver": "F",
+   "desc": "The coupling in the QED vertex is not predicted; α is measured (today most precisely from a_{e} and atom-recoil experiments) and fixes e. Calibration edge."
+  },
+  "o_beta": {
+   "layer": "O",
+   "label": "β-decay rate and spectrum shape",
+   "sub": "continuous e spectrum; Kurie plot 1936 · Γ-type",
+   "years": "1914 / 1934",
+   "driver": "A",
+   "desc": "Chadwick (1914) found the β spectrum continuous; Ellis & Wooster (1927) showed the energy is really missing. Fermi's node gives the rate and the shape (Kurie et al. 1936) from phase space × |M|^{2}.",
+   "refs": [
+    "Chadwick 1914",
+    "Ellis & Wooster 1927",
+    "Kurie et al. 1936"
+   ]
+  },
+  "o_ntau": {
+   "layer": "O",
+   "label": "Neutron lifetime τ_{n} ≈ 878 s",
+   "sub": "first measured by Robson 1951 · Γ-type",
+   "years": "1951",
+   "driver": "P",
+   "desc": "Free-neutron decay n → p e ν̄ was expected once m_{n} > m_{p} + m_{e} was established (Chadwick & Goldhaber 1935) and first measured by Robson (1951). Current value 878.4 ± 0.5 s (PDG 2024).",
+   "refs": [
+    "Chadwick & Goldhaber 1935",
+    "Robson 1951"
+   ]
+  },
+  "o_GF": {
+   "layer": "O",
+   "label": "Fermi constant G_{F} = 1.1664×10^{−5} GeV^{−2}",
+   "sub": "fixed by τ_{μ} (and 0^{+}→0^{+} β decays) · parameter",
+   "years": "1934–",
+   "driver": "F",
+   "desc": "The strength of the contact term is an input. From Step 9 on it is a derived combination g^{2}/(4√2 M_{W}^{2}), but still fixed by measurement (τ_{μ})."
+  },
+  "o_mutau": {
+   "layer": "O",
+   "label": "Muon lifetime τ_{μ} = 2.197 μs",
+   "sub": "τ_{μ}^{−1} = G_{F}^{2}m_{μ}^{5}/192π^{3} · Γ-type",
+   "years": "1940–",
+   "driver": "A",
+   "desc": "The muon itself was unexpected (1937). Its lifetime, ~2.2 μs, is reproduced by the contact node with the β-decay value of G_{F}: the universality signal."
+  },
+  "o_michel": {
+   "layer": "O",
+   "label": "Michel spectrum, ρ = ¾",
+   "sub": "shape of e spectrum in μ decay",
+   "years": "1950",
+   "driver": "P",
+   "desc": "Michel (1950) parametrized the electron spectrum of μ decay by ρ; the measured ρ = 0.7518 ± 0.0026 (PDG) agrees with the V−A value ¾.",
+   "refs": [
+    "Michel 1950"
+   ]
+  },
+  "o_twonu": {
+   "layer": "O",
+   "label": "ν_{μ} ≠ ν_{e}",
+   "sub": "ν beam from π → μν gives μ, not e (Danby et al. 1962)",
+   "years": "1962",
+   "driver": "P",
+   "desc": "Pontecorvo (1959) and Schwartz (1960) proposed the test; Danby et al. (1962) found that neutrinos from pion decay produce muons but no electrons. The observable is about the state layer: the ν sector is two sectors with separate currents (lepton-family conservation).",
+   "refs": [
+    "Danby et al. 1962"
+   ]
+  },
+  "o_wu": {
+   "layer": "O",
+   "label": "Parity-violating asymmetries (^{60}Co; μ decay)",
+   "sub": "Wu et al. 1957; Garwin, Lederman & Weinrich 1957",
+   "years": "1957",
+   "driver": "P",
+   "desc": "Lee & Yang (1956) noted parity was untested in weak processes and proposed experiments. Wu et al. (1957) found the e^{−} emission of polarized ^{60}Co anti-correlated with the nuclear spin; Garwin et al. (1957) found the μ-decay asymmetry. A parity-conserving node cannot produce a pseudoscalar correlation ⟨J⟩·p_{e}.",
+   "refs": [
+    "Lee & Yang 1956",
+    "Wu et al. 1957",
+    "Garwin et al. 1957"
+   ]
+  },
+  "o_hel": {
+   "layer": "O",
+   "label": "Neutrino helicity h(ν) = −1",
+   "sub": "Goldhaber, Grodzins & Sunyar 1958",
+   "years": "1958",
+   "driver": "P",
+   "desc": "Measured through the circular polarization of the γ following K capture in ^{152}Eu. The result −1 is the V−A prediction (left-handed neutrino).",
+   "refs": [
+    "Goldhaber et al. 1958"
+   ]
+  },
+  "o_nc": {
+   "layer": "O",
+   "label": "Neutral-current events, R_{ν} = σ(NC)/σ(CC)",
+   "sub": "Gargamelle 1973 · σ-type",
+   "years": "1973",
+   "driver": "P",
+   "desc": "Hasert et al. (1973) observed ν_{μ}N → ν_{μ}X events (no outgoing muon) and one ν̄_{μ}e → ν̄_{μ}e event in the Gargamelle bubble chamber. The NC/CC ratios fix sin^{2}θ_{W}.",
+   "refs": [
+    "Hasert et al. 1973"
+   ]
+  },
+  "o_mw": {
+   "layer": "O",
+   "label": "M_{W} = 80.37 GeV",
+   "sub": "UA1/UA2 1983; tree level (πα/√2G_{F})^{1/2}/sinθ_{W}",
+   "years": "1983–",
+   "driver": "P",
+   "desc": "Predicted from G_{F}, α and sin^{2}θ_{W}: M_{W}^{2} = πα/(√2 G_{F} sin^{2}θ_{W}) at tree level (≈78 GeV), ≈80.4 GeV with radiative corrections. Observed at the SPS in 1983. PDG 2024 average 80.369 ± 0.013 GeV (CDF 2022 value excluded from the average).",
+   "refs": [
+    "Arnison et al. 1983",
+    "Banner et al. 1983"
+   ]
+  },
+  "o_mz": {
+   "layer": "O",
+   "label": "M_{Z} = 91.19 GeV",
+   "sub": "UA1/UA2 1983; LEP; M_{Z} = M_{W}/cosθ_{W}",
+   "years": "1983–",
+   "driver": "P",
+   "desc": "Tree-level relation M_{Z} = M_{W}/cos θ_{W}; observed in 1983 (UA1, UA2) and measured to 2 MeV at LEP.",
+   "refs": [
+    "Arnison et al. 1983b",
+    "LEP EWWG 2006"
+   ]
+  },
+  "o_sw": {
+   "layer": "O",
+   "label": "Weak mixing angle sin^{2}θ_{W} ≈ 0.23",
+   "sub": "parameter · fixed by NC data, then M_{W}/M_{Z}",
+   "years": "1973–",
+   "driver": "F",
+   "desc": "The one new parameter of the neutral current. Calibration edge: measured, not predicted."
+  },
+  "o_nnu": {
+   "layer": "O",
+   "label": "Z width → N_{ν} = 2.984 ± 0.008",
+   "sub": "LEP 1989–2006; invisible width Γ_{inv}",
+   "years": "1989–2006",
+   "driver": "P",
+   "desc": "The Z line shape gives the invisible width, i.e. the number of light neutrino sectors coupling to the Z: 2.9840 ± 0.0082 (LEP EWWG 2006). A model-layer prediction about the number of state-layer sectors.",
+   "refs": [
+    "LEP EWWG 2006"
+   ]
+  },
+  "o_tgc": {
+   "layer": "O",
+   "label": "σ(e^{+}e^{−} → W^{+}W^{−}) and triple-gauge couplings",
+   "sub": "LEP2 1996–2000 · σ-type",
+   "years": "1996–2000",
+   "driver": "P",
+   "desc": "The cross section involves ν exchange and the WWγ, WWZ vertices; the gauge cancellation between them is required for unitarity and was confirmed at LEP2.",
+   "refs": [
+    "LEP2 EWWG 2013"
+   ]
+  },
+  "o_mh": {
+   "layer": "O",
+   "label": "Higgs mass m_{H} = 125.2 GeV",
+   "sub": "ATLAS/CMS 2012; value fixes λ · parameter",
+   "years": "2012",
+   "driver": "P",
+   "desc": "Existence predicted in 1964; discovered 2012. The value is an input that fixes λ = m_{H}^{2}/2v^{2} ≈ 0.13 (PDG 2024: 125.20 ± 0.11 GeV).",
+   "refs": [
+    "ATLAS 2012",
+    "CMS 2012"
+   ]
+  },
+  "o_hbr": {
+   "layer": "O",
+   "label": "Higgs rates σ×BR: γγ, ZZ^{*}, WW^{*}, ττ, bb̄",
+   "sub": "signal strengths μ ≈ 1 · Γ/σ-type",
+   "years": "2012–",
+   "driver": "P",
+   "desc": "Production (gluon fusion, vector-boson fusion, VH) and decay rates relative to the SM expectation; all measured signal strengths are consistent with 1 within uncertainties (PDG 2024 review).",
+   "refs": [
+    "ATLAS 2012",
+    "CMS 2012"
+   ]
+  },
+  "o_mf": {
+   "layer": "O",
+   "label": "Fermion masses m_{e}, m_{μ}, m_{u}, m_{d}",
+   "sub": "parameters · fix the Yukawa couplings y_{f}",
+   "years": "—",
+   "driver": "F",
+   "desc": "The SM explains the mechanism of fermion mass but not the values: each mass fixes one Yukawa coupling. Calibration edges."
+  },
+  "o_lam": {
+   "layer": "O",
+   "label": "Higgs self-coupling λ_{HHH}",
+   "sub": "predicted = 3m_{H}^{2}/v; not yet measured (bounded)",
+   "years": "open",
+   "driver": "P",
+   "untested": true,
+   "desc": "Di-Higgs production has not been observed; current limits constrain λ_{HHH}/λ_{SM} to roughly a window of order unity around the SM value (ATLAS/CMS, Run 2). A prediction awaiting its observable."
+  },
+  "o_osc": {
+   "layer": "O",
+   "label": "ν flavour oscillation: Δm^{2}_{21}, Δm^{2}_{31} ≠ 0",
+   "sub": "Super-K 1998; SNO 2002; KamLAND 2003",
+   "years": "1998–",
+   "driver": "A",
+   "desc": "Atmospheric ν_{μ} disappearance (Super-Kamiokande 1998), solar ν flavour change (SNO 2002) and reactor ν̄_{e} disappearance (KamLAND 2003) require non-degenerate neutrino masses. In the graph as built the ν sectors are massless (no right-handed state), so no Yukawa node reaches them: in-degree zero from the model layer.",
+   "refs": [
+    "Fukuda et al. 1998",
+    "Ahmad et al. 2002",
+    "Eguchi et al. 2003"
+   ]
+  }
+ },
+ "references": {
+  "Heisenberg 1925": "Heisenberg, W. (1925). Z. Phys. 33, 879–893.",
+  "Schrödinger 1926": "Schrödinger, E. (1926). Ann. Phys. 384, 361–376 (first communication).",
+  "Born 1926": "Born, M. (1926). Z. Phys. 37, 863–867.",
+  "von Neumann 1932": "von Neumann, J. (1932). Mathematische Grundlagen der Quantenmechanik. Springer.",
+  "Stone 1932": "Stone, M. H. (1932). Ann. Math. 33, 643–648.",
+  "Dirac 1933": "Dirac, P. A. M. (1933). Phys. Z. Sowjetunion 3, 64–72 (the Lagrangian in quantum mechanics).",
+  "Klein 1926": "Klein, O. (1926). Z. Phys. 37, 895–906.",
+  "Gordon 1926": "Gordon, W. (1926). Z. Phys. 40, 117–133.",
+  "Dirac 1928": "Dirac, P. A. M. (1928). Proc. R. Soc. A 117, 610–624.",
+  "Wigner 1939": "Wigner, E. (1939). Ann. Math. 40, 149–204.",
+  "Bargmann & Wigner 1948": "Bargmann, V. & Wigner, E. P. (1948). Proc. Natl. Acad. Sci. 34, 211–223.",
+  "Weinberg 1995": "Weinberg, S. (1995). The Quantum Theory of Fields, Vol. I, ch. 2, 4, 5. Cambridge.",
+  "Einstein 1917": "Einstein, A. (1917). Phys. Z. 18, 121–128.",
+  "Chadwick 1914": "Chadwick, J. (1914). Verh. Dtsch. Phys. Ges. 16, 383–391.",
+  "Ellis & Wooster 1927": "Ellis, C. D. & Wooster, W. A. (1927). Proc. R. Soc. A 117, 109–123.",
+  "Anderson 1933": "Anderson, C. D. (1933). Phys. Rev. 43, 491–494.",
+  "Blackett & Occhialini 1933": "Blackett, P. M. S. & Occhialini, G. P. S. (1933). Proc. R. Soc. A 139, 699–726.",
+  "Dirac 1927": "Dirac, P. A. M. (1927). Proc. R. Soc. A 114, 243–265.",
+  "Jordan & Wigner 1928": "Jordan, P. & Wigner, E. (1928). Z. Phys. 47, 631–651.",
+  "Heisenberg & Pauli 1929": "Heisenberg, W. & Pauli, W. (1929). Z. Phys. 56, 1–61.",
+  "Fock 1932": "Fock, V. (1932). Z. Phys. 75, 622–647.",
+  "Fierz 1939": "Fierz, M. (1939). Helv. Phys. Acta 12, 3–37.",
+  "Pauli 1940": "Pauli, W. (1940). Phys. Rev. 58, 716–722.",
+  "Wheeler 1937": "Wheeler, J. A. (1937). Phys. Rev. 52, 1107–1122.",
+  "Heisenberg 1943": "Heisenberg, W. (1943). Z. Phys. 120, 513–538.",
+  "Dyson 1949": "Dyson, F. J. (1949). Phys. Rev. 75, 486–502.",
+  "Klein & Nishina 1929": "Klein, O. & Nishina, Y. (1929). Z. Phys. 52, 853–868.",
+  "Dirac 1931": "Dirac, P. A. M. (1931). Proc. R. Soc. A 133, 60–72.",
+  "Bethe & Heitler 1934": "Bethe, H. & Heitler, W. (1934). Proc. R. Soc. A 146, 83–112.",
+  "Lamb & Retherford 1947": "Lamb, W. E. & Retherford, R. C. (1947). Phys. Rev. 72, 241–243.",
+  "Bethe 1947": "Bethe, H. A. (1947). Phys. Rev. 72, 339–341.",
+  "Kusch & Foley 1948": "Kusch, P. & Foley, H. M. (1948). Phys. Rev. 74, 250–263.",
+  "Schwinger 1948": "Schwinger, J. (1948). Phys. Rev. 73, 416–417.",
+  "Tomonaga 1946": "Tomonaga, S. (1946). Prog. Theor. Phys. 1, 27–42.",
+  "Feynman 1949": "Feynman, R. P. (1949). Phys. Rev. 76, 769–789.",
+  "Fermi 1934a": "Fermi, E. (1934). Z. Phys. 88, 161–177.",
+  "Fermi 1934b": "Fermi, E. (1934). Nuovo Cimento 11, 1–19.",
+  "Gamow & Teller 1936": "Gamow, G. & Teller, E. (1936). Phys. Rev. 49, 895–899.",
+  "Kurie et al. 1936": "Kurie, F. N. D., Richardson, J. R. & Paxton, H. C. (1936). Phys. Rev. 49, 368–381.",
+  "Chadwick & Goldhaber 1935": "Chadwick, J. & Goldhaber, M. (1935). Proc. R. Soc. A 151, 479–493.",
+  "Robson 1951": "Robson, J. M. (1951). Phys. Rev. 83, 349–358.",
+  "Cowan et al. 1956": "Cowan, C. L., Reines, F., Harrison, F. B., Kruse, H. W. & McGuire, A. D. (1956). Science 124, 103–104.",
+  "Chadwick 1932": "Chadwick, J. (1932). Proc. R. Soc. A 136, 692–708.",
+  "Neddermeyer & Anderson 1937": "Neddermeyer, S. H. & Anderson, C. D. (1937). Phys. Rev. 51, 884–886.",
+  "Conversi et al. 1947": "Conversi, M., Pancini, E. & Piccioni, O. (1947). Phys. Rev. 71, 209–210.",
+  "Puppi 1948": "Puppi, G. (1948). Nuovo Cimento 5, 587–588. [verify page numbers]",
+  "Klein 1948": "Klein, O. (1948). Nature 161, 897–899.",
+  "Tiomno & Wheeler 1949": "Tiomno, J. & Wheeler, J. A. (1949). Rev. Mod. Phys. 21, 144–152.",
+  "Lee, Rosenbluth & Yang 1949": "Lee, T. D., Rosenbluth, M. & Yang, C. N. (1949). Phys. Rev. 75, 905.",
+  "Michel 1950": "Michel, L. (1950). Proc. Phys. Soc. A 63, 514–531.",
+  "Danby et al. 1962": "Danby, G. et al. (1962). Phys. Rev. Lett. 9, 36–44.",
+  "Lee & Yang 1956": "Lee, T. D. & Yang, C. N. (1956). Phys. Rev. 104, 254–258.",
+  "Wu et al. 1957": "Wu, C. S., Ambler, E., Hayward, R. W., Hoppes, D. D. & Hudson, R. P. (1957). Phys. Rev. 105, 1413–1415.",
+  "Garwin et al. 1957": "Garwin, R. L., Lederman, L. M. & Weinrich, M. (1957). Phys. Rev. 105, 1415–1417.",
+  "Feynman & Gell-Mann 1958": "Feynman, R. P. & Gell-Mann, M. (1958). Phys. Rev. 109, 193–198.",
+  "Sudarshan & Marshak 1958": "Sudarshan, E. C. G. & Marshak, R. E. (1958). Phys. Rev. 109, 1860–1862.",
+  "Goldhaber et al. 1958": "Goldhaber, M., Grodzins, L. & Sunyar, A. W. (1958). Phys. Rev. 109, 1015–1017.",
+  "Cabibbo 1963": "Cabibbo, N. (1963). Phys. Rev. Lett. 10, 531–533.",
+  "Yang & Mills 1954": "Yang, C. N. & Mills, R. L. (1954). Phys. Rev. 96, 191–195.",
+  "Schwinger 1957": "Schwinger, J. (1957). Ann. Phys. 2, 407–434.",
+  "Bludman 1958": "Bludman, S. A. (1958). Nuovo Cimento 9, 433–445. [verify page numbers]",
+  "Glashow 1961": "Glashow, S. L. (1961). Nucl. Phys. 22, 579–588.",
+  "Weinberg 1967": "Weinberg, S. (1967). Phys. Rev. Lett. 19, 1264–1266.",
+  "Salam 1968": "Salam, A. (1968). In Elementary Particle Theory (Nobel Symp. 8), ed. N. Svartholm, 367–377. Almqvist & Wiksell.",
+  "'t Hooft 1971": "'t Hooft, G. (1971). Nucl. Phys. B 35, 167–188.",
+  "'t Hooft & Veltman 1972": "'t Hooft, G. & Veltman, M. (1972). Nucl. Phys. B 44, 189–213.",
+  "Hasert et al. 1973": "Hasert, F. J. et al. (1973). Phys. Lett. B 46, 138–140.",
+  "Arnison et al. 1983": "Arnison, G. et al. (UA1) (1983). Phys. Lett. B 122, 103–116.",
+  "Banner et al. 1983": "Banner, M. et al. (UA2) (1983). Phys. Lett. B 122, 476–485.",
+  "Arnison et al. 1983b": "Arnison, G. et al. (UA1) (1983). Phys. Lett. B 126, 398–410.",
+  "LEP EWWG 2006": "ALEPH, DELPHI, L3, OPAL, SLD, LEP EWWG, SLD EW & HF groups (2006). Phys. Rep. 427, 257–454.",
+  "LEP2 EWWG 2013": "ALEPH, DELPHI, L3, OPAL, LEP EWWG (2013). Phys. Rep. 532, 119–244.",
+  "Gell-Mann 1964": "Gell-Mann, M. (1964). Phys. Lett. 8, 214–215.",
+  "Bloom et al. 1969": "Bloom, E. D. et al. (1969). Phys. Rev. Lett. 23, 930–934.",
+  "Weinberg 1979": "Weinberg, S. (1979). Physica A 96, 327–340 (phenomenological Lagrangians).",
+  "Weinberg 1979b": "Weinberg, S. (1979). Phys. Rev. Lett. 43, 1566–1570.",
+  "Englert & Brout 1964": "Englert, F. & Brout, R. (1964). Phys. Rev. Lett. 13, 321–323.",
+  "Higgs 1964": "Higgs, P. W. (1964). Phys. Rev. Lett. 13, 508–509.",
+  "Guralnik, Hagen & Kibble 1964": "Guralnik, G. S., Hagen, C. R. & Kibble, T. W. B. (1964). Phys. Rev. Lett. 13, 585–587.",
+  "ATLAS 2012": "ATLAS Collaboration (2012). Phys. Lett. B 716, 1–29.",
+  "CMS 2012": "CMS Collaboration (2012). Phys. Lett. B 716, 30–61.",
+  "Fukuda et al. 1998": "Fukuda, Y. et al. (Super-Kamiokande) (1998). Phys. Rev. Lett. 81, 1562–1567.",
+  "Ahmad et al. 2002": "Ahmad, Q. R. et al. (SNO) (2002). Phys. Rev. Lett. 89, 011301.",
+  "Eguchi et al. 2003": "Eguchi, K. et al. (KamLAND) (2003). Phys. Rev. Lett. 90, 021802.",
+  "Minkowski 1977": "Minkowski, P. (1977). Phys. Lett. B 67, 421–428.",
+  "Mohapatra & Senjanović 1980": "Mohapatra, R. N. & Senjanović, G. (1980). Phys. Rev. Lett. 44, 912–915.",
+  "PDG 2024": "Particle Data Group, Navas, S. et al. (2024). Phys. Rev. D 110, 030001."
+ },
+ "steps": [
+  {
+   "id": "qm",
+   "title": "One-particle quantum mechanics",
+   "years": "1925–1932",
+   "driver": "found",
+   "driverLabel": "foundation",
+   "phases": [
+    "observe",
+    "hypothesize",
+    "predict"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "S",
+     "H_{1}, the one-particle Hilbert space"
+    ],
+    [
+     "ADD",
+     "M",
+     "U(t), observable postulate, particle Lagrangian"
+    ],
+    [
+     "ADD",
+     "O",
+     "spectra of x̂, p̂, Ĥ, L̂, Ŝ (energy and spin observed first: A)"
+    ],
+    [
+     "PREDICT",
+     "M→O",
+     "L → E_{n}; postulate → operators"
+    ],
+    [
+     "BACK",
+     "M→S",
+     "U(t): H_{1} → H_{1}"
+    ]
+   ],
+   "changes": [
+    [
+     "S",
+     "H_{1}: rays in a one-particle Hilbert space"
+    ],
+    [
+     "M",
+     "U(t) = e^{−iĤt/ħ}; observable postulate; particle Lagrangian"
+    ],
+    [
+     "O",
+     "spectra of x̂, p̂, Ĥ, L̂, Ŝ"
+    ]
+   ],
+   "text": "A state is a ray in H_{1}; Ĥ generates the unitary group U(t), which maps H_{1} onto itself (Stone 1932), so particle number is fixed at one by construction. Every self-adjoint operator is an observable whose spectrum lists the outcomes (von Neumann 1932). The particle Lagrangian fixes Ĥ and therefore both the evolution and the energy spectrum, e.g. E_{n} = −13.6 eV/n^{2} for hydrogen (Schrödinger 1926). Edges from the state layer enter the model nodes that act on states; the only edge back to the state layer is the evolution.",
+   "refs": [
+    "Heisenberg 1925",
+    "Schrödinger 1926",
+    "Born 1926",
+    "von Neumann 1932",
+    "Stone 1932"
+   ],
+   "S": [
+    "H1"
+   ],
+   "M": [
+    "m_L",
+    "m_U",
+    "m_A"
+   ],
+   "O": [
+    "o_E",
+    "o_x",
+    "o_p",
+    "o_L",
+    "o_S"
+   ],
+   "edges": [
+    {
+     "f": "H1",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(t) acts on |ψ⟩ ∈ H_{1}"
+    },
+    {
+     "f": "H1",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "Â acts on |ψ⟩; outcome probabilities |⟨a|ψ⟩|^{2}"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(t): H_{1} → H_{1}; |ψ(t)⟩ = U(t)|ψ(0)⟩"
+    },
+    {
+     "f": "m_L",
+     "t": "m_U",
+     "k": "m2m",
+     "rel": "Ĥ = Legendre transform of L generates U(t) = e^{−iĤt/ħ}"
+    },
+    {
+     "f": "m_L",
+     "t": "o_E",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "eigenvalues of Ĥ = p̂^{2}/2m + V: E_{n} = −me^{4}/2ħ^{2}n^{2} for V = −e^{2}/r"
+    },
+    {
+     "f": "m_A",
+     "t": "o_x",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "x̂ self-adjoint; spectrum ℝ"
+    },
+    {
+     "f": "m_A",
+     "t": "o_p",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "p̂ = −iħ∇; spectrum ℝ"
+    },
+    {
+     "f": "m_A",
+     "t": "o_L",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "L̂ = x̂ × p̂; eigenvalues l(l+1)ħ^{2}, m_{l}ħ"
+    },
+    {
+     "f": "m_A",
+     "t": "o_S",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "Ŝ_{z} = (ħ/2)σ_{z}; eigenvalues ±ħ/2 (Pauli 1927)"
+    }
+   ]
+  },
+  {
+   "id": "wigner",
+   "title": "Poincaré symmetry: Wigner's classification",
+   "years": "1926–1939",
+   "driver": "sym",
+   "driverLabel": "symmetry (theory-internal)",
+   "phases": [
+    "hypothesize",
+    "restructure",
+    "predict"
+   ],
+   "ops": [
+    [
+     "REWRITE",
+     "M",
+     "U(t) → U(Λ, a); L → Klein–Gordon / Dirac equations"
+    ],
+    [
+     "PARTITION",
+     "S",
+     "H_{1} → 9 UIR classes, by the back-edge of U(Λ, a)"
+    ],
+    [
+     "ADD",
+     "O",
+     "mass and spin (Casimir invariants: P)"
+    ]
+   ],
+   "changes": [
+    [
+     "S",
+     "H_{1} = ⊕ UIRs labelled by (m, s) or (0, h); classes without instances dashed"
+    ],
+    [
+     "M",
+     "U(t) → U(Λ, a); L → Klein–Gordon / Dirac equations"
+    ],
+    [
+     "O",
+     "mass and spin/helicity become observables (Casimir invariants)"
+    ]
+   ],
+   "text": "Requiring U to represent the Poincaré group makes H_{1} decompose into irreducible subspaces. Wigner (1939) classified them by the little group of a standard momentum: SO(3) for m > 0 (spin s), ISO(2) for m = 0 (helicity h, or the continuous-spin representations), plus the tachyonic and trivial classes. The relativistic wave equations (Klein 1926; Gordon 1926; Dirac 1928) are the equations satisfied by the carrier fields of these representations (Bargmann & Wigner 1948). The back-edge from U(Λ, a) is what partitions the state layer. Order note: the field quantization of Step 4 (1927–32) predates Wigner's paper; the sequence here follows logical dependence, and each node carries its own date.",
+   "refs": [
+    "Klein 1926",
+    "Gordon 1926",
+    "Dirac 1928",
+    "Wigner 1939",
+    "Bargmann & Wigner 1948",
+    "Weinberg 1995"
+   ],
+   "S": [
+    "u_vac",
+    "u_m0",
+    "u_mh",
+    "u_m1",
+    "u_0h",
+    "u_01",
+    "u_02",
+    "u_cs",
+    "u_tach"
+   ],
+   "M": [
+    "m_L",
+    "m_U",
+    "m_A"
+   ],
+   "O": [
+    "o_m",
+    "o_s",
+    "o_E",
+    "o_p",
+    "o_L",
+    "o_S"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "U(t) = U(1, (t,0)); irreducible pieces = particle species"
+    },
+    "m_L": {
+     "label": "Relativistic wave equations (Klein–Gordon 1926; Dirac 1928)",
+     "sub": "(∂^{2} + m^{2})φ = 0; (iγ^{μ}∂_{μ} − m)ψ = 0"
+    }
+   },
+   "morph": {
+    "H1": "u_mh"
+   },
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) acts on H_{1} = ⊕_{(m,s)} H_{m,s}"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "Â acts on each H_{m,s}"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "decomposition into irreducibles: H_{1} = ⊕ H_{m,s} (Wigner 1939)"
+    },
+    {
+     "f": "m_L",
+     "t": "m_U",
+     "k": "m2m",
+     "rel": "the wave equations are the UIR carrier-space equations (Bargmann & Wigner 1948)"
+    },
+    {
+     "f": "m_U",
+     "t": "o_m",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "P^{μ}P_{μ} = m^{2} commutes with U(Λ, a)"
+    },
+    {
+     "f": "m_U",
+     "t": "o_s",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "W^{μ}W_{μ} = −m^{2}s(s+1); helicity for m = 0"
+    },
+    {
+     "f": "m_L",
+     "t": "o_E",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Dirac spectrum of hydrogen: fine structure (Sommerfeld formula)"
+    },
+    {
+     "f": "m_A",
+     "t": "o_p",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "P^{μ} generators of translations"
+    },
+    {
+     "f": "m_A",
+     "t": "o_L",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "J^{μν} generators of Lorentz transformations"
+    },
+    {
+     "f": "m_A",
+     "t": "o_S",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "spin from the little-group representation"
+    }
+   ]
+  },
+  {
+   "id": "anomaly",
+   "title": "An observable with no model edge: particle creation and destruction",
+   "years": "1914–1934",
+   "driver": "anom",
+   "driverLabel": "anomaly: observed, unexplained",
+   "phases": [
+    "observe",
+    "deficit"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "O",
+     "particle production and decay (A)"
+    ],
+    [
+     "FLAG",
+     "O",
+     "in-degree 0 from the model layer: anomaly"
+    ]
+   ],
+   "changes": [
+    [
+     "O",
+     "+ particle production and decay (in-degree 0 from the model layer)"
+    ]
+   ],
+   "text": "Three observations share one feature: the final state contains a different number of particles than the initial one. (i) Emission and absorption of light, quantified by Einstein's A and B coefficients (1917). (ii) β decay: the electron spectrum is continuous (Chadwick 1914; Ellis & Wooster 1927), and the electron is not a nuclear constituent. (iii) Creation of e^{+}e^{−} pairs by γ rays (Anderson 1933; Blackett & Occhialini 1933). Since U(Λ, a) acts within H_{1} and even within a single UIR, no node of the model layer can send an edge to this observable. The red dashed ring marks an observable node with in-degree zero from the model layer: the signal that a new model node is required.",
+   "refs": [
+    "Einstein 1917",
+    "Chadwick 1914",
+    "Ellis & Wooster 1927",
+    "Anderson 1933",
+    "Blackett & Occhialini 1933"
+   ],
+   "S": [
+    "u_vac",
+    "u_m0",
+    "u_mh",
+    "u_m1",
+    "u_0h",
+    "u_01",
+    "u_02",
+    "u_cs",
+    "u_tach"
+   ],
+   "M": [
+    "m_L",
+    "m_U",
+    "m_A"
+   ],
+   "O": [
+    "o_prod",
+    "o_m",
+    "o_s",
+    "o_E",
+    "o_p",
+    "o_S"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "U(t) = U(1, (t,0)); irreducible pieces = particle species"
+    },
+    "m_L": {
+     "label": "Relativistic wave equations (Klein–Gordon 1926; Dirac 1928)",
+     "sub": "(∂^{2} + m^{2})φ = 0; (iγ^{μ}∂_{μ} − m)ψ = 0"
+    }
+   },
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) acts on H_{1} = ⊕ H_{m,s}"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "Â acts on each H_{m,s}"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "H_{1} = ⊕ H_{m,s}"
+    },
+    {
+     "f": "m_L",
+     "t": "m_U",
+     "k": "m2m",
+     "rel": "UIR carrier-space equations"
+    },
+    {
+     "f": "m_U",
+     "t": "o_m",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "P^{2} = m^{2}"
+    },
+    {
+     "f": "m_U",
+     "t": "o_s",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "W^{2} = −m^{2}s(s+1)"
+    },
+    {
+     "f": "m_L",
+     "t": "o_E",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Dirac spectrum of hydrogen"
+    },
+    {
+     "f": "m_A",
+     "t": "o_p",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "P^{μ}"
+    },
+    {
+     "f": "m_A",
+     "t": "o_S",
+     "k": "m2o",
+     "st": "frame",
+     "rel": "little-group spin"
+    }
+   ]
+  },
+  {
+   "id": "fock",
+   "title": "Model response: quantum fields on Fock space",
+   "years": "1927–1940",
+   "driver": "resp",
+   "driverLabel": "model response to the anomaly",
+   "phases": [
+    "hypothesize",
+    "restructure"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "M",
+     "quantum field a, a^{†} on Fock space (L merges into L_{0})"
+    ],
+    [
+     "EXTEND",
+     "S",
+     "each realized UIR → Fock sector with the ladder |0⟩…|N⟩, by the back-edge of the field"
+    ],
+    [
+     "REWRITE",
+     "O",
+     "particle production → Γ, σ (still in-degree 0: S = 1 without L_{int})"
+    ]
+   ],
+   "changes": [
+    [
+     "M",
+     "+ field node (a, a^{†}); the one-particle Lagrangian becomes the free-field L_{0}"
+    ],
+    [
+     "S",
+     "each realized UIR → a Fock sector with nodes |0⟩, |1⟩, |2⟩, …, |N⟩"
+    ],
+    [
+     "O",
+     "generic rates Γ and cross sections σ; still unexplained (S = 1 without L_{int})"
+    ]
+   ],
+   "text": "The field is the operator that adds or removes one quantum of a given UIR: φ(x) = Σ_{p}(a_{p}u_{p} + a_{p}^{†}u_{p}^{*}). The Fock space of each species is the direct sum of symmetrized (bosons) or antisymmetrized (fermions) N-particle spaces (Fock 1932); the spin–statistics connection was proved by Fierz (1939) and Pauli (1940). Dirac (1927) built the photon field this way to derive Einstein's A coefficient; Jordan & Wigner (1928) gave the fermionic construction and Heisenberg & Pauli (1929) the general Lagrangian field theory. The new back-edge from the field node builds the ladders of each sector; the ladder is drawn from the minimal occupation numbers 0, 1, 2 to N. The observables of interest are now transition rates, Γ = 2π|⟨f|H_{int}|i⟩|^{2}ρ(E) and σ ∝ |⟨f|S|i⟩|^{2}. With L_{int} = 0 the S-matrix is 1 and Γ = σ = 0: the free field explains that particle number can change, not which processes occur. The observable postulate now reads through the S-matrix.",
+   "refs": [
+    "Dirac 1927",
+    "Jordan & Wigner 1928",
+    "Heisenberg & Pauli 1929",
+    "Fock 1932",
+    "Fierz 1939",
+    "Pauli 1940",
+    "Wheeler 1937",
+    "Heisenberg 1943",
+    "Weinberg 1995"
+   ],
+   "S": [
+    "s_e",
+    "s_p",
+    "s_n",
+    "s_nu",
+    "s_g"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A"
+   ],
+   "O": [
+    "o_G",
+    "o_sig",
+    "o_m",
+    "o_s"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector; vacuum |0⟩ invariant"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int}); Γ = 2π|M|^{2}ρ; σ ∝ |S_{fi}|^{2}/flux"
+    }
+   },
+   "morph": {
+    "m_L": "m_field",
+    "u_mh": "s_e",
+    "u_0h": "s_nu",
+    "u_01": "s_g",
+    "u_vac": "s_e",
+    "u_m0": "s_e",
+    "u_m1": "s_e",
+    "u_02": "s_g",
+    "u_cs": "s_e",
+    "u_tach": "s_e"
+   },
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR: ψ_{e}, ψ_{p}, ψ_{n}, ψ_{ν}, A_{μ}"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) acts on F = ⊗_{species} F_{s}"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "in/out states |i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "a^{†}: |N⟩ → |N+1⟩; F_{s} = ⊕_{N} Sym^{N} or Λ^{N} H_{s}"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "m_A",
+     "t": "o_G",
+     "k": "m2o",
+     "st": "frame",
+     "weak": true,
+     "rel": "Γ = 2π|⟨f|H_{int}|i⟩|^{2}ρ(E); = 0 for L_{int} = 0"
+    },
+    {
+     "f": "m_A",
+     "t": "o_sig",
+     "k": "m2o",
+     "st": "frame",
+     "weak": true,
+     "rel": "σ ∝ |⟨f|S|i⟩|^{2}; S = 1 for L_{int} = 0"
+    },
+    {
+     "f": "m_U",
+     "t": "o_m",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "P^{2} on the one-particle subspace"
+    },
+    {
+     "f": "m_U",
+     "t": "o_s",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "W^{2} on the one-particle subspace"
+    }
+   ]
+  },
+  {
+   "id": "qed",
+   "title": "First interaction node: the QED vertex",
+   "years": "1927–1949",
+   "driver": "anom",
+   "driverLabel": "anomaly (Compton, a_e, Lamb) + prediction (pairs)",
+   "phases": [
+    "hypothesize",
+    "predict",
+    "calibrate",
+    "observe"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "M",
+     "QED vertex (fundamental, dimensionless e)"
+    ],
+    [
+     "ROUTE",
+     "S→M",
+     "e(1)∧γ(1)"
+    ],
+    [
+     "ADD",
+     "O",
+     "Compton, pair production, a_{e}, Lamb shift, α"
+    ],
+    [
+     "PREDICT",
+     "M→O",
+     "pair production (P); Compton, a_{e}, Lamb explained (A)"
+    ],
+    [
+     "CALIBRATE",
+     "O→M",
+     "α fixes e"
+    ]
+   ],
+   "changes": [
+    [
+     "M",
+     "+ −e ψ̄γ^{μ}ψA_{μ}; AND route e(1) ∧ γ(1)"
+    ],
+    [
+     "O",
+     "Compton dσ/dΩ, pair production σ, a_{e}, Lamb shift explained; α is a calibration; β decay still unexplained"
+    ]
+   ],
+   "text": "Minimal coupling p → p − eA, applied to the quantized fields, gives the single interaction term −e ψ̄γ^{μ}ψA_{μ}. One vertex changes N_{γ} by ±1 and N_{e} by 0 (scattering) or ±2 (pair creation/annihilation); the AND route is drawn from the minimal configuration e(1) ∧ γ(1) and applies to every rung of both ladders. At order α it reproduces the Klein–Nishina cross section (1929) and the Bethe–Heitler pair-production cross section (1934). At order α^{2} the renormalized theory (Tomonaga 1946; Schwinger 1948; Feynman 1949; Dyson 1949) gives a_{e} = α/2π = 0.00116 against the measured 0.00119(5) (Kusch & Foley 1948), and a Lamb shift of ≈1040 MHz against ≈1000 MHz measured (Lamb & Retherford 1947; Bethe 1947). The coupling e is not predicted: the edge to α is a calibration (F). β decay remains an observable without a model edge.",
+   "refs": [
+    "Dirac 1927",
+    "Klein & Nishina 1929",
+    "Bethe & Heitler 1934",
+    "Lamb & Retherford 1947",
+    "Bethe 1947",
+    "Kusch & Foley 1948",
+    "Schwinger 1948",
+    "Tomonaga 1946",
+    "Feynman 1949",
+    "Dyson 1949"
+   ],
+   "S": [
+    "s_e",
+    "s_p",
+    "s_n",
+    "s_nu",
+    "s_g"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A",
+    "m_qed"
+   ],
+   "O": [
+    "o_compton",
+    "o_pair",
+    "o_ae",
+    "o_lamb",
+    "o_alpha",
+    "o_beta"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int})"
+    }
+   },
+   "morph": {
+    "o_G": "o_compton",
+    "o_sig": "o_compton",
+    "o_m": "o_alpha",
+    "o_s": "o_alpha"
+   },
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) on F"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "|i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "ladders |N⟩"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_compton",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Klein–Nishina: dσ/dΩ = (α^{2}/2m^{2})(ω′/ω)^{2}[ω′/ω + ω/ω′ − sin^{2}θ]"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_pair",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Bethe–Heitler σ ∝ Z^{2}α^{3}; vertex at order e^{3} with nuclear field"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_ae",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "a_{e} = α/2π + O(α^{2}) (Schwinger 1948)"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_lamb",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "electron self-energy + vacuum polarization: ≈1040 MHz (Bethe 1947)"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_alpha",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "α = e^{2}/4π measured; fixes the vertex coupling"
+    }
+   ],
+   "ands": [
+    {
+     "legs": [
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "m_qed",
+     "label": "e(1)∧γ(1)",
+     "rel": "⟨e, γ|H_{int}|e⟩ ≠ 0: the vertex connects (N_{e}, N_{γ}) to (N_{e}, N_{γ}±1) and (N_{e}±2, N_{γ}±1)"
+    }
+   ]
+  },
+  {
+   "id": "fermi",
+   "title": "Second interaction node: Fermi's contact term",
+   "years": "1934",
+   "driver": "anom",
+   "driverLabel": "anomaly: β spectrum",
+   "phases": [
+    "observe",
+    "deficit",
+    "hypothesize",
+    "predict",
+    "calibrate"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "M",
+     "Fermi contact term (effective: dim G_{F} = −2)"
+    ],
+    [
+     "ROUTE",
+     "S→M",
+     "n(1)∧p(1)∧e(1)∧ν̄(1)"
+    ],
+    [
+     "PREDICT",
+     "M→O",
+     "β spectrum shape (A explained), τ_{n} (P)"
+    ],
+    [
+     "CALIBRATE",
+     "O→M",
+     "G_{F}"
+    ]
+   ],
+   "changes": [
+    [
+     "M",
+     "+ G_{F}(p̄γ^{μ}n)(ēγ_{μ}ν): four fermions at one point; AND route n(1)∧p(1)∧e(1)∧ν̄(1)"
+    ],
+    [
+     "O",
+     "β-decay rate and shape explained; neutron lifetime predicted; G_{F} calibrated"
+    ]
+   ],
+   "text": "Fermi (1934) copied the structure of the QED vertex: a nucleon current p̄γ^{μ}n in place of the electron current, and the pair (e, ν̄) created at the same point in place of the photon. The electron spectrum shape follows from phase space and the matrix element (Kurie plot, Kurie et al. 1936); Gamow & Teller (1936) added axial-vector and tensor structure to account for ΔJ = 1 transitions. The route is the first AND route with four sectors. The coupling G_{F} ≈ 1.166×10^{−5} GeV^{−2} has dimension mass^{−2}: the amplitude grows like G_{F}s and the node violates partial-wave unitarity at √s of order a few hundred GeV, so it cannot be fundamental (textbook argument; no primary reference given). This is an effective node (dashed outline).",
+   "refs": [
+    "Fermi 1934a",
+    "Fermi 1934b",
+    "Gamow & Teller 1936",
+    "Kurie et al. 1936",
+    "Chadwick & Goldhaber 1935",
+    "Robson 1951",
+    "Cowan et al. 1956"
+   ],
+   "S": [
+    "s_e",
+    "s_p",
+    "s_n",
+    "s_nu",
+    "s_g"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A",
+    "m_qed",
+    "m_fermi"
+   ],
+   "O": [
+    "o_compton",
+    "o_ae",
+    "o_alpha",
+    "o_beta",
+    "o_ntau",
+    "o_GF"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int})"
+    }
+   },
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) on F"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "|i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "ladders |N⟩"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_compton",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Klein–Nishina formula"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_ae",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "a_{e} = α/2π + …"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_alpha",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "α fixes e"
+    },
+    {
+     "f": "m_fermi",
+     "t": "o_beta",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "dΓ/dE_{e} = (G_{F}^{2}/2π^{3})|M|^{2} p_{e}E_{e}(E_{0}−E_{e})^{2}F(Z,E_{e})"
+    },
+    {
+     "f": "m_fermi",
+     "t": "o_ntau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "τ_{n}^{−1} = (G_{F}^{2}m_{e}^{5}/2π^{3})(1 + 3g_{A}^{2}) f (with g_{A} from Gamow–Teller)"
+    },
+    {
+     "f": "m_fermi",
+     "t": "o_GF",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "G_{F} fixed by measured rates"
+    }
+   ],
+   "ands": [
+    {
+     "legs": [
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "m_qed",
+     "label": "e(1)∧γ(1)",
+     "rel": "QED vertex"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_n",
+       "n": 1
+      },
+      {
+       "s": "s_p",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_nu",
+       "n": 1
+      }
+     ],
+     "t": "m_fermi",
+     "label": "n(1)∧p(1)∧e(1)∧ν̄(1)",
+     "rel": "⟨p, e, ν̄|H_{int}|n⟩ ≠ 0: n → p e ν̄ at one point"
+    }
+   ]
+  },
+  {
+   "id": "muon",
+   "title": "Universality: the muon and a second contact node",
+   "years": "1937–1962",
+   "driver": "anom",
+   "driverLabel": "anomaly: the muon",
+   "phases": [
+    "observe",
+    "hypothesize",
+    "restructure",
+    "predict",
+    "calibrate"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "S",
+     "μ sector"
+    ],
+    [
+     "SPLIT",
+     "S",
+     "ν → ν_{e}, ν_{μ} (Danby et al. 1962)"
+    ],
+    [
+     "ADD",
+     "M",
+     "μ-decay contact term (effective, same G_{F})"
+    ],
+    [
+     "ROUTE",
+     "S→M",
+     "μ(1)∧ν_{μ}(1)∧e(1)∧ν̄_{e}(1)"
+    ],
+    [
+     "PREDICT",
+     "M→O",
+     "Michel ρ, ν_{μ} ≠ ν_{e} (P)"
+    ],
+    [
+     "CALIBRATE",
+     "O→M",
+     "G_{F} from τ_{μ}"
+    ],
+    [
+     "SIGNAL",
+     "M",
+     "two nodes share one coupling: a merge is due"
+    ]
+   ],
+   "changes": [
+    [
+     "S",
+     "+ μ sector; the ν sector splits into ν_{e} and ν_{μ} (1962)"
+    ],
+    [
+     "M",
+     "+ muon-decay contact term with the same G_{F}"
+    ],
+    [
+     "O",
+     "τ_{μ}, Michel ρ, ν_{μ} ≠ ν_{e}; G_{F} now calibrated from τ_{μ}"
+    ]
+   ],
+   "text": "The muon (Neddermeyer & Anderson 1937) was first taken for Yukawa's meson; Conversi, Pancini & Piccioni (1947) showed it does not interact strongly. Its decay μ → e ν̄ ν is described by a second four-fermion node. The remarkable fact is that one constant fits β decay, μ decay and μ capture: Puppi (1948), Klein (1948), Tiomno & Wheeler (1949) and Lee, Rosenbluth & Yang (1949) formulated this universal Fermi interaction. τ_{μ}^{−1} = G_{F}^{2}m_{μ}^{5}/192π^{3} (times small corrections) makes τ_{μ} the most precise source of G_{F}, hence the calibration edge moves here. Michel (1950) parametrized the electron spectrum; ρ = ¾ is the value later fixed by V−A. Danby et al. (1962) showed that neutrinos from π → μν produce μ but not e: the ν sector splits into ν_{e} and ν_{μ}. Two model nodes sharing one coupling is the signal that they are instances of a single node.",
+   "refs": [
+    "Neddermeyer & Anderson 1937",
+    "Conversi et al. 1947",
+    "Puppi 1948",
+    "Klein 1948",
+    "Tiomno & Wheeler 1949",
+    "Lee, Rosenbluth & Yang 1949",
+    "Michel 1950",
+    "Danby et al. 1962"
+   ],
+   "S": [
+    "s_e",
+    "s_nue",
+    "s_mu",
+    "s_num",
+    "s_p",
+    "s_n",
+    "s_g"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A",
+    "m_qed",
+    "m_fermi",
+    "m_mu"
+   ],
+   "O": [
+    "o_compton",
+    "o_ae",
+    "o_alpha",
+    "o_beta",
+    "o_ntau",
+    "o_mutau",
+    "o_michel",
+    "o_twonu",
+    "o_GF"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int})"
+    },
+    "m_fermi": {
+     "label": "Fermi contact term G_{F}(p̄γ^{μ}n)(ēγ_{μ}ν_{e})",
+     "sub": "n(1)∧p(1)∧e(1)∧ν̄_{e}(1)"
+    }
+   },
+   "morph": {
+    "s_nu": "s_nue"
+   },
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) on F"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "|i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "ladders |N⟩"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_compton",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Klein–Nishina formula"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_ae",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "a_{e} = α/2π + …"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_alpha",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "α fixes e"
+    },
+    {
+     "f": "m_fermi",
+     "t": "o_beta",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "spectrum shape and rate"
+    },
+    {
+     "f": "m_fermi",
+     "t": "o_ntau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "τ_{n} from G_{F}, g_{A}"
+    },
+    {
+     "f": "m_mu",
+     "t": "o_mutau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "τ_{μ}^{−1} = G_{F}^{2}m_{μ}^{5}/192π^{3} × (1 + corrections); same G_{F} as β decay"
+    },
+    {
+     "f": "m_mu",
+     "t": "o_michel",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "spectrum shape parametrized by ρ (Michel 1950)"
+    },
+    {
+     "f": "m_mu",
+     "t": "o_twonu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "separate ν_{e}, ν_{μ} currents: ν from π → μν couples to μ only"
+    },
+    {
+     "f": "m_mu",
+     "t": "o_GF",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "G_{F} fixed by τ_{μ}"
+    }
+   ],
+   "ands": [
+    {
+     "legs": [
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "m_qed",
+     "label": "e(1)∧γ(1)",
+     "rel": "QED vertex"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_n",
+       "n": 1
+      },
+      {
+       "s": "s_p",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_nue",
+       "n": 1
+      }
+     ],
+     "t": "m_fermi",
+     "label": "n(1)∧p(1)∧e(1)∧ν̄_{e}(1)",
+     "rel": "n → p e ν̄_{e}"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_mu",
+       "n": 1
+      },
+      {
+       "s": "s_num",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_nue",
+       "n": 1
+      }
+     ],
+     "t": "m_mu",
+     "label": "μ(1)∧ν_{μ}(1)∧e(1)∧ν̄_{e}(1)",
+     "rel": "⟨e, ν̄_{e}, ν_{μ}|H_{int}|μ⟩ ≠ 0"
+    }
+   ]
+  },
+  {
+   "id": "va",
+   "title": "Parity violation: the two contact nodes merge into V−A",
+   "years": "1956–1958",
+   "driver": "anom",
+   "driverLabel": "anomaly (τ–θ puzzle) → proposed test → observation",
+   "phases": [
+    "observe",
+    "deficit",
+    "hypothesize",
+    "reduce",
+    "predict"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "O",
+     "parity asymmetries, ν helicity (P, test proposed by Lee & Yang)"
+    ],
+    [
+     "FLAG",
+     "O",
+     "parity-even nodes cannot reach them"
+    ],
+    [
+     "MERGE",
+     "M",
+     "Fermi + μ-decay → one V−A current–current node"
+    ],
+    [
+     "ROUTE",
+     "S→M",
+     "three routes: β decay, μ decay, μ capture"
+    ],
+    [
+     "PREDICT",
+     "M→O",
+     "ρ = ¾, h(ν) = −1"
+    ]
+   ],
+   "changes": [
+    [
+     "O",
+     "+ parity-violating asymmetries (Wu; Garwin) and ν helicity −1: unexplained by parity-even nodes"
+    ],
+    [
+     "M",
+     "Fermi and μ nodes merge into one V−A current–current node; three AND routes enter it"
+    ]
+   ],
+   "text": "The τ–θ puzzle led Lee & Yang (1956) to note that parity conservation had never been tested in weak processes and to propose tests; Wu et al. (1957) found the electron emission of polarized ^{60}Co correlated with the nuclear spin, and Garwin, Lederman & Weinrich (1957) found the corresponding asymmetry in μ decay. No parity-conserving node can produce these pseudoscalar correlations. Feynman & Gell-Mann (1958) and Sudarshan & Marshak (1958) replaced the two contact nodes by one current–current term with vector-minus-axial currents, which fixes the Michel parameter at ¾ and the neutrino helicity at −1 (Goldhaber, Grodzins & Sunyar 1958). The hadronic current acquires |g_{A}/g_{V}| ≈ 1.27 and, after Cabibbo (1963), the factor cos θ_{C}. Epistemically this is a reduction: three routes (β decay, μ decay, μ capture) now enter one node with one coupling.",
+   "refs": [
+    "Lee & Yang 1956",
+    "Wu et al. 1957",
+    "Garwin et al. 1957",
+    "Feynman & Gell-Mann 1958",
+    "Sudarshan & Marshak 1958",
+    "Goldhaber et al. 1958",
+    "Cabibbo 1963"
+   ],
+   "S": [
+    "s_e",
+    "s_nue",
+    "s_mu",
+    "s_num",
+    "s_p",
+    "s_n",
+    "s_g"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A",
+    "m_qed",
+    "m_va"
+   ],
+   "O": [
+    "o_compton",
+    "o_ae",
+    "o_alpha",
+    "o_beta",
+    "o_ntau",
+    "o_mutau",
+    "o_michel",
+    "o_twonu",
+    "o_wu",
+    "o_hel",
+    "o_GF"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int})"
+    }
+   },
+   "morph": {
+    "m_fermi": "m_va",
+    "m_mu": "m_va"
+   },
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) on F"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "|i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "ladders |N⟩"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_compton",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Klein–Nishina formula"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_ae",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "a_{e} = α/2π + …"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_alpha",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "α fixes e"
+    },
+    {
+     "f": "m_va",
+     "t": "o_beta",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "V−A hadronic current with g_{A}: rate and shape"
+    },
+    {
+     "f": "m_va",
+     "t": "o_ntau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "τ_{n}^{−1} ∝ G_{F}^{2}cos^{2}θ_{C}(1 + 3g_{A}^{2})"
+    },
+    {
+     "f": "m_va",
+     "t": "o_mutau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "τ_{μ}^{−1} = G_{F}^{2}m_{μ}^{5}/192π^{3}"
+    },
+    {
+     "f": "m_va",
+     "t": "o_michel",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "V−A ⇒ ρ = ¾ exactly"
+    },
+    {
+     "f": "m_va",
+     "t": "o_twonu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "separate lepton-family currents"
+    },
+    {
+     "f": "m_va",
+     "t": "o_wu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "(1−γ^{5}) couplings ⇒ ⟨J⟩·p_{e} asymmetry A = −1 for pure Gamow–Teller"
+    },
+    {
+     "f": "m_va",
+     "t": "o_hel",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "(1−γ^{5})ν projects helicity −1"
+    },
+    {
+     "f": "m_va",
+     "t": "o_GF",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "G_{F} from τ_{μ}"
+    }
+   ],
+   "ands": [
+    {
+     "legs": [
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "m_qed",
+     "label": "e(1)∧γ(1)",
+     "rel": "QED vertex"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_n",
+       "n": 1
+      },
+      {
+       "s": "s_p",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_nue",
+       "n": 1
+      }
+     ],
+     "t": "m_va",
+     "label": "n(1)∧p(1)∧e(1)∧ν̄_{e}(1)",
+     "rel": "β decay route"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_mu",
+       "n": 1
+      },
+      {
+       "s": "s_num",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_nue",
+       "n": 1
+      }
+     ],
+     "t": "m_va",
+     "label": "μ(1)∧ν_{μ}(1)∧e(1)∧ν̄_{e}(1)",
+     "rel": "μ decay route"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_mu",
+       "n": 1
+      },
+      {
+       "s": "s_num",
+       "n": 1
+      },
+      {
+       "s": "s_p",
+       "n": 1
+      },
+      {
+       "s": "s_n",
+       "n": 1
+      }
+     ],
+     "t": "m_va",
+     "label": "μ(1)∧p(1)∧ν_{μ}(1)∧n(1)",
+     "rel": "μ capture route μ^{−} p → ν_{μ} n"
+    }
+   ]
+  },
+  {
+   "id": "ew",
+   "title": "Fundamental nodes: W, Z and SU(2)_{L} × U(1)_{Y}",
+   "years": "1954–1983",
+   "driver": "pred",
+   "driverLabel": "theory-internal (unitarity, renormalizability) → predictions confirmed",
+   "phases": [
+    "hypothesize",
+    "restructure",
+    "reduce",
+    "predict",
+    "calibrate",
+    "observe"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "S",
+     "W^{±}, Z^{0} sectors"
+    ],
+    [
+     "REPLACE",
+     "S",
+     "(n, p) → (u, d)"
+    ],
+    [
+     "ABSORB",
+     "M",
+     "V−A → charged-current gauge vertex; G_{F}/√2 = g^{2}/8M_{W}^{2}"
+    ],
+    [
+     "ADD",
+     "M",
+     "neutral current and gauge self-couplings, forced by the symmetry"
+    ],
+    [
+     "REWRITE",
+     "M",
+     "QED vertex → electromagnetic part, e = g sinθ_{W}"
+    ],
+    [
+     "PREDICT",
+     "M→O",
+     "neutral currents (1973), M_{W}, M_{Z} (1983), N_{ν}, triple-gauge couplings (P)"
+    ],
+    [
+     "CALIBRATE",
+     "O→M",
+     "sin^{2}θ_{W}; G_{F}"
+    ]
+   ],
+   "changes": [
+    [
+     "S",
+     "+ W^{±}, Z^{0} sectors (m > 0, s = 1); (n, p) replaced by (u, d)"
+    ],
+    [
+     "M",
+     "V−A node → charged-current gauge vertex; + neutral current; + gauge self-couplings; QED vertex absorbed (e = g sinθ_{W})"
+    ],
+    [
+     "O",
+     "neutral currents (1973), M_{W}, M_{Z} (1983), N_{ν} (LEP), e^{+}e^{−} → W^{+}W^{−} (LEP2); sin^{2}θ_{W} calibrated"
+    ]
+   ],
+   "text": "Replacing the contact term by the exchange of a massive vector boson (Schwinger 1957; Bludman 1958) and demanding a renormalizable gauge structure (Yang & Mills 1954; Glashow 1961; Weinberg 1967; Salam 1968; 't Hooft 1971; 't Hooft & Veltman 1972) turns the effective node into the low-energy limit of a fundamental one: G_{F}/√2 = g^{2}/(8M_{W}^{2}), i.e. the four-fermion node is recovered for q^{2} ≪ M_{W}^{2} (the effective-field-theory reading of Weinberg 1979). The same symmetry forces a neutral current, observed by Gargamelle (Hasert et al. 1973) ten years after the prediction, and W, Z production at the SPS (UA1, UA2 1983). The nucleon current is rewritten at quark level (Gell-Mann 1964); the QCD sector that binds u, d into n, p is outside this graph, so the β-decay route now enters through u(1) ∧ d(1). The gauge self-couplings were tested through e^{+}e^{−} → W^{+}W^{−} at LEP2. The invisible Z width fixes N_{ν} = 2.984 ± 0.008 (LEP 2006): a model-layer prediction about the number of state-layer sectors. From here on the observables are predicted before they are seen (P badges).",
+   "refs": [
+    "Yang & Mills 1954",
+    "Schwinger 1957",
+    "Bludman 1958",
+    "Glashow 1961",
+    "Weinberg 1967",
+    "Salam 1968",
+    "'t Hooft 1971",
+    "'t Hooft & Veltman 1972",
+    "Hasert et al. 1973",
+    "Arnison et al. 1983",
+    "Banner et al. 1983",
+    "Arnison et al. 1983b",
+    "LEP EWWG 2006",
+    "LEP2 EWWG 2013",
+    "Gell-Mann 1964",
+    "Cabibbo 1963",
+    "Weinberg 1979"
+   ],
+   "S": [
+    "s_nue",
+    "s_e",
+    "s_num",
+    "s_mu",
+    "s_u",
+    "s_d",
+    "s_g",
+    "s_W",
+    "s_Z"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A",
+    "m_qed",
+    "m_cc",
+    "m_nc",
+    "m_gs"
+   ],
+   "O": [
+    "o_nc",
+    "o_mw",
+    "o_mz",
+    "o_sw",
+    "o_nnu",
+    "o_tgc",
+    "o_beta",
+    "o_mutau",
+    "o_wu",
+    "o_ae",
+    "o_alpha",
+    "o_GF"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int})"
+    },
+    "m_qed": {
+     "label": "Electromagnetic vertex −e Q f̄γ^{μ}f A_{μ}, e = g sinθ_{W}",
+     "sub": "A_{μ} = sinθ_{W}W^{3}_{μ} + cosθ_{W}B_{μ}; part of the gauge interaction"
+    }
+   },
+   "morph": {
+    "m_va": "m_cc",
+    "s_p": "s_u",
+    "s_n": "s_d"
+   },
+   "groups": [
+    {
+     "id": "fer",
+     "label": "f",
+     "members": [
+      "s_nue",
+      "s_e",
+      "s_num",
+      "s_mu",
+      "s_u",
+      "s_d"
+     ]
+    },
+    {
+     "id": "chg",
+     "label": "Q≠0",
+     "members": [
+      "s_e",
+      "s_mu",
+      "s_u",
+      "s_d"
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR (W^{±}_{μ}, Z_{μ} massive vector fields)"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) on F"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "|i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "ladders |N⟩"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_ae",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "a_{e} = α/2π + … (now with weak corrections of order G_{F}m_{e}^{2})"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_alpha",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "α fixes e = g sinθ_{W}"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_beta",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "q^{2} ≪ M_{W}^{2}: W propagator → 1/M_{W}^{2}; recovers V−A with G_{F}/√2 = g^{2}/8M_{W}^{2}"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_mutau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "same low-energy limit; τ_{μ} as before"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_wu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "W couples to left-handed fields only (P_{L} = (1−γ^{5})/2)"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_mw",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "M_{W}^{2} = πα/(√2 G_{F} sin^{2}θ_{W}) at tree level"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_GF",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "G_{F} = g^{2}/(4√2 M_{W}^{2}), fixed by τ_{μ}"
+    },
+    {
+     "f": "m_nc",
+     "t": "o_nc",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "σ(ν_{μ}N → ν_{μ}X) ∝ G_{F}^{2}(…sin^{2}θ_{W}…)"
+    },
+    {
+     "f": "m_nc",
+     "t": "o_sw",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "sin^{2}θ_{W} fixed by NC/CC ratios and later by M_{W}/M_{Z}"
+    },
+    {
+     "f": "m_nc",
+     "t": "o_mz",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "M_{Z} = M_{W}/cosθ_{W}"
+    },
+    {
+     "f": "m_nc",
+     "t": "o_nnu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Γ_{inv} = N_{ν}Γ(Z → νν̄), Γ(Z → νν̄) = G_{F}M_{Z}^{3}/12√2π"
+    },
+    {
+     "f": "m_gs",
+     "t": "o_tgc",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "σ(e^{+}e^{−} → W^{+}W^{−}) from ν exchange + γ/Z exchange via WWγ, WWZ; gauge cancellation"
+    }
+   ],
+   "ands": [
+    {
+     "legs": [
+      {
+       "g": "chg",
+       "n": 2,
+       "label": "f(2)"
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "m_qed",
+     "label": "f(2)∧γ(1), Q ≠ 0",
+     "rel": "electromagnetic vertex for every charged sector"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_nue",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "m_cc",
+     "label": "ν_{e}(1)∧e(1)∧W(1)",
+     "rel": "⟨e, W^{+}|H_{int}|ν_{e}⟩ ≠ 0"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_num",
+       "n": 1
+      },
+      {
+       "s": "s_mu",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "m_cc",
+     "label": "ν_{μ}(1)∧μ(1)∧W(1)",
+     "rel": "⟨μ, W^{+}|H_{int}|ν_{μ}⟩ ≠ 0"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_u",
+       "n": 1
+      },
+      {
+       "s": "s_d",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "m_cc",
+     "label": "u(1)∧d(1)∧W(1), × cosθ_{C}",
+     "rel": "⟨u, W^{−}|H_{int}|d⟩ ∝ cosθ_{C}"
+    },
+    {
+     "legs": [
+      {
+       "g": "fer",
+       "n": 2,
+       "label": "f(2)"
+      },
+      {
+       "s": "s_Z",
+       "n": 1
+      }
+     ],
+     "t": "m_nc",
+     "label": "f(2)∧Z(1), all f",
+     "rel": "Z couples to every fermion sector with T^{3} − Q sin^{2}θ_{W}"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_W",
+       "n": 2
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "m_gs",
+     "label": "W(2)∧γ(1)",
+     "rel": "WWγ vertex"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_W",
+       "n": 2
+      },
+      {
+       "s": "s_Z",
+       "n": 1
+      }
+     ],
+     "t": "m_gs",
+     "label": "W(2)∧Z(1); W(4)",
+     "rel": "WWZ and quartic vertices"
+    }
+   ]
+  },
+  {
+   "id": "higgs",
+   "title": "Mass: the Higgs sector",
+   "years": "1964–2012",
+   "driver": "pred",
+   "driverLabel": "theory-internal (mass terms break the gauge symmetry) → prediction",
+   "phases": [
+    "hypothesize",
+    "restructure",
+    "predict",
+    "calibrate",
+    "observe"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "S",
+     "H sector"
+    ],
+    [
+     "ADD",
+     "M",
+     "Higgs–gauge, Yukawa, potential"
+    ],
+    [
+     "ROUTE",
+     "S→M",
+     "H(1)∧W(2), H(1)∧Z(2), H(1)∧f(2), H(3)"
+    ],
+    [
+     "PREDICT",
+     "M→O",
+     "m_{H} (P, 2012), Higgs rates (P); λ_{HHH} untested"
+    ],
+    [
+     "CALIBRATE",
+     "O→M",
+     "m_{f} → y_{f}; m_{H} → λ"
+    ]
+   ],
+   "changes": [
+    [
+     "S",
+     "+ H sector (m > 0, s = 0)"
+    ],
+    [
+     "M",
+     "+ Higgs–gauge, Yukawa and potential nodes"
+    ],
+    [
+     "O",
+     "m_{H}, Higgs rates predicted; fermion masses and m_{H} calibrate y_{f}, λ; λ_{HHH} untested"
+    ]
+   ],
+   "text": "Explicit mass terms for W, Z and for the chiral fermions are forbidden by SU(2)_{L}×U(1)_{Y}. The Brout–Englert–Higgs mechanism (Englert & Brout 1964; Higgs 1964; Guralnik, Hagen & Kibble 1964) adds a scalar doublet whose vacuum value v = (√2G_{F})^{−1/2} = 246 GeV gives M_{W} = gv/2, M_{Z} = M_{W}/cosθ_{W} and, through Yukawa couplings, m_{f} = y_{f}v/√2 (Weinberg 1967). The W and Z mass edges of Step 9 are now derived from the Higgs–gauge node. A physical scalar with m_{H}^{2} = 2λv^{2} is predicted; ATLAS and CMS (2012) observed it at ≈125 GeV, and the measured production and decay rates (γγ, ZZ^{*}, WW^{*}, ττ, bb̄) match the SM pattern. The fermion masses and m_{H} remain inputs: those edges are calibrations (F). The trilinear coupling λ_{HHH} has not been measured, only bounded: a prediction without a confirming observation (blue dashed ring).",
+   "refs": [
+    "Englert & Brout 1964",
+    "Higgs 1964",
+    "Guralnik, Hagen & Kibble 1964",
+    "Weinberg 1967",
+    "ATLAS 2012",
+    "CMS 2012",
+    "PDG 2024"
+   ],
+   "S": [
+    "s_nue",
+    "s_e",
+    "s_num",
+    "s_mu",
+    "s_u",
+    "s_d",
+    "s_g",
+    "s_W",
+    "s_Z",
+    "s_H"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A",
+    "m_qed",
+    "m_cc",
+    "m_nc",
+    "m_gs",
+    "m_hg",
+    "m_yuk",
+    "m_pot"
+   ],
+   "O": [
+    "o_mh",
+    "o_hbr",
+    "o_mf",
+    "o_lam",
+    "o_mw",
+    "o_mz",
+    "o_nnu",
+    "o_nc",
+    "o_beta",
+    "o_mutau",
+    "o_ae",
+    "o_GF",
+    "o_alpha"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int})"
+    },
+    "m_qed": {
+     "label": "Electromagnetic vertex −e Q f̄γ^{μ}f A_{μ}, e = g sinθ_{W}",
+     "sub": "part of the gauge interaction"
+    }
+   },
+   "groups": [
+    {
+     "id": "fer",
+     "label": "f",
+     "members": [
+      "s_nue",
+      "s_e",
+      "s_num",
+      "s_mu",
+      "s_u",
+      "s_d"
+     ]
+    },
+    {
+     "id": "chg",
+     "label": "Q≠0",
+     "members": [
+      "s_e",
+      "s_mu",
+      "s_u",
+      "s_d"
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) on F"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "|i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "ladders |N⟩"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_ae",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "a_{e} = α/2π + …"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_alpha",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "α fixes e"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_beta",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "low-energy limit of W exchange"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_mutau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "low-energy limit of W exchange"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_GF",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "G_{F} = 1/(√2 v^{2}) fixed by τ_{μ}"
+    },
+    {
+     "f": "m_nc",
+     "t": "o_nc",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "neutral-current cross sections"
+    },
+    {
+     "f": "m_nc",
+     "t": "o_nnu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Γ_{inv} = N_{ν}Γ(Z → νν̄)"
+    },
+    {
+     "f": "m_hg",
+     "t": "o_mw",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "M_{W} = gv/2 = 80.4 GeV with radiative corrections"
+    },
+    {
+     "f": "m_hg",
+     "t": "o_mz",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "M_{Z} = (g^{2}+g′^{2})^{1/2}v/2"
+    },
+    {
+     "f": "m_hg",
+     "t": "o_hbr",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "H → WW^{*}, ZZ^{*} via HWW, HZZ = 2M_{V}^{2}/v; H → γγ via W loop"
+    },
+    {
+     "f": "m_yuk",
+     "t": "o_mf",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "m_{f} = y_{f}v/√2: each mass fixes one y_{f}"
+    },
+    {
+     "f": "m_yuk",
+     "t": "o_hbr",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Γ(H → f f̄) = N_{c}G_{F}m_{f}^{2}m_{H}/(4√2π); gluon-fusion production via top loop"
+    },
+    {
+     "f": "m_pot",
+     "t": "o_mh",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "m_{H}^{2} = 2λv^{2}: measured m_{H} fixes λ ≈ 0.13"
+    },
+    {
+     "f": "m_pot",
+     "t": "o_lam",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "λ_{HHH} = 3m_{H}^{2}/v; di-Higgs production (not yet observed)"
+    }
+   ],
+   "ands": [
+    {
+     "legs": [
+      {
+       "g": "chg",
+       "n": 2,
+       "label": "f(2)"
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "m_qed",
+     "label": "f(2)∧γ(1)",
+     "rel": "electromagnetic vertex"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_nue",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "m_cc",
+     "label": "ν_{e}(1)∧e(1)∧W(1)",
+     "rel": "charged current, leptons"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_u",
+       "n": 1
+      },
+      {
+       "s": "s_d",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "m_cc",
+     "label": "u(1)∧d(1)∧W(1)",
+     "rel": "charged current, quarks"
+    },
+    {
+     "legs": [
+      {
+       "g": "fer",
+       "n": 2,
+       "label": "f(2)"
+      },
+      {
+       "s": "s_Z",
+       "n": 1
+      }
+     ],
+     "t": "m_nc",
+     "label": "f(2)∧Z(1)",
+     "rel": "neutral current"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_W",
+       "n": 2
+      },
+      {
+       "s": "s_Z",
+       "n": 1
+      }
+     ],
+     "t": "m_gs",
+     "label": "W(2)∧Z(1), W(2)∧γ(1)",
+     "rel": "gauge self-couplings"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 2
+      }
+     ],
+     "t": "m_hg",
+     "label": "H(1)∧W(2); H(1)∧Z(2)",
+     "rel": "⟨W^{+}W^{−}|H_{int}|H⟩ ∝ 2M_{W}^{2}/v"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 1
+      },
+      {
+       "g": "chg",
+       "n": 2,
+       "label": "f(2)"
+      }
+     ],
+     "t": "m_yuk",
+     "label": "H(1)∧f(2), m_{f} ≠ 0",
+     "rel": "⟨f f̄|H_{int}|H⟩ ∝ m_{f}/v"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 3
+      }
+     ],
+     "t": "m_pot",
+     "label": "H(3)",
+     "rel": "HHH vertex ∝ 3m_{H}^{2}/v"
+    }
+   ]
+  },
+  {
+   "id": "frontier",
+   "title": "Frontier: an observable with no model edge, again",
+   "years": "1998–",
+   "driver": "anom",
+   "driverLabel": "anomaly: observed, unexplained",
+   "phases": [
+    "observe",
+    "deficit",
+    "hypothesize"
+   ],
+   "ops": [
+    [
+     "ADD",
+     "O",
+     "ν flavour oscillation (A)"
+    ],
+    [
+     "FLAG",
+     "O",
+     "in-degree 0: massless ν sectors cannot carry Δm^{2}"
+    ],
+    [
+     "ADD",
+     "M",
+     "candidate ν-mass node (dashed, not established)"
+    ],
+    [
+     "ROUTE",
+     "S→M",
+     "ν(2)∧H(2) (candidate)"
+    ]
+   ],
+   "changes": [
+    [
+     "O",
+     "+ neutrino flavour oscillation (Δm^{2} ≠ 0): in-degree 0 from established model nodes"
+    ],
+    [
+     "M",
+     "candidate repair nodes drawn dashed (Weinberg operator; ν_{R} Yukawa / seesaw)"
+    ]
+   ],
+   "text": "Super-Kamiokande (1998), SNO (2002) and KamLAND (2003) established flavour oscillation, which requires non-degenerate neutrino masses. In the graph as built the ν sectors carry the massless UIR (h = −½ only, no right-handed state), so no Yukawa node can reach them: the observable has in-degree zero from the model layer, the situation of Step 3 repeated. Candidate repairs are dashed: the dimension-5 operator (LΦ)(LΦ)/Λ (Weinberg 1979), which uses only existing sectors (route ν(2) ∧ H(2)), or new ν_{R} sectors with Dirac Yukawa couplings and possibly Majorana masses (seesaw: Minkowski 1977; Gell-Mann, Ramond & Slansky 1979; Yanagida 1979; Mohapatra & Senjanović 1980). Which node is correct is not decided by current data. The epistemic engine of the whole graph is this loop: an observable node with in-degree zero → a new model node → a re-partition of the state layer → new predicted observables.",
+   "refs": [
+    "Fukuda et al. 1998",
+    "Ahmad et al. 2002",
+    "Eguchi et al. 2003",
+    "Weinberg 1979b",
+    "Minkowski 1977",
+    "Mohapatra & Senjanović 1980"
+   ],
+   "S": [
+    "s_nue",
+    "s_e",
+    "s_num",
+    "s_mu",
+    "s_u",
+    "s_d",
+    "s_g",
+    "s_W",
+    "s_Z",
+    "s_H"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A",
+    "m_qed",
+    "m_cc",
+    "m_nc",
+    "m_gs",
+    "m_hg",
+    "m_yuk",
+    "m_pot",
+    "m_numass"
+   ],
+   "O": [
+    "o_osc",
+    "o_mh",
+    "o_hbr",
+    "o_mf",
+    "o_lam",
+    "o_mw",
+    "o_mz",
+    "o_nnu",
+    "o_beta",
+    "o_mutau",
+    "o_ae",
+    "o_GF"
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int})"
+    },
+    "m_qed": {
+     "label": "Electromagnetic vertex −e Q f̄γ^{μ}f A_{μ}, e = g sinθ_{W}",
+     "sub": "part of the gauge interaction"
+    }
+   },
+   "groups": [
+    {
+     "id": "fer",
+     "label": "f",
+     "members": [
+      "s_nue",
+      "s_e",
+      "s_num",
+      "s_mu",
+      "s_u",
+      "s_d"
+     ]
+    },
+    {
+     "id": "chg",
+     "label": "Q≠0",
+     "members": [
+      "s_e",
+      "s_mu",
+      "s_u",
+      "s_d"
+     ]
+    },
+    {
+     "id": "nus",
+     "label": "ν",
+     "members": [
+      "s_nue",
+      "s_num"
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) on F"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "|i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "ladders |N⟩"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "m_qed",
+     "t": "o_ae",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "a_{e} = α/2π + …"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_beta",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "low-energy limit of W exchange"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_mutau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "low-energy limit of W exchange"
+    },
+    {
+     "f": "m_cc",
+     "t": "o_GF",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "G_{F} from τ_{μ}"
+    },
+    {
+     "f": "m_nc",
+     "t": "o_nnu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "Γ_{inv} = N_{ν}Γ(Z → νν̄)"
+    },
+    {
+     "f": "m_hg",
+     "t": "o_mw",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "M_{W} = gv/2"
+    },
+    {
+     "f": "m_hg",
+     "t": "o_mz",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "M_{Z} = M_{W}/cosθ_{W}"
+    },
+    {
+     "f": "m_hg",
+     "t": "o_hbr",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "HWW, HZZ"
+    },
+    {
+     "f": "m_yuk",
+     "t": "o_mf",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "m_{f} = y_{f}v/√2"
+    },
+    {
+     "f": "m_yuk",
+     "t": "o_hbr",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "H → ff̄"
+    },
+    {
+     "f": "m_pot",
+     "t": "o_mh",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "m_{H} fixes λ"
+    },
+    {
+     "f": "m_pot",
+     "t": "o_lam",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "λ_{HHH} = 3m_{H}^{2}/v"
+    },
+    {
+     "f": "m_numass",
+     "t": "o_osc",
+     "k": "m2o",
+     "st": "cand",
+     "rel": "candidate: m_{ν} ~ v^{2}/Λ (Weinberg operator) or y_{ν}v/√2 (Dirac); P(ν_{α}→ν_{β}) depends on Δm^{2}L/E"
+    }
+   ],
+   "ands": [
+    {
+     "legs": [
+      {
+       "g": "chg",
+       "n": 2,
+       "label": "f(2)"
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "m_qed",
+     "label": "f(2)∧γ(1)",
+     "rel": "electromagnetic vertex"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_nue",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "m_cc",
+     "label": "ν_{e}(1)∧e(1)∧W(1)",
+     "rel": "charged current, leptons"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_u",
+       "n": 1
+      },
+      {
+       "s": "s_d",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "m_cc",
+     "label": "u(1)∧d(1)∧W(1)",
+     "rel": "charged current, quarks"
+    },
+    {
+     "legs": [
+      {
+       "g": "fer",
+       "n": 2,
+       "label": "f(2)"
+      },
+      {
+       "s": "s_Z",
+       "n": 1
+      }
+     ],
+     "t": "m_nc",
+     "label": "f(2)∧Z(1)",
+     "rel": "neutral current"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_W",
+       "n": 2
+      },
+      {
+       "s": "s_Z",
+       "n": 1
+      }
+     ],
+     "t": "m_gs",
+     "label": "W(2)∧Z(1), W(2)∧γ(1)",
+     "rel": "gauge self-couplings"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 2
+      }
+     ],
+     "t": "m_hg",
+     "label": "H(1)∧W(2); H(1)∧Z(2)",
+     "rel": "Higgs–gauge"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 1
+      },
+      {
+       "g": "chg",
+       "n": 2,
+       "label": "f(2)"
+      }
+     ],
+     "t": "m_yuk",
+     "label": "H(1)∧f(2), m_{f} ≠ 0",
+     "rel": "Yukawa"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 3
+      }
+     ],
+     "t": "m_pot",
+     "label": "H(3)",
+     "rel": "HHH"
+    },
+    {
+     "legs": [
+      {
+       "g": "nus",
+       "n": 2,
+       "label": "ν(2)"
+      },
+      {
+       "s": "s_H",
+       "n": 2
+      }
+     ],
+     "t": "m_numass",
+     "cand": true,
+     "label": "ν(2)∧H(2) (candidate)",
+     "rel": "Weinberg operator (LΦ)(LΦ)/Λ: ⟨νν|H_{int}|HH⟩ ∝ 1/Λ"
+    }
+   ]
+  },
+  {
+   "id": "sm",
+   "title": "Final form: the Standard Model as clusters of its Lagrangian terms",
+   "years": "1927–2012 (final view)",
+   "driver": "syn",
+   "driverLabel": "clustering: effective nodes inside the terms that reproduce them",
+   "phases": [
+    "reduce"
+   ],
+   "ops": [
+    [
+     "CLUSTER",
+     "M",
+     "7 vertices + 3 absorbed effective nodes → 5 SM Lagrangian terms + 1 candidate cluster"
+    ],
+    [
+     "LINEAGE",
+     "M→M",
+     "Fermi → V−A ← μ-decay; V−A → charged current"
+    ],
+    [
+     "ROUTE",
+     "S→M",
+     "12 routes re-attached to the clusters"
+    ]
+   ],
+   "changes": [
+    [
+     "M",
+     "model layer grouped into the five terms of the electroweak SM Lagrangian (+ one dashed candidate cluster); the effective nodes of Steps 6–8 sit inside the gauge–fermion cluster with lineage edges"
+    ],
+    [
+     "S",
+     "routes from the sectors now enter clusters: every fermion sector with γ, W or Z into the gauge–fermion term; H with W, Z, the massive fermions and itself into the Higgs terms"
+    ],
+    [
+     "O",
+     "all observables of Steps 5–11; edges leave the clusters; ν oscillation still has no established edge"
+    ]
+   ],
+   "text": "The model layer is grouped by the five terms of L_{SM} = −¼W^{a}_{μν}W^{aμν} − ¼B_{μν}B^{μν} + Σ f̄ iγ^{μ}D_{μ} f + |D_{μ}Φ|^{2} − V(Φ) − (y_{f} f̄_{L}Φ f_{R} + h.c.). Each cluster is one term; its fundamental vertices are the members, and the effective nodes of Steps 6–8 sit inside the cluster that reproduces them as a low-energy limit (lineage arrows: Fermi → V−A ← μ-decay; V−A → charged current, with G_{F}/√2 = g^{2}/8M_{W}^{2}). Clustering rule: an effective node belongs to the cluster whose member reproduces it at q^{2} ≪ M^{2}; the matching condition is the edge. The gauge–fermion term is entered by every fermion sector together with γ, W or Z (five routes); the gauge kinetic term by W with γ or Z; the Higgs terms by H with W, Z, the massive fermions, or H itself. Edges to observables leave the clusters. Counting: 6 clusters (5 SM terms + 1 candidate), 7 fundamental vertices, 3 absorbed effective nodes, 12 routes, 16 observables, of which 3 are calibrations, 1 is an untested prediction and 1 (ν oscillation) has no established edge. This is the network that the earlier steps grew.",
+   "refs": [
+    "Glashow 1961",
+    "Weinberg 1967",
+    "Salam 1968",
+    "Yang & Mills 1954",
+    "Higgs 1964",
+    "Weinberg 1979",
+    "PDG 2024"
+   ],
+   "S": [
+    "s_nue",
+    "s_e",
+    "s_num",
+    "s_mu",
+    "s_u",
+    "s_d",
+    "s_g",
+    "s_W",
+    "s_Z",
+    "s_H"
+   ],
+   "M": [
+    "m_field",
+    "m_U",
+    "m_A",
+    "c_gf",
+    "c_gg",
+    "c_hg",
+    "c_yuk",
+    "c_pot",
+    "c_bsm"
+   ],
+   "O": [
+    "o_osc",
+    "o_mh",
+    "o_hbr",
+    "o_mf",
+    "o_lam",
+    "o_mw",
+    "o_mz",
+    "o_nnu",
+    "o_nc",
+    "o_tgc",
+    "o_beta",
+    "o_mutau",
+    "o_wu",
+    "o_ae",
+    "o_GF",
+    "o_alpha"
+   ],
+   "clusters": [
+    {
+     "id": "c_gf",
+     "members": [
+      "m_fermi",
+      "m_mu",
+      "m_va",
+      "m_qed",
+      "m_cc",
+      "m_nc"
+     ],
+     "lineage": [
+      {
+       "f": "m_fermi",
+       "t": "m_va",
+       "rel": "Fermi node rewritten with V−A currents (1958)"
+      },
+      {
+       "f": "m_mu",
+       "t": "m_va",
+       "rel": "μ-decay node rewritten with V−A currents (1958)"
+      },
+      {
+       "f": "m_va",
+       "t": "m_cc",
+       "rel": "low-energy limit of W exchange: G_{F}/√2 = g^{2}/8M_{W}^{2}"
+      }
+     ]
+    },
+    {
+     "id": "c_gg",
+     "members": [
+      "m_gs"
+     ]
+    },
+    {
+     "id": "c_hg",
+     "members": [
+      "m_hg"
+     ]
+    },
+    {
+     "id": "c_yuk",
+     "members": [
+      "m_yuk"
+     ]
+    },
+    {
+     "id": "c_pot",
+     "members": [
+      "m_pot"
+     ]
+    },
+    {
+     "id": "c_bsm",
+     "members": [
+      "m_numass"
+     ]
+    }
+   ],
+   "override": {
+    "m_U": {
+     "label": "Unitary representation U(Λ, a) of the Poincaré group",
+     "sub": "acts on each Fock sector"
+    },
+    "m_A": {
+     "label": "Observable postulate → S-matrix |⟨f|S|i⟩|^{2}",
+     "sub": "S = T exp(i∫L_{int})"
+    },
+    "m_fermi": {
+     "label": "Fermi contact term (1934) → absorbed into V−A (1958)",
+     "absorbed": true
+    },
+    "m_mu": {
+     "label": "μ-decay contact term (1947–50) → absorbed into V−A (1958)",
+     "absorbed": true
+    },
+    "m_va": {
+     "label": "V−A current–current (1958) → low-energy limit of the CC vertex (1967)",
+     "absorbed": true
+    },
+    "m_qed": {
+     "label": "Electromagnetic vertex −e Q f̄γ^{μ}f A_{μ}",
+     "sub": "1927 as QED; e = g sinθ_{W} since 1961"
+    },
+    "m_cc": {
+     "label": "Charged-current vertex (g/√2) W^{+}_{μ} J^{μ}_{CC} + h.c.",
+     "sub": "absorbs the effective nodes above"
+    },
+    "m_nc": {
+     "label": "Neutral-current vertex (g/cosθ_{W}) Z_{μ} J^{μ}_{NC}",
+     "sub": "forced by the gauge group; no effective precursor"
+    },
+    "m_gs": {
+     "label": "Gauge self-couplings WWγ, WWZ, WWWW, WWZZ, …",
+     "sub": "W(2)∧γ(1), W(2)∧Z(1), W(4)"
+    },
+    "m_hg": {
+     "label": "M_{W} = gv/2, M_{Z} = M_{W}/cosθ_{W}; HWW, HZZ",
+     "sub": "H(1)∧W(2), H(1)∧Z(2)"
+    },
+    "m_yuk": {
+     "label": "m_{f} = y_{f}v/√2; H f̄ f vertex",
+     "sub": "H(1)∧f(2)"
+    },
+    "m_pot": {
+     "label": "m_{H}^{2} = 2λv^{2}; HHH = 3m_{H}^{2}/v",
+     "sub": "H(3)"
+    },
+    "m_numass": {
+     "label": "(LΦ)(LΦ)/Λ (Weinberg 1979) or ν_{R} Yukawa / seesaw",
+     "sub": "ν(2)∧H(2); candidate"
+    }
+   },
+   "groups": [
+    {
+     "id": "fer",
+     "label": "f",
+     "members": [
+      "s_nue",
+      "s_e",
+      "s_num",
+      "s_mu",
+      "s_u",
+      "s_d"
+     ]
+    },
+    {
+     "id": "chg",
+     "label": "Q≠0",
+     "members": [
+      "s_e",
+      "s_mu",
+      "s_u",
+      "s_d"
+     ]
+    },
+    {
+     "id": "nus",
+     "label": "ν",
+     "members": [
+      "s_nue",
+      "s_num"
+     ]
+    }
+   ],
+   "edges": [
+    {
+     "f": "S",
+     "t": "m_field",
+     "k": "s2m",
+     "rel": "one field per UIR"
+    },
+    {
+     "f": "S",
+     "t": "m_U",
+     "k": "s2m",
+     "rel": "U(Λ, a) on F"
+    },
+    {
+     "f": "S",
+     "t": "m_A",
+     "k": "s2m",
+     "rel": "|i⟩, |f⟩ ∈ F"
+    },
+    {
+     "f": "m_field",
+     "t": "S",
+     "k": "m2s",
+     "rel": "ladders |N⟩"
+    },
+    {
+     "f": "m_U",
+     "t": "S",
+     "k": "m2s",
+     "rel": "U(Λ, a) restricted to each sector"
+    },
+    {
+     "f": "c_gf",
+     "t": "o_ae",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "EM vertex: a_{e} = α/2π + …"
+    },
+    {
+     "f": "c_gf",
+     "t": "o_alpha",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "α fixes e = g sinθ_{W}"
+    },
+    {
+     "f": "c_gf",
+     "t": "o_beta",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "CC vertex, q^{2} ≪ M_{W}^{2}"
+    },
+    {
+     "f": "c_gf",
+     "t": "o_mutau",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "CC vertex, q^{2} ≪ M_{W}^{2}"
+    },
+    {
+     "f": "c_gf",
+     "t": "o_wu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "left-handed couplings"
+    },
+    {
+     "f": "c_gf",
+     "t": "o_nc",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "NC vertex"
+    },
+    {
+     "f": "c_gf",
+     "t": "o_nnu",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "NC vertex: Γ_{inv} = N_{ν}Γ(Z → νν̄)"
+    },
+    {
+     "f": "c_gf",
+     "t": "o_GF",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "G_{F} = g^{2}/(4√2 M_{W}^{2}) fixed by τ_{μ}"
+    },
+    {
+     "f": "c_gg",
+     "t": "o_tgc",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "WWγ, WWZ vertices in e^{+}e^{−} → W^{+}W^{−}"
+    },
+    {
+     "f": "c_hg",
+     "t": "o_mw",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "M_{W} = gv/2"
+    },
+    {
+     "f": "c_hg",
+     "t": "o_mz",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "M_{Z} = M_{W}/cosθ_{W}"
+    },
+    {
+     "f": "c_hg",
+     "t": "o_hbr",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "H → WW^{*}, ZZ^{*}; H → γγ via W loop"
+    },
+    {
+     "f": "c_yuk",
+     "t": "o_mf",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "m_{f} = y_{f}v/√2"
+    },
+    {
+     "f": "c_yuk",
+     "t": "o_hbr",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "H → ττ, bb̄; gluon fusion via top loop"
+    },
+    {
+     "f": "c_pot",
+     "t": "o_mh",
+     "k": "m2o",
+     "st": "fit",
+     "rel": "m_{H} fixes λ"
+    },
+    {
+     "f": "c_pot",
+     "t": "o_lam",
+     "k": "m2o",
+     "st": "pred",
+     "rel": "λ_{HHH} = 3m_{H}^{2}/v (untested)"
+    },
+    {
+     "f": "c_bsm",
+     "t": "o_osc",
+     "k": "m2o",
+     "st": "cand",
+     "rel": "candidate: m_{ν} from (LΦ)(LΦ)/Λ or y_{ν}v/√2"
+    }
+   ],
+   "ands": [
+    {
+     "legs": [
+      {
+       "g": "chg",
+       "n": 2,
+       "label": "f(2)"
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "c_gf",
+     "label": "f(2)∧γ(1)",
+     "rel": "electromagnetic vertex"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_nue",
+       "n": 1
+      },
+      {
+       "s": "s_e",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "c_gf",
+     "label": "ν_{e}(1)∧e(1)∧W(1)",
+     "rel": "charged current, first generation leptons"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_num",
+       "n": 1
+      },
+      {
+       "s": "s_mu",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "c_gf",
+     "label": "ν_{μ}(1)∧μ(1)∧W(1)",
+     "rel": "charged current, second generation leptons"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_u",
+       "n": 1
+      },
+      {
+       "s": "s_d",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 1
+      }
+     ],
+     "t": "c_gf",
+     "label": "u(1)∧d(1)∧W(1)",
+     "rel": "charged current, quarks (× cosθ_{C})"
+    },
+    {
+     "legs": [
+      {
+       "g": "fer",
+       "n": 2,
+       "label": "f(2)"
+      },
+      {
+       "s": "s_Z",
+       "n": 1
+      }
+     ],
+     "t": "c_gf",
+     "label": "f(2)∧Z(1)",
+     "rel": "neutral current, every fermion sector"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_W",
+       "n": 2
+      },
+      {
+       "s": "s_g",
+       "n": 1
+      }
+     ],
+     "t": "c_gg",
+     "label": "W(2)∧γ(1)",
+     "rel": "WWγ"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_W",
+       "n": 2
+      },
+      {
+       "s": "s_Z",
+       "n": 1
+      }
+     ],
+     "t": "c_gg",
+     "label": "W(2)∧Z(1); W(4)",
+     "rel": "WWZ and quartic vertices"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 1
+      },
+      {
+       "s": "s_W",
+       "n": 2
+      }
+     ],
+     "t": "c_hg",
+     "label": "H(1)∧W(2)",
+     "rel": "HWW"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 1
+      },
+      {
+       "s": "s_Z",
+       "n": 2
+      }
+     ],
+     "t": "c_hg",
+     "label": "H(1)∧Z(2)",
+     "rel": "HZZ"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 1
+      },
+      {
+       "g": "chg",
+       "n": 2,
+       "label": "f(2)"
+      }
+     ],
+     "t": "c_yuk",
+     "label": "H(1)∧f(2)",
+     "rel": "Yukawa vertex ∝ m_{f}/v"
+    },
+    {
+     "legs": [
+      {
+       "s": "s_H",
+       "n": 3
+      }
+     ],
+     "t": "c_pot",
+     "label": "H(3)",
+     "rel": "HHH"
+    },
+    {
+     "legs": [
+      {
+       "g": "nus",
+       "n": 2,
+       "label": "ν(2)"
+      },
+      {
+       "s": "s_H",
+       "n": 2
+      }
+     ],
+     "t": "c_bsm",
+     "cand": true,
+     "label": "ν(2)∧H(2)",
+     "rel": "Weinberg operator (candidate)"
+    }
+   ]
+  },
+  {
+   "id": "synth",
+   "title": "Synthesis: the epistemic pattern",
+   "years": "1925–2026",
+   "driver": "syn",
+   "driverLabel": "reading the graph",
+   "changes": [],
+   "text": "",
+   "refs": [],
+   "S": [],
+   "M": [],
+   "O": [],
+   "edges": [],
+   "ands": []
+  }
+ ]
+}

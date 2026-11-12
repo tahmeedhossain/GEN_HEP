@@ -25,7 +25,7 @@
 
 \title{A growing concept graph of particle physics:\\states, models and observables from one-particle quantum mechanics to the electroweak Standard Model}
 \author{Tahmeed Hossain\\[2pt]\small Department of Theoretical Physics, University of Dhaka}
-\date{\small 12 November 2026 \\[4pt] \small Graph data, interactive page and this text are generated with an AI assistant (Claude, Anthropic) under the author's direction; see Section~\ref{sec:ai}.}
+\date{\small 12 November 2026 (v1.2) \\[4pt] \small Graph data, interactive page and this text are generated with an AI assistant (Claude, Anthropic) under the author's direction; see Section~\ref{sec:ai}.}
 
 \begin{document}
 \maketitle
@@ -145,10 +145,13 @@ plus one dashed cluster for the candidate neutrino-mass term. Each cluster is on
 
 \begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step12.png}\caption{Step 12. The model layer clustered by Lagrangian term. Greyed dashed chips inside the gauge--fermion cluster are the absorbed effective nodes; the dashed cluster at the bottom holds the candidate neutrino-mass term.}\label{fig:s12}\end{figure}
 
-\subsection*{Step 13: synthesis}
-The synthesis view (Figure~\ref{fig:s13}) plots four counts against the step number and tabulates the changes per layer. The counts are the quantitative content of the rules in the next section.
+\subsection*{Step 13: synthesis, the method in action}
+The synthesis view has two parts. The first, ``the method in action'' (Figures~\ref{fig:m4}, \ref{fig:m9} and~\ref{fig:m12}), shows the scientific method operating on the graph. On the left is the cycle observe $\to$ deficit $\to$ hypothesize $\to$ restructure $\to$ predict $\to$ calibrate $\to$ reduce, with the phases active in the chosen step filled and the regime of the step named (anomaly-first, prediction-first, symmetry-driven, model response, reduction). On the right the whole graph is drawn small and re-laid out at every step: a node added in the step carries a $+$ mark, a node rewritten a $\sim$ mark, new edges and routes are highlighted, and a removed node slides into the node that replaces or absorbs it. Under the pair, the step's operations on the graph are listed with their layer or edge kind (\textsc{add}, \textsc{partition}, \textsc{extend}, \textsc{split}, \textsc{replace}, \textsc{merge}, \textsc{absorb}, \textsc{cluster}, \textsc{route}, \textsc{predict}, \textsc{calibrate}, \textsc{flag}). A Play button runs the twelve steps as an animation. The phases and operations of each step are part of the data (\texttt{phases} and \texttt{ops} fields in the JSON), so the view is generated, not drawn by hand. The second part (Figure~\ref{fig:s13}) plots four counts against the step number and tabulates the changes per layer. The counts are the quantitative content of the rules in the next section.
 
-\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step13.png}\caption{Step 13. Counts per step: state-layer nodes, effective interaction nodes outside clusters, fundamental interaction nodes, observables with no model edge.}\label{fig:s13}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{method_s4.png}\caption{The method in action at Step 4: the cycle shows hypothesize and restructure active (a model response to the deficit of Step 3); in the schematic every sector carries a $+$ (the ladders are new), the observable postulate is rewritten ($\sim$) and the two generic observables keep their red rings; the operation log reads \textsc{add}, \textsc{extend}, \textsc{rewrite}.}\label{fig:m4}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{method_s9.png}\caption{The method in action at Step 9: six phases active (prediction-first regime); new sectors W, Z, u, d, new vertices, new routes and new predicted observables are highlighted; the log reads \textsc{add}, \textsc{replace}, \textsc{absorb}, \textsc{add}, \textsc{rewrite}, \textsc{predict}, \textsc{calibrate}.}\label{fig:m9}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{method_s12.png}\caption{The method in action at Step 12: only reduce is active; the schematic shows the clusters with the absorbed nodes inside and all routes re-attached.}\label{fig:m12}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step13.png}\caption{Step 13, second part. Counts per step: state-layer nodes, effective interaction nodes outside clusters, fundamental interaction nodes, observables with no model edge.}\label{fig:s13}\end{figure}
 
 \input{sec_laws.tex}
 
@@ -182,13 +185,13 @@ The graph data, the interactive page, the scripts and the text of this paper wer
 
 \appendix
 \section{Node catalogue}\label{app:catalog}
-The identifiers below are the ones used in the page's JSON data (\texttt{data/v1.1\_sm\_epistemic\_graph.json}) and in the tables of this paper. Rich markup in labels (super- and subscripts) is rendered as on the page.
+The identifiers below are the ones used in the page's JSON data (\texttt{data/v1.2\_sm\_epistemic\_graph.json}) and in the tables of this paper. Rich markup in labels (super- and subscripts) is rendered as on the page.
 \input{tab_nodes_S.tex}
 \input{tab_nodes_M.tex}
 \input{tab_nodes_O.tex}
 
 \section{Data format}\label{app:data}
-The JSON file has four parts: \texttt{conventions} (layer names, edge kinds, badge meanings, the unexplained rule); \texttt{nodes}, a dictionary from identifier to node (layer, kind, label, sub-label, years, description, instances, references, badge); \texttt{references}, a dictionary from short key to full reference; and \texttt{steps}, the ordered list of steps. A step lists its \texttt{S}, \texttt{M} and \texttt{O} node identifiers, its \texttt{edges} (from, to, kind, status, relation), its AND routes \texttt{ands} (legs as sector--occupation pairs or group--occupation pairs, target, label, relation), optional \texttt{groups} (named sets of sectors used as a single leg), optional \texttt{override} (per-step label changes), optional \texttt{morph} (which old node a removed node animates into), and, for the final step, \texttt{clusters} (members and lineage edges). \texttt{tools/build\_derived.py} regenerates \texttt{data/statistics.json}, \texttt{catalog.md} and every table and macro of this paper from that file.
+The JSON file has four parts: \texttt{conventions} (layer names, edge kinds, badge meanings, the unexplained rule); \texttt{nodes}, a dictionary from identifier to node (layer, kind, label, sub-label, years, description, instances, references, badge); \texttt{references}, a dictionary from short key to full reference; and \texttt{steps}, the ordered list of steps. A step lists its \texttt{S}, \texttt{M} and \texttt{O} node identifiers, its \texttt{edges} (from, to, kind, status, relation), its AND routes \texttt{ands} (legs as sector--occupation pairs or group--occupation pairs, target, label, relation), optional \texttt{groups} (named sets of sectors used as a single leg), optional \texttt{override} (per-step label changes), optional \texttt{morph} (which old node a removed node animates into), \texttt{phases} (the phases of the method cycle active in the step) and \texttt{ops} (the operations the step applies to the graph, each with its layer or edge kind and a description), and, for the final step, \texttt{clusters} (members and lineage edges). \texttt{tools/build\_derived.py} regenerates \texttt{data/statistics.json}, \texttt{catalog.md} and every table and macro of this paper from that file.
 
 \input{refs_generated.tex}
 \end{document}

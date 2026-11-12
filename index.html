@@ -34,6 +34,8 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid va
 <p><a class="cta" href="latest/">Open the latest version</a> <a class="cta alt" href="paper/main.pdf">Read the paper (PDF)</a> <a class="cta alt" href="https://github.com/tahmeedhossain/GEN_HEP">Source on GitHub</a></p>
 <a href="latest/#step-12"><img class="shot" src="assets/step12.png" alt="Step 12 of the graph: the model layer clustered into the Standard-Model Lagrangian terms"></a>
 <p class="tag">Step 12 of the graph: the model layer clustered by Lagrangian term, with the Fermi, muon-decay and V−A nodes absorbed inside the gauge–fermion term.</p>
+<a href="latest/#step-13"><img class="shot" src="assets/method_s9.png" alt="Step 13: the method in action at Step 9 — the scientific-method cycle beside the compact schematic of the graph and the operation log"></a>
+<p class="tag">Step 13, the method in action: the cycle of the method with the phases of Step 9 filled, the whole graph re-drawn with that step's changes highlighted, and the operations the step applies to the graph.</p>
 
 <h2>What the graph contains</h2>
 <div class="card">
@@ -49,7 +51,8 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid va
 
 <h2>Versions and what changed</h2>
 <div class="card ver">
-<div class="v">v1.1 (latest)</div><div>Adds <strong>Step 12, the final clustered view</strong>: the model layer grouped into the five Standard-Model Lagrangian terms plus a dashed “beyond the SM” cluster, with the effective nodes of Steps 6–8 absorbed inside the gauge–fermion term and lineage arrows recording which node absorbed which. Also fixes the synthesis charts. <a href="v1.1/">Open v1.1</a></div>
+<div class="v">v1.2 (latest)</div><div>Adds the <strong>method-in-action synthesis view</strong> (Step 13): the scientific-method cycle (observe → deficit → hypothesize → restructure → predict → calibrate → reduce) with the phases of each step filled, a compact schematic of the whole graph re-laid out step by step with added nodes (+), rewritten nodes (~), new edges and routes highlighted and removed nodes sliding into the node that replaces or absorbs them, a Play button, and a per-step log of graph operations (ADD, PARTITION, EXTEND, SPLIT, REPLACE, MERGE, ABSORB, CLUSTER, ROUTE, PREDICT, CALIBRATE, FLAG). The phases and operations are part of the data. <a href="v1.2/">Open v1.2</a></div>
+<div class="v">v1.1</div><div>Adds <strong>Step 12, the final clustered view</strong>: the model layer grouped into the five Standard-Model Lagrangian terms plus a dashed “beyond the SM” cluster, with the effective nodes of Steps 6–8 absorbed inside the gauge–fermion term and lineage arrows recording which node absorbed which. Also fixes the synthesis charts. <a href="v1.1/">Open v1.1</a></div>
 <div class="v">v1.0</div><div>First release: eleven graph steps (one-particle QM → Wigner's representations → the particle-production anomaly → fields on Fock space → QED vertex → Fermi contact term → muon and universality → parity violation and V−A → W, Z and SU(2)<sub>L</sub>×U(1)<sub>Y</sub> → Higgs sector → neutrino-mass frontier) and a synthesis step. <a href="v1.0/">Open v1.0</a></div>
 </div>
 <p>Each version is frozen at its own address; <code>latest/</code> always opens the newest. Every page has a version bar at the top; earlier versions show a notice pointing to the newest. The manifest is <a href="versions.json"><code>versions.json</code></a>.</p>
@@ -57,6 +60,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid va
 <h2>How to read it</h2>
 <ul>
 <li>Use <strong>Next step</strong> / <strong>Previous</strong> or the arrow keys. Each step has its own address (<code>#step-7</code>).</li>
+<li>Step 13 shows the method in action: pick a step or press Play to watch the graph change, with the active phases of the cycle and the operations listed.</li>
 <li>The rail on the right gives the step's title, years, driver (anomaly, symmetry, model response, prediction, clustering), what changed in each layer, the narrative and the references.</li>
 <li><strong>Click a node</strong> for its formula, description, instances, edges and references; <strong>hover an edge</strong> for its relation; <strong>click an edge</strong> to open the relation in the rail; Escape returns to the step.</li>
 <li>A productive order for a student: read Steps 1–2 for the kinematics; at Step 3 look for the red ring and ask what model node could reach it; at Step 4 click the field node and the sectors; from Step 5 on, hover every new node's route and observable edges; at Steps 8–9 watch the model column shrink and grow; at Step 12 follow the lineage arrows from Fermi's node to the charged current; read Step 13 for the counts.</li>
@@ -74,7 +78,7 @@ footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid va
 <h2>Paper, data and code</h2>
 <ul>
 <li><a href="paper/main.pdf">Paper (PDF)</a>: the graph, the historical walk-through, the rules of evolution, the clustered final graph, and a reader's guide with annotated screenshots. LaTeX source in <code>paper/</code> (XeLaTeX); every table and number is generated from the data.</li>
-<li><a href="data/v1.1_sm_epistemic_graph.json">Graph data v1.1 (JSON)</a> · <a href="data/v1.0_sm_epistemic_graph.json">v1.0</a> · <a href="data/statistics.json">per-step statistics</a> · <a href="catalog.md">catalogue of nodes, edges and routes</a></li>
+<li><a href="data/v1.2_sm_epistemic_graph.json">Graph data v1.2 (JSON)</a> · <a href="data/v1.1_sm_epistemic_graph.json">v1.1</a> · <a href="data/v1.0_sm_epistemic_graph.json">v1.0</a> · <a href="data/statistics.json">per-step statistics</a> · <a href="catalog.md">catalogue of nodes, edges and routes</a></li>
 <li><code>tools/build_derived.py</code> regenerates the statistics, the catalogue and the paper's tables from the JSON.</li>
 </ul>
 <p>Scope: QED and the electroweak sector with the sectors ν<sub>e</sub>, e, ν<sub>μ</sub>, μ, u, d, γ, W<sup>±</sup>, Z<sup>0</sup>, H. The strong sector (Yukawa's pion exchange and its absorption into QCD) is left for a later version.</p>

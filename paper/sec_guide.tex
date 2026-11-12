@@ -14,17 +14,18 @@ The graph lives at \live{} (source and data at \repo). This section explains the
 \item \textbf{Observable column (5).} Each chip carries a badge (A, P or F, see the legend) and a one-line value or reference. A red dashed ring means the observable has no model edge in this step; a blue dashed ring means a prediction not yet tested.
 \item \textbf{Rail (7).} The rail shows the step: title, years, the driver of the step (anomaly, symmetry, model response, prediction, clustering), what changed in each layer, the narrative, and the numbered references. \textbf{Clicking a node} replaces the rail with that node's page: formula, description, instances, its edges in this step with their relations, and its references. \textbf{Hovering an edge} highlights it and shows its mathematical relation in a tooltip; \textbf{clicking an edge} opens the relation in the rail. ``Back to step'' or the Escape key returns to the step text.
 \item \textbf{Legend (8)} and \textbf{timeline (9).} The legend is repeated under every step text. The timeline at the bottom lists all steps with their years and jumps to any of them.
+\item \textbf{Step 13, the method in action.} The last step replaces the graph with the synthesis: the method cycle on the left, the compact schematic on the right, and the operation log below (Figures~\ref{fig:m4}--\ref{fig:m12}). Use the numbered buttons or the arrows to choose a step, or press Play to run all twelve; hover a node in the schematic for its name, hover a phase in the cycle for its definition. Below it are the count charts and the table of changes per layer.
 \end{enumerate}
 
 \subsection{How to study the history with the page}
 A productive order for a student is: read Step~1 and Step~2 for the kinematics; at Step~3 look for the red ring and ask what kind of model node could reach it before pressing ``Next''; at Step~4 click the field node and the sector boxes to see the back-edge and the ladders; from Step~5 on, for every new violet node, hover its route and its observable edges and read the relation on each edge (this is where the physics is); at Steps~8 and~9 watch the model column shrink and grow; at Step~12 open the gauge--fermion cluster and follow the lineage edges from Fermi's node to the charged current; finally read Step~13 for the counts.
 
 \subsection{Versions}
-The repository keeps every version. \texttt{v1.0/} is the first release (eleven graph steps and a synthesis), \texttt{v1.1/} adds the clustered final step, and \texttt{latest/} always opens the newest version. Each page has a version bar at the top that links to the other versions; earlier versions show a notice pointing to the newest. The landing page lists what changed in each version.
+The repository keeps every version. \texttt{v1.0/} is the first release (eleven graph steps and a synthesis), \texttt{v1.1/} adds the clustered final step, \texttt{v1.2/} adds the method-in-action synthesis view, and \texttt{latest/} always opens the newest version. Each page has a version bar at the top that links to the other versions; earlier versions show a notice pointing to the newest. The landing page lists what changed in each version.
 
 \subsection{Data and derived files}
 \begin{itemize}
-\item \texttt{data/v1.1\_sm\_epistemic\_graph.json}: the full graph (nodes, references, steps with edges, routes, groups, clusters), described in Appendix~\ref{app:data}. The page reads the same data embedded in its HTML.
+\item \texttt{data/v1.2\_sm\_epistemic\_graph.json}: the full graph (nodes, references, steps with edges, routes, groups, clusters, and the phases and operations of each step), described in Appendix~\ref{app:data}. The page reads the same data embedded in its HTML.
 \item \texttt{data/statistics.json}: per-step counts (nodes per layer, routes, unexplained observables).
 \item \texttt{catalog.md}: every node, edge and route of every step as Markdown tables, with the references.
 \item \texttt{tools/build\_derived.py}: regenerates the statistics, the catalogue, and every table and number of this paper from the JSON, so that the paper cannot drift from the graph.

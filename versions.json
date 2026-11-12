@@ -1,9 +1,26 @@
 {
- "latest": "1.1",
+ "latest": "1.2",
  "versions": [
-  {"version": "1.0", "path": "v1.0/", "date": "2026-11-12", "data": "data/v1.0_sm_epistemic_graph.json",
-   "summary": "First release: 11 graph steps (one-particle QM to the neutrino-mass frontier) and a synthesis step."},
-  {"version": "1.1", "path": "v1.1/", "date": "2026-11-12", "data": "data/v1.1_sm_epistemic_graph.json",
-   "summary": "Adds Step 12, the final clustered view: the model layer grouped into the five Standard-Model Lagrangian terms, with the effective nodes of Steps 6-8 absorbed inside the gauge-fermion term."}
+  {
+   "version": "1.0",
+   "path": "v1.0/",
+   "date": "2026-11-12",
+   "data": "data/v1.0_sm_epistemic_graph.json",
+   "summary": "First release: 11 graph steps (one-particle QM to the neutrino-mass frontier) and a synthesis step."
+  },
+  {
+   "version": "1.1",
+   "path": "v1.1/",
+   "date": "2026-11-12",
+   "data": "data/v1.1_sm_epistemic_graph.json",
+   "summary": "Adds Step 12, the final clustered view: the model layer grouped into the five Standard-Model Lagrangian terms, with the effective nodes of Steps 6-8 absorbed inside the gauge-fermion term."
+  },
+  {
+   "version": "1.2",
+   "path": "v1.2/",
+   "date": "2026-11-12",
+   "data": "data/v1.2_sm_epistemic_graph.json",
+   "summary": "Adds the method-in-action synthesis view (Step 13): the scientific-method cycle with the phases of each step filled, a compact schematic of the whole graph re-laid out step by step with the structural operations highlighted, and a per-step log of graph operations (added to the data as phases/ops)."
+  }
  ]
 }
