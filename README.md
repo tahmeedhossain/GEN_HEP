@@ -4,7 +4,7 @@ Particle physics as a state / model / observable concept graph that grows step b
 
 - **Live page:** https://tahmeedhossain.github.io/GEN_HEP/ (landing page with all versions; `latest/` opens the newest)
 - **Paper:** [paper/main.pdf](paper/main.pdf) — the graph, a pedagogical walk through the history, ten rules of evolution read off the graph, the clustered final graph, and a reader's guide with annotated screenshots
-- **Data:** [data/v1.1_sm_epistemic_graph.json](data/v1.1_sm_epistemic_graph.json), [data/statistics.json](data/statistics.json), [catalog.md](catalog.md)
+- **Data:** [data/v1.2_sm_epistemic_graph.json](data/v1.2_sm_epistemic_graph.json), [data/statistics.json](data/statistics.json), [catalog.md](catalog.md)
 
 Part of the **Great Epistemic Network** (GEN) project, whose aims are to generate research ideas automatically (an edge the literature should contain but the graph lacks is a research target), to make reviewing a field easy (a field becomes a graph one can step through), and to see a field through its review (the graph is drawn, not only listed).
 
@@ -28,7 +28,7 @@ Three layers. **States**: what the theory says can exist — the one-particle Hi
 | 10 | Mass: the Higgs sector | 1964–2012 |
 | 11 | Frontier: neutrino oscillation, an unexplained observable again | 1998– |
 | 12 | Final form: the Standard Model as clusters of its Lagrangian terms | (view) |
-| 13 | Synthesis: counts per step and the epistemic pattern | |
+| 13 | Synthesis: the method in action (cycle + schematic + operation log), counts per step | |
 
 Scope: QED and the electroweak sector (ν_e, e, ν_μ, μ, u, d, γ, W±, Z⁰, H). The strong sector is left for a later version.
 
@@ -38,7 +38,8 @@ Every version is kept at its own address.
 
 | Version | Folder | What changed |
 |---|---|---|
-| v1.1 (latest) | `v1.1/` (= `latest/`) | Adds Step 12, the clustered final view (effective nodes absorbed inside the SM Lagrangian terms, lineage arrows); fixes the synthesis charts |
+| v1.2 (latest) | `v1.2/` (= `latest/`) | Adds the method-in-action synthesis view (Step 13): the scientific-method cycle with the phases of each step filled, a compact schematic of the whole graph re-laid out step by step with the structural operations highlighted, Play control, and a per-step operation log; `phases` and `ops` added to the step data |
+| v1.1 | `v1.1/` | Adds Step 12, the clustered final view (effective nodes absorbed inside the SM Lagrangian terms, lineage arrows); fixes the synthesis charts |
 | v1.0 | `v1.0/` | First release: 11 graph steps + synthesis |
 
 `versions.json` is the manifest. The GitHub Pages site is published from the `gh-pages` branch, which the workflow in `.github/workflows/publish-pages.yml` copies from `main` on every push.
@@ -47,7 +48,7 @@ Every version is kept at its own address.
 
 ```
 index.html            landing page (versions, how to read, aims, paper/data links)
-v1.0/ v1.1/ latest/   the interactive pages (self-contained HTML; data embedded)
+v1.0/ v1.1/ v1.2/ latest/   the interactive pages (self-contained HTML; data embedded)
 data/                 graph JSON per version, statistics.json
 catalog.md            nodes, edges and routes of every step (generated)
 paper/                main.tex + sections, figures/, generated tables, main.pdf (XeLaTeX)

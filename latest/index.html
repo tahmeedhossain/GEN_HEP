@@ -106,6 +106,36 @@ button[disabled]{opacity:.45;cursor:default}
 .jlabel{font-size:9px;font-family:var(--mono);fill:var(--and);paint-order:stroke;stroke:var(--panel);stroke-width:3px;stroke-linejoin:round}
 .bracket{stroke:var(--state);fill:none;stroke-width:1} .bracket-lab{font-size:9px;font-family:var(--mono);fill:var(--state)}
 .ghost{opacity:0!important}
+/* method view (synthesis) */
+.method{margin-bottom:10px}.method .mh{font-size:15px;font-weight:600}.method .mp{font-size:12.5px;color:var(--muted);margin:6px 0 10px;max-width:90ch}
+.mctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px}.mctl button{padding:4px 10px;font-size:12.5px}
+.msteps{display:flex;flex-wrap:wrap;gap:3px;margin-left:6px}.msteps .mstep{padding:2px 7px;font-family:var(--mono);font-size:11px}.msteps .mstep.cur{border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg)}
+.mgrid{display:grid;grid-template-columns:280px minmax(0,1fr);gap:14px;align-items:start}
+.mcyc svg,.mschem svg{width:100%;height:auto;display:block;overflow:visible}
+.mschem{border:1px solid var(--line-soft);border-radius:8px;padding:6px;min-width:0}
+@media (max-width:760px){.mgrid{grid-template-columns:1fr}}
+.cyarc{fill:none;stroke:var(--line);stroke-width:1.2}.cyarc.on{stroke:var(--fg);stroke-width:1.8}
+.cyt{font-weight:600;fill:var(--fg);font-family:var(--font)}.cyc{font-family:var(--mono);fill:var(--muted)}.cyc2{font-family:var(--mono);fill:var(--muted)}
+.clab{font-size:7.5px;font-weight:600;letter-spacing:.08em;fill:var(--muted)}
+.cnode{cursor:default;transition:transform .5s ease,opacity .4s ease}.cnode .cbox{stroke-width:.8}
+.cnode .ct{fill:var(--fg);font-family:var(--font)}.cnode .ct.cb{font-weight:600}
+.cnode.S .cbox{fill:var(--state-soft);stroke:var(--state)}.cnode.S.dashed .cbox{fill:var(--panel);stroke-dasharray:2 2}.cslot{fill:var(--panel);stroke:var(--state);stroke-width:.6}
+.cnode.M .cbox{fill:var(--model-soft);stroke:var(--model)}.cnode.M.frame .cbox{fill:var(--panel)}.cnode.M.eff .cbox{stroke-dasharray:2.5 1.5}.cnode.M.cand .cbox{fill:var(--panel);stroke:var(--cand);stroke-dasharray:1.2 1.5}
+.cnode.M.cluster .cbox{fill:var(--panel);stroke:var(--model);stroke-width:1}.cnode.M.cluster.dashed .cbox{stroke:var(--cand);stroke-dasharray:2 2}
+.cnode.M.member.absorbed .cbox{fill:var(--panel);stroke:var(--muted);stroke-dasharray:2 1.5}.cnode.M.member.absorbed .ct{fill:var(--muted)}
+.cnode.O .cbox{fill:var(--obs-soft);stroke:var(--obs)}.cnode.O.unexplained .cbox{stroke:var(--anom);stroke-width:1.2;stroke-dasharray:3 1.5}.cnode.O.untested .cbox{stroke:var(--pred);stroke-dasharray:3 1.5}
+.cbadge{stroke:none}.cbadge.A{fill:var(--anom)}.cbadge.P{fill:var(--pred)}.cbadge.F{fill:var(--fit)}
+.cnode.new .cbox{stroke-width:1.6;filter:drop-shadow(0 0 2px var(--and))}.cnode.rewritten .cbox{stroke:var(--obs);stroke-width:1.4}
+.cmark circle{fill:var(--and);stroke:var(--panel);stroke-width:.8}.cmark text{fill:#fff;font-weight:700;font-family:var(--mono)}.cmark.rw circle{fill:var(--obs)}
+.cedge{fill:none;stroke-width:.7;opacity:.75}.cedge.s2m,.cedge.m2o{stroke:var(--edge)}.cedge.m2o.fit{stroke:var(--fit);stroke-dasharray:2 1.5}.cedge.m2o.frame{stroke:var(--muted);stroke-dasharray:.8 1.5}.cedge.m2o.cand{stroke:var(--cand);stroke-dasharray:1.2 1.5}
+.cedge.m2s{stroke:var(--state);stroke-dasharray:2.5 1.5}.cedge.m2m{stroke:var(--model)}.cedge.leg,.cedge.andout{stroke:var(--and)}.cedge.andcand{stroke:var(--cand);stroke-dasharray:1.2 1.5}
+.cedge.new{stroke-width:1.5;opacity:1}.cj circle{fill:var(--panel);stroke:var(--and);stroke-width:.9}.cj.cand circle{stroke:var(--cand)}.cj.new circle{stroke-width:1.6}.cbr{fill:none;stroke:var(--state);stroke-width:.6}
+.mtitle{font-size:13px;font-weight:600;margin:12px 0 4px}.mtitle .my{font-family:var(--mono);font-weight:400;font-size:11.5px;color:var(--muted);margin-left:6px}
+.mops{list-style:none;padding:0;margin:0;display:grid;gap:3px;font-size:12px}.mops li{display:grid;grid-template-columns:86px 42px 1fr;gap:8px;align-items:baseline}
+.mops .lay{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.op{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.04em;padding:1px 6px;border-radius:4px;border:1px solid var(--line);color:var(--muted);text-align:center}
+.op.add{color:var(--and);border-color:var(--and)}.op.rewrite{color:var(--obs);border-color:var(--obs)}.op.restr{color:var(--state);border-color:var(--state)}.op.reduce{color:var(--model);border-color:var(--model)}
+.op.route{color:var(--and);border-color:var(--and)}.op.pred{color:var(--pred);border-color:var(--pred)}.op.fit{color:var(--fit);border-color:var(--fit)}.op.flag{color:var(--anom);border-color:var(--anom)}.op.back{color:var(--state);border-color:var(--state)}
 .synth{display:none;padding:16px 18px;min-width:0}
 .synth.show{display:block}
 .synth table{border-collapse:collapse;width:100%;font-size:12.5px}
@@ -131,7 +161,7 @@ button[disabled]{opacity:.45;cursor:default}
     <div class="scope">State / model / observable concept graph of particle physics, grown step by step: one-particle quantum mechanics → Wigner's representations → quantum fields on Fock space → effective interactions → electroweak gauge theory and the Higgs sector. Scope: QED and the electroweak sector (strong sector omitted).</div>
   </div>
 </header>
-<div class="verbar">Version <strong>v1.1</strong> (latest) · earlier: <a href="../v1.0/">v1.0</a> · <a href="../">all versions, paper and data</a></div>
+<div class="verbar">Version <strong>v1.2</strong> (latest) · earlier: <a href="../v1.1/">v1.1</a>, <a href="../v1.0/">v1.0</a> · <a href="../">all versions, paper and data</a></div>
 <div class="controls">
   <button id="prev">← Previous</button>
   <button id="next">Next step →</button>
@@ -353,6 +383,7 @@ const REFS = {
 /* Edge: f (from), t (to), k (kind: s2m, m2o, m2s, m2m), st (status of m2o: pred | fit | frame | cand), rel (the mathematical connection). 'S' = the whole state layer. */
 const STEPS = [
 { id:'qm', title:'One-particle quantum mechanics', years:'1925–1932', driver:'found', driverLabel:'foundation',
+  phases:['observe','hypothesize','predict'], ops:[['ADD','S','H_{1}, the one-particle Hilbert space'],['ADD','M','U(t), observable postulate, particle Lagrangian'],['ADD','O','spectra of x̂, p̂, Ĥ, L̂, Ŝ (energy and spin observed first: A)'],['PREDICT','M→O','L → E_{n}; postulate → operators'],['BACK','M→S','U(t): H_{1} → H_{1}']],
   changes:[['S','H_{1}: rays in a one-particle Hilbert space'],['M','U(t) = e^{−iĤt/ħ}; observable postulate; particle Lagrangian'],['O','spectra of x̂, p̂, Ĥ, L̂, Ŝ']],
   text:'A state is a ray in H_{1}; Ĥ generates the unitary group U(t), which maps H_{1} onto itself (Stone 1932), so particle number is fixed at one by construction. Every self-adjoint operator is an observable whose spectrum lists the outcomes (von Neumann 1932). The particle Lagrangian fixes Ĥ and therefore both the evolution and the energy spectrum, e.g. E_{n} = −13.6 eV/n^{2} for hydrogen (Schrödinger 1926). Edges from the state layer enter the model nodes that act on states; the only edge back to the state layer is the evolution.',
   refs:['Heisenberg 1925','Schrödinger 1926','Born 1926','von Neumann 1932','Stone 1932'],
@@ -366,6 +397,7 @@ const STEPS = [
    {f:'m_A',t:'o_L',k:'m2o',st:'frame',rel:'L̂ = x̂ × p̂; eigenvalues l(l+1)ħ^{2}, m_{l}ħ'},{f:'m_A',t:'o_S',k:'m2o',st:'frame',rel:'Ŝ_{z} = (ħ/2)σ_{z}; eigenvalues ±ħ/2 (Pauli 1927)'}
   ]},
 { id:'wigner', title:'Poincaré symmetry: Wigner\'s classification', years:'1926–1939', driver:'sym', driverLabel:'symmetry (theory-internal)',
+  phases:['hypothesize','restructure','predict'], ops:[['REWRITE','M','U(t) → U(Λ, a); L → Klein–Gordon / Dirac equations'],['PARTITION','S','H_{1} → 9 UIR classes, by the back-edge of U(Λ, a)'],['ADD','O','mass and spin (Casimir invariants: P)']],
   changes:[['S','H_{1} = ⊕ UIRs labelled by (m, s) or (0, h); classes without instances dashed'],['M','U(t) → U(Λ, a); L → Klein–Gordon / Dirac equations'],['O','mass and spin/helicity become observables (Casimir invariants)']],
   text:'Requiring U to represent the Poincaré group makes H_{1} decompose into irreducible subspaces. Wigner (1939) classified them by the little group of a standard momentum: SO(3) for m > 0 (spin s), ISO(2) for m = 0 (helicity h, or the continuous-spin representations), plus the tachyonic and trivial classes. The relativistic wave equations (Klein 1926; Gordon 1926; Dirac 1928) are the equations satisfied by the carrier fields of these representations (Bargmann & Wigner 1948). The back-edge from U(Λ, a) is what partitions the state layer. Order note: the field quantization of Step 4 (1927–32) predates Wigner\'s paper; the sequence here follows logical dependence, and each node carries its own date.',
   refs:['Klein 1926','Gordon 1926','Dirac 1928','Wigner 1939','Bargmann & Wigner 1948','Weinberg 1995'],
@@ -382,6 +414,7 @@ const STEPS = [
    {f:'m_A',t:'o_p',k:'m2o',st:'frame',rel:'P^{μ} generators of translations'},{f:'m_A',t:'o_L',k:'m2o',st:'frame',rel:'J^{μν} generators of Lorentz transformations'},{f:'m_A',t:'o_S',k:'m2o',st:'frame',rel:'spin from the little-group representation'}
   ]},
 { id:'anomaly', title:'An observable with no model edge: particle creation and destruction', years:'1914–1934', driver:'anom', driverLabel:'anomaly: observed, unexplained',
+  phases:['observe','deficit'], ops:[['ADD','O','particle production and decay (A)'],['FLAG','O','in-degree 0 from the model layer: anomaly']],
   changes:[['O','+ particle production and decay (in-degree 0 from the model layer)']],
   text:'Three observations share one feature: the final state contains a different number of particles than the initial one. (i) Emission and absorption of light, quantified by Einstein\'s A and B coefficients (1917). (ii) β decay: the electron spectrum is continuous (Chadwick 1914; Ellis & Wooster 1927), and the electron is not a nuclear constituent. (iii) Creation of e^{+}e^{−} pairs by γ rays (Anderson 1933; Blackett & Occhialini 1933). Since U(Λ, a) acts within H_{1} and even within a single UIR, no node of the model layer can send an edge to this observable. The red dashed ring marks an observable node with in-degree zero from the model layer: the signal that a new model node is required.',
   refs:['Einstein 1917','Chadwick 1914','Ellis & Wooster 1927','Anderson 1933','Blackett & Occhialini 1933'],
@@ -396,6 +429,7 @@ const STEPS = [
    {f:'m_A',t:'o_p',k:'m2o',st:'frame',rel:'P^{μ}'},{f:'m_A',t:'o_S',k:'m2o',st:'frame',rel:'little-group spin'}
   ]},
 { id:'fock', title:'Model response: quantum fields on Fock space', years:'1927–1940', driver:'resp', driverLabel:'model response to the anomaly',
+  phases:['hypothesize','restructure'], ops:[['ADD','M','quantum field a, a^{†} on Fock space (L merges into L_{0})'],['EXTEND','S','each realized UIR → Fock sector with the ladder |0⟩…|N⟩, by the back-edge of the field'],['REWRITE','O','particle production → Γ, σ (still in-degree 0: S = 1 without L_{int})']],
   changes:[['M','+ field node (a, a^{†}); the one-particle Lagrangian becomes the free-field L_{0}'],['S','each realized UIR → a Fock sector with nodes |0⟩, |1⟩, |2⟩, …, |N⟩'],['O','generic rates Γ and cross sections σ; still unexplained (S = 1 without L_{int})']],
   text:'The field is the operator that adds or removes one quantum of a given UIR: φ(x) = Σ_{p}(a_{p}u_{p} + a_{p}^{†}u_{p}^{*}). The Fock space of each species is the direct sum of symmetrized (bosons) or antisymmetrized (fermions) N-particle spaces (Fock 1932); the spin–statistics connection was proved by Fierz (1939) and Pauli (1940). Dirac (1927) built the photon field this way to derive Einstein\'s A coefficient; Jordan & Wigner (1928) gave the fermionic construction and Heisenberg & Pauli (1929) the general Lagrangian field theory. The new back-edge from the field node builds the ladders of each sector; the ladder is drawn from the minimal occupation numbers 0, 1, 2 to N. The observables of interest are now transition rates, Γ = 2π|⟨f|H_{int}|i⟩|^{2}ρ(E) and σ ∝ |⟨f|S|i⟩|^{2}. With L_{int} = 0 the S-matrix is 1 and Γ = σ = 0: the free field explains that particle number can change, not which processes occur. The observable postulate now reads through the S-matrix.',
   refs:['Dirac 1927','Jordan & Wigner 1928','Heisenberg & Pauli 1929','Fock 1932','Fierz 1939','Pauli 1940','Wheeler 1937','Heisenberg 1943','Weinberg 1995'],
@@ -410,6 +444,7 @@ const STEPS = [
    {f:'m_U',t:'o_m',k:'m2o',st:'pred',rel:'P^{2} on the one-particle subspace'},{f:'m_U',t:'o_s',k:'m2o',st:'pred',rel:'W^{2} on the one-particle subspace'}
   ]},
 { id:'qed', title:'First interaction node: the QED vertex', years:'1927–1949', driver:'anom', driverLabel:'anomaly (Compton, a_e, Lamb) + prediction (pairs)',
+  phases:['hypothesize','predict','calibrate','observe'], ops:[['ADD','M','QED vertex (fundamental, dimensionless e)'],['ROUTE','S→M','e(1)∧γ(1)'],['ADD','O','Compton, pair production, a_{e}, Lamb shift, α'],['PREDICT','M→O','pair production (P); Compton, a_{e}, Lamb explained (A)'],['CALIBRATE','O→M','α fixes e']],
   changes:[['M','+ −e ψ̄γ^{μ}ψA_{μ}; AND route e(1) ∧ γ(1)'],['O','Compton dσ/dΩ, pair production σ, a_{e}, Lamb shift explained; α is a calibration; β decay still unexplained']],
   text:'Minimal coupling p → p − eA, applied to the quantized fields, gives the single interaction term −e ψ̄γ^{μ}ψA_{μ}. One vertex changes N_{γ} by ±1 and N_{e} by 0 (scattering) or ±2 (pair creation/annihilation); the AND route is drawn from the minimal configuration e(1) ∧ γ(1) and applies to every rung of both ladders. At order α it reproduces the Klein–Nishina cross section (1929) and the Bethe–Heitler pair-production cross section (1934). At order α^{2} the renormalized theory (Tomonaga 1946; Schwinger 1948; Feynman 1949; Dyson 1949) gives a_{e} = α/2π = 0.00116 against the measured 0.00119(5) (Kusch & Foley 1948), and a Lamb shift of ≈1040 MHz against ≈1000 MHz measured (Lamb & Retherford 1947; Bethe 1947). The coupling e is not predicted: the edge to α is a calibration (F). β decay remains an observable without a model edge.',
   refs:['Dirac 1927','Klein & Nishina 1929','Bethe & Heitler 1934','Lamb & Retherford 1947','Bethe 1947','Kusch & Foley 1948','Schwinger 1948','Tomonaga 1946','Feynman 1949','Dyson 1949'],
@@ -427,6 +462,7 @@ const STEPS = [
   ],
   ands:[{legs:[{s:'s_e',n:1},{s:'s_g',n:1}],t:'m_qed',label:'e(1)∧γ(1)',rel:'⟨e, γ|H_{int}|e⟩ ≠ 0: the vertex connects (N_{e}, N_{γ}) to (N_{e}, N_{γ}±1) and (N_{e}±2, N_{γ}±1)'}]},
 { id:'fermi', title:'Second interaction node: Fermi\'s contact term', years:'1934', driver:'anom', driverLabel:'anomaly: β spectrum',
+  phases:['observe','deficit','hypothesize','predict','calibrate'], ops:[['ADD','M','Fermi contact term (effective: dim G_{F} = −2)'],['ROUTE','S→M','n(1)∧p(1)∧e(1)∧ν̄(1)'],['PREDICT','M→O','β spectrum shape (A explained), τ_{n} (P)'],['CALIBRATE','O→M','G_{F}']],
   changes:[['M','+ G_{F}(p̄γ^{μ}n)(ēγ_{μ}ν): four fermions at one point; AND route n(1)∧p(1)∧e(1)∧ν̄(1)'],['O','β-decay rate and shape explained; neutron lifetime predicted; G_{F} calibrated']],
   text:'Fermi (1934) copied the structure of the QED vertex: a nucleon current p̄γ^{μ}n in place of the electron current, and the pair (e, ν̄) created at the same point in place of the photon. The electron spectrum shape follows from phase space and the matrix element (Kurie plot, Kurie et al. 1936); Gamow & Teller (1936) added axial-vector and tensor structure to account for ΔJ = 1 transitions. The route is the first AND route with four sectors. The coupling G_{F} ≈ 1.166×10^{−5} GeV^{−2} has dimension mass^{−2}: the amplitude grows like G_{F}s and the node violates partial-wave unitarity at √s of order a few hundred GeV, so it cannot be fundamental (textbook argument; no primary reference given). This is an effective node (dashed outline).',
   refs:['Fermi 1934a','Fermi 1934b','Gamow & Teller 1936','Kurie et al. 1936','Chadwick & Goldhaber 1935','Robson 1951','Cowan et al. 1956'],
@@ -443,6 +479,7 @@ const STEPS = [
   ands:[{legs:[{s:'s_e',n:1},{s:'s_g',n:1}],t:'m_qed',label:'e(1)∧γ(1)',rel:'QED vertex'},
         {legs:[{s:'s_n',n:1},{s:'s_p',n:1},{s:'s_e',n:1},{s:'s_nu',n:1}],t:'m_fermi',label:'n(1)∧p(1)∧e(1)∧ν̄(1)',rel:'⟨p, e, ν̄|H_{int}|n⟩ ≠ 0: n → p e ν̄ at one point'}]},
 { id:'muon', title:'Universality: the muon and a second contact node', years:'1937–1962', driver:'anom', driverLabel:'anomaly: the muon',
+  phases:['observe','hypothesize','restructure','predict','calibrate'], ops:[['ADD','S','μ sector'],['SPLIT','S','ν → ν_{e}, ν_{μ} (Danby et al. 1962)'],['ADD','M','μ-decay contact term (effective, same G_{F})'],['ROUTE','S→M','μ(1)∧ν_{μ}(1)∧e(1)∧ν̄_{e}(1)'],['PREDICT','M→O','Michel ρ, ν_{μ} ≠ ν_{e} (P)'],['CALIBRATE','O→M','G_{F} from τ_{μ}'],['SIGNAL','M','two nodes share one coupling: a merge is due']],
   changes:[['S','+ μ sector; the ν sector splits into ν_{e} and ν_{μ} (1962)'],['M','+ muon-decay contact term with the same G_{F}'],['O','τ_{μ}, Michel ρ, ν_{μ} ≠ ν_{e}; G_{F} now calibrated from τ_{μ}']],
   text:'The muon (Neddermeyer & Anderson 1937) was first taken for Yukawa\'s meson; Conversi, Pancini & Piccioni (1947) showed it does not interact strongly. Its decay μ → e ν̄ ν is described by a second four-fermion node. The remarkable fact is that one constant fits β decay, μ decay and μ capture: Puppi (1948), Klein (1948), Tiomno & Wheeler (1949) and Lee, Rosenbluth & Yang (1949) formulated this universal Fermi interaction. τ_{μ}^{−1} = G_{F}^{2}m_{μ}^{5}/192π^{3} (times small corrections) makes τ_{μ} the most precise source of G_{F}, hence the calibration edge moves here. Michel (1950) parametrized the electron spectrum; ρ = ¾ is the value later fixed by V−A. Danby et al. (1962) showed that neutrinos from π → μν produce μ but not e: the ν sector splits into ν_{e} and ν_{μ}. Two model nodes sharing one coupling is the signal that they are instances of a single node.',
   refs:['Neddermeyer & Anderson 1937','Conversi et al. 1947','Puppi 1948','Klein 1948','Tiomno & Wheeler 1949','Lee, Rosenbluth & Yang 1949','Michel 1950','Danby et al. 1962'],
@@ -464,6 +501,7 @@ const STEPS = [
         {legs:[{s:'s_n',n:1},{s:'s_p',n:1},{s:'s_e',n:1},{s:'s_nue',n:1}],t:'m_fermi',label:'n(1)∧p(1)∧e(1)∧ν̄_{e}(1)',rel:'n → p e ν̄_{e}'},
         {legs:[{s:'s_mu',n:1},{s:'s_num',n:1},{s:'s_e',n:1},{s:'s_nue',n:1}],t:'m_mu',label:'μ(1)∧ν_{μ}(1)∧e(1)∧ν̄_{e}(1)',rel:'⟨e, ν̄_{e}, ν_{μ}|H_{int}|μ⟩ ≠ 0'}]},
 { id:'va', title:'Parity violation: the two contact nodes merge into V−A', years:'1956–1958', driver:'anom', driverLabel:'anomaly (τ–θ puzzle) → proposed test → observation',
+  phases:['observe','deficit','hypothesize','reduce','predict'], ops:[['ADD','O','parity asymmetries, ν helicity (P, test proposed by Lee & Yang)'],['FLAG','O','parity-even nodes cannot reach them'],['MERGE','M','Fermi + μ-decay → one V−A current–current node'],['ROUTE','S→M','three routes: β decay, μ decay, μ capture'],['PREDICT','M→O','ρ = ¾, h(ν) = −1']],
   changes:[['O','+ parity-violating asymmetries (Wu; Garwin) and ν helicity −1: unexplained by parity-even nodes'],['M','Fermi and μ nodes merge into one V−A current–current node; three AND routes enter it']],
   text:'The τ–θ puzzle led Lee & Yang (1956) to note that parity conservation had never been tested in weak processes and to propose tests; Wu et al. (1957) found the electron emission of polarized ^{60}Co correlated with the nuclear spin, and Garwin, Lederman & Weinrich (1957) found the corresponding asymmetry in μ decay. No parity-conserving node can produce these pseudoscalar correlations. Feynman & Gell-Mann (1958) and Sudarshan & Marshak (1958) replaced the two contact nodes by one current–current term with vector-minus-axial currents, which fixes the Michel parameter at ¾ and the neutrino helicity at −1 (Goldhaber, Grodzins & Sunyar 1958). The hadronic current acquires |g_{A}/g_{V}| ≈ 1.27 and, after Cabibbo (1963), the factor cos θ_{C}. Epistemically this is a reduction: three routes (β decay, μ decay, μ capture) now enter one node with one coupling.',
   refs:['Lee & Yang 1956','Wu et al. 1957','Garwin et al. 1957','Feynman & Gell-Mann 1958','Sudarshan & Marshak 1958','Goldhaber et al. 1958','Cabibbo 1963'],
@@ -486,6 +524,7 @@ const STEPS = [
         {legs:[{s:'s_mu',n:1},{s:'s_num',n:1},{s:'s_e',n:1},{s:'s_nue',n:1}],t:'m_va',label:'μ(1)∧ν_{μ}(1)∧e(1)∧ν̄_{e}(1)',rel:'μ decay route'},
         {legs:[{s:'s_mu',n:1},{s:'s_num',n:1},{s:'s_p',n:1},{s:'s_n',n:1}],t:'m_va',label:'μ(1)∧p(1)∧ν_{μ}(1)∧n(1)',rel:'μ capture route μ^{−} p → ν_{μ} n'}]},
 { id:'ew', title:'Fundamental nodes: W, Z and SU(2)_{L} × U(1)_{Y}', years:'1954–1983', driver:'pred', driverLabel:'theory-internal (unitarity, renormalizability) → predictions confirmed',
+  phases:['hypothesize','restructure','reduce','predict','calibrate','observe'], ops:[['ADD','S','W^{±}, Z^{0} sectors'],['REPLACE','S','(n, p) → (u, d)'],['ABSORB','M','V−A → charged-current gauge vertex; G_{F}/√2 = g^{2}/8M_{W}^{2}'],['ADD','M','neutral current and gauge self-couplings, forced by the symmetry'],['REWRITE','M','QED vertex → electromagnetic part, e = g sinθ_{W}'],['PREDICT','M→O','neutral currents (1973), M_{W}, M_{Z} (1983), N_{ν}, triple-gauge couplings (P)'],['CALIBRATE','O→M','sin^{2}θ_{W}; G_{F}']],
   changes:[['S','+ W^{±}, Z^{0} sectors (m > 0, s = 1); (n, p) replaced by (u, d)'],['M','V−A node → charged-current gauge vertex; + neutral current; + gauge self-couplings; QED vertex absorbed (e = g sinθ_{W})'],['O','neutral currents (1973), M_{W}, M_{Z} (1983), N_{ν} (LEP), e^{+}e^{−} → W^{+}W^{−} (LEP2); sin^{2}θ_{W} calibrated']],
   text:'Replacing the contact term by the exchange of a massive vector boson (Schwinger 1957; Bludman 1958) and demanding a renormalizable gauge structure (Yang & Mills 1954; Glashow 1961; Weinberg 1967; Salam 1968; \'t Hooft 1971; \'t Hooft & Veltman 1972) turns the effective node into the low-energy limit of a fundamental one: G_{F}/√2 = g^{2}/(8M_{W}^{2}), i.e. the four-fermion node is recovered for q^{2} ≪ M_{W}^{2} (the effective-field-theory reading of Weinberg 1979). The same symmetry forces a neutral current, observed by Gargamelle (Hasert et al. 1973) ten years after the prediction, and W, Z production at the SPS (UA1, UA2 1983). The nucleon current is rewritten at quark level (Gell-Mann 1964); the QCD sector that binds u, d into n, p is outside this graph, so the β-decay route now enters through u(1) ∧ d(1). The gauge self-couplings were tested through e^{+}e^{−} → W^{+}W^{−} at LEP2. The invisible Z width fixes N_{ν} = 2.984 ± 0.008 (LEP 2006): a model-layer prediction about the number of state-layer sectors. From here on the observables are predicted before they are seen (P badges).',
   refs:['Yang & Mills 1954','Schwinger 1957','Bludman 1958','Glashow 1961','Weinberg 1967','Salam 1968',"'t Hooft 1971","'t Hooft & Veltman 1972",'Hasert et al. 1973','Arnison et al. 1983','Banner et al. 1983','Arnison et al. 1983b','LEP EWWG 2006','LEP2 EWWG 2013','Gell-Mann 1964','Cabibbo 1963','Weinberg 1979'],
@@ -518,6 +557,7 @@ const STEPS = [
         {legs:[{s:'s_W',n:2},{s:'s_g',n:1}],t:'m_gs',label:'W(2)∧γ(1)',rel:'WWγ vertex'},
         {legs:[{s:'s_W',n:2},{s:'s_Z',n:1}],t:'m_gs',label:'W(2)∧Z(1); W(4)',rel:'WWZ and quartic vertices'}]},
 { id:'higgs', title:'Mass: the Higgs sector', years:'1964–2012', driver:'pred', driverLabel:'theory-internal (mass terms break the gauge symmetry) → prediction',
+  phases:['hypothesize','restructure','predict','calibrate','observe'], ops:[['ADD','S','H sector'],['ADD','M','Higgs–gauge, Yukawa, potential'],['ROUTE','S→M','H(1)∧W(2), H(1)∧Z(2), H(1)∧f(2), H(3)'],['PREDICT','M→O','m_{H} (P, 2012), Higgs rates (P); λ_{HHH} untested'],['CALIBRATE','O→M','m_{f} → y_{f}; m_{H} → λ']],
   changes:[['S','+ H sector (m > 0, s = 0)'],['M','+ Higgs–gauge, Yukawa and potential nodes'],['O','m_{H}, Higgs rates predicted; fermion masses and m_{H} calibrate y_{f}, λ; λ_{HHH} untested']],
   text:'Explicit mass terms for W, Z and for the chiral fermions are forbidden by SU(2)_{L}×U(1)_{Y}. The Brout–Englert–Higgs mechanism (Englert & Brout 1964; Higgs 1964; Guralnik, Hagen & Kibble 1964) adds a scalar doublet whose vacuum value v = (√2G_{F})^{−1/2} = 246 GeV gives M_{W} = gv/2, M_{Z} = M_{W}/cosθ_{W} and, through Yukawa couplings, m_{f} = y_{f}v/√2 (Weinberg 1967). The W and Z mass edges of Step 9 are now derived from the Higgs–gauge node. A physical scalar with m_{H}^{2} = 2λv^{2} is predicted; ATLAS and CMS (2012) observed it at ≈125 GeV, and the measured production and decay rates (γγ, ZZ^{*}, WW^{*}, ττ, bb̄) match the SM pattern. The fermion masses and m_{H} remain inputs: those edges are calibrations (F). The trilinear coupling λ_{HHH} has not been measured, only bounded: a prediction without a confirming observation (blue dashed ring).',
   refs:['Englert & Brout 1964','Higgs 1964','Guralnik, Hagen & Kibble 1964','Weinberg 1967','ATLAS 2012','CMS 2012','PDG 2024'],
@@ -546,6 +586,7 @@ const STEPS = [
         {legs:[{s:'s_H',n:1},{g:'chg',n:2,label:'f(2)'}],t:'m_yuk',label:'H(1)∧f(2), m_{f} ≠ 0',rel:'⟨f f̄|H_{int}|H⟩ ∝ m_{f}/v'},
         {legs:[{s:'s_H',n:3}],t:'m_pot',label:'H(3)',rel:'HHH vertex ∝ 3m_{H}^{2}/v'}]},
 { id:'frontier', title:'Frontier: an observable with no model edge, again', years:'1998–', driver:'anom', driverLabel:'anomaly: observed, unexplained',
+  phases:['observe','deficit','hypothesize'], ops:[['ADD','O','ν flavour oscillation (A)'],['FLAG','O','in-degree 0: massless ν sectors cannot carry Δm^{2}'],['ADD','M','candidate ν-mass node (dashed, not established)'],['ROUTE','S→M','ν(2)∧H(2) (candidate)']],
   changes:[['O','+ neutrino flavour oscillation (Δm^{2} ≠ 0): in-degree 0 from established model nodes'],['M','candidate repair nodes drawn dashed (Weinberg operator; ν_{R} Yukawa / seesaw)']],
   text:'Super-Kamiokande (1998), SNO (2002) and KamLAND (2003) established flavour oscillation, which requires non-degenerate neutrino masses. In the graph as built the ν sectors carry the massless UIR (h = −½ only, no right-handed state), so no Yukawa node can reach them: the observable has in-degree zero from the model layer, the situation of Step 3 repeated. Candidate repairs are dashed: the dimension-5 operator (LΦ)(LΦ)/Λ (Weinberg 1979), which uses only existing sectors (route ν(2) ∧ H(2)), or new ν_{R} sectors with Dirac Yukawa couplings and possibly Majorana masses (seesaw: Minkowski 1977; Gell-Mann, Ramond & Slansky 1979; Yanagida 1979; Mohapatra & Senjanović 1980). Which node is correct is not decided by current data. The epistemic engine of the whole graph is this loop: an observable node with in-degree zero → a new model node → a re-partition of the state layer → new predicted observables.',
   refs:['Fukuda et al. 1998','Ahmad et al. 2002','Eguchi et al. 2003','Weinberg 1979b','Minkowski 1977','Mohapatra & Senjanović 1980'],
@@ -575,6 +616,7 @@ const STEPS = [
         {legs:[{s:'s_H',n:3}],t:'m_pot',label:'H(3)',rel:'HHH'},
         {legs:[{g:'nus',n:2,label:'ν(2)'},{s:'s_H',n:2}],t:'m_numass',cand:true,label:'ν(2)∧H(2) (candidate)',rel:'Weinberg operator (LΦ)(LΦ)/Λ: ⟨νν|H_{int}|HH⟩ ∝ 1/Λ'}]},
 { id:'sm', title:'Final form: the Standard Model as clusters of its Lagrangian terms', years:'1927–2012 (final view)', driver:'syn', driverLabel:'clustering: effective nodes inside the terms that reproduce them',
+  phases:['reduce'], ops:[['CLUSTER','M','7 vertices + 3 absorbed effective nodes → 5 SM Lagrangian terms + 1 candidate cluster'],['LINEAGE','M→M','Fermi → V−A ← μ-decay; V−A → charged current'],['ROUTE','S→M','12 routes re-attached to the clusters']],
   changes:[['M','model layer grouped into the five terms of the electroweak SM Lagrangian (+ one dashed candidate cluster); the effective nodes of Steps 6–8 sit inside the gauge–fermion cluster with lineage edges'],['S','routes from the sectors now enter clusters: every fermion sector with γ, W or Z into the gauge–fermion term; H with W, Z, the massive fermions and itself into the Higgs terms'],['O','all observables of Steps 5–11; edges leave the clusters; ν oscillation still has no established edge']],
   text:'The model layer is grouped by the five terms of L_{SM} = −¼W^{a}_{μν}W^{aμν} − ¼B_{μν}B^{μν} + Σ f̄ iγ^{μ}D_{μ} f + |D_{μ}Φ|^{2} − V(Φ) − (y_{f} f̄_{L}Φ f_{R} + h.c.). Each cluster is one term; its fundamental vertices are the members, and the effective nodes of Steps 6–8 sit inside the cluster that reproduces them as a low-energy limit (lineage arrows: Fermi → V−A ← μ-decay; V−A → charged current, with G_{F}/√2 = g^{2}/8M_{W}^{2}). Clustering rule: an effective node belongs to the cluster whose member reproduces it at q^{2} ≪ M^{2}; the matching condition is the edge. The gauge–fermion term is entered by every fermion sector together with γ, W or Z (five routes); the gauge kinetic term by W with γ or Z; the Higgs terms by H with W, Z, the massive fermions, or H itself. Edges to observables leave the clusters. Counting: 6 clusters (5 SM terms + 1 candidate), 7 fundamental vertices, 3 absorbed effective nodes, 12 routes, 16 observables, of which 3 are calibrations, 1 is an untested prediction and 1 (ν oscillation) has no established edge. This is the network that the earlier steps grew.',
   refs:['Glashow 1961','Weinberg 1967','Salam 1968','Yang & Mills 1954','Higgs 1964','Weinberg 1979','PDG 2024'],
@@ -714,7 +756,7 @@ function render(i,opts){opts=opts||{};const step=STEPS[i];const prevStep=STEPS[c
   $('stepno').textContent='Step '+(i+1)+' of '+STEPS.length+' · '+step.years;$('prev').disabled=i===0;$('next').disabled=i===STEPS.length-1;
   document.querySelectorAll('#timeline button').forEach((b,j)=>{b.classList.toggle('cur',j===i);b.classList.toggle('done',j<i);});
   if(step.id==='synth'){svg.style.display='none';synth.classList.add('show');renderSynth();showStep(i);return;}
-  svg.style.display='';synth.classList.remove('show');
+  svg.style.display='';synth.classList.remove('show');if(window.GENMethod)window.GENMethod.unmount();
   ensureDefs();
   const {pos,height}=layoutStep(step);lastLayout={pos,step};svg.setAttribute('viewBox',`0 0 ${VB_W} ${Math.max(height,420)}`);
   let gE=svg.querySelector('#edges'),gN=svg.querySelector('#nodes'),gH=svg.querySelector('#hdr');
@@ -846,7 +888,8 @@ function renderSynth(){const st=stats();const rows=STEPS.filter(s=>s.id!=='synth
     let xl='';for(let i=0;i<n;i++)xl+=`<text x="${sx(i)}" y="${H-6}" font-size="9" text-anchor="middle" fill="var(--muted)">${i+1}</text>`;
     const last=vals[n-1];
     return `<div class="chart"><h4>${title}</h4><svg viewBox="0 0 ${W} ${H}">${g}${xl}<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round"/>${marks}<text x="${sx(n-1)+8}" y="${sy(last)+3}" font-size="10" fill="var(--fg)">${last}</text></svg></div>`;};
-  synth.innerHTML=`<h2 style="font-size:15px;font-weight:600">Epistemic evolution, step by step</h2><div class="charts">${panel('State-layer nodes','S','var(--state)')}${panel('Effective interaction nodes','eff','var(--model)')}${panel('Fundamental interaction nodes','fund','var(--model)')}${panel('Observables with no model edge','unexp','var(--anom)')}</div><div class="n" style="font-size:11px;color:var(--muted);margin-top:4px;font-family:var(--mono)">x-axis: step number (1–12); counts taken from the graph data of each step</div><div class="tablewrap"><table><thead><tr><th>#</th><th>Step</th><th>Driver</th><th>State layer</th><th>Model layer</th><th>Observable layer</th></tr></thead><tbody>${rows}</tbody></table></div>`;}
+  synth.innerHTML=`<h2 style="font-size:15px;font-weight:600;margin-top:18px">Counts per step</h2><div class="charts">${panel('State-layer nodes','S','var(--state)')}${panel('Effective interaction nodes','eff','var(--model)')}${panel('Fundamental interaction nodes','fund','var(--model)')}${panel('Observables with no model edge','unexp','var(--anom)')}</div><div class="n" style="font-size:11px;color:var(--muted);margin-top:4px;font-family:var(--mono)">x-axis: step number (1–12); counts taken from the graph data of each step</div><div class="tablewrap"><table><thead><tr><th>#</th><th>Step</th><th>Driver</th><th>State layer</th><th>Model layer</th><th>Observable layer</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+  if(window.GENMethod)window.GENMethod.mount(synth);}
 
 /* ---------- controls ---------- */
 function go(i){if(i<0||i>=STEPS.length)return;render(i);try{location.hash='step-'+(i+1);}catch(e){}}
@@ -860,6 +903,123 @@ function fromHash(){const m=/^#step-(\d+)$/.exec(location.hash||'');const i=m?pa
 window.addEventListener('hashchange',()=>{const i=fromHash();if(i!==cur)render(i);});
 render(fromHash());
 })();
+</script>
+<script>
+/* Synthesis: the method in action. A cycle diagram of the scientific method and a compact schematic of the
+   whole graph, re-drawn step by step with the structural operations highlighted and logged. */
+window.GENMethod=(function(){
+const NS='http://www.w3.org/2000/svg';
+const PH=[['observe','Observe','an observable enters or is confirmed'],['deficit','Deficit','an observable with no model edge (anomaly)'],['hypothesize','Hypo-|thesize','a model node is added or rewritten'],
+          ['restructure','Restruc-|ture','the state layer is partitioned, extended, split or replaced'],['predict','Predict','new model → observable edges (P)'],['calibrate','Calibrate','an observable fixes a parameter (F)'],['reduce','Reduce','merge, absorb or cluster model nodes']];
+const PHC={observe:'var(--obs)',deficit:'var(--anom)',hypothesize:'var(--model)',restructure:'var(--state)',predict:'var(--pred)',calibrate:'var(--fit)',reduce:'var(--model)'};
+const OPC={ADD:'add',REWRITE:'rewrite',PARTITION:'restr',EXTEND:'restr',SPLIT:'restr',REPLACE:'restr',MERGE:'reduce',ABSORB:'reduce',CLUSTER:'reduce',LINEAGE:'reduce',ROUTE:'route',PREDICT:'pred',CALIBRATE:'fit',FLAG:'flag',BACK:'back',SIGNAL:'flag'};
+const GS=STEPS.filter(s=>s.id!=='synth');
+const plainT=s=>(s||'').replace(/[\^_]\{([^}]*)\}/g,'$1');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const htmlRich=s=>(s||'').replace(/\^\{([^}]*)\}/g,'<sup>$1</sup>').replace(/_\{([^}]*)\}/g,'<sub>$1</sub>');
+function el(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e;}
+function txt(parent,x,y,s,size,anchor,cls){const t=el('text',{x,y,'font-size':size},parent);if(anchor)t.setAttribute('text-anchor',anchor);if(cls)t.setAttribute('class',cls);t.textContent=s;return t;}
+
+/* ---------- compact layout ---------- */
+const C={S:{x:12,w:150},M:{x:222,w:170},O:{x:442,w:150}},VBW=604,TOPC=24,GAPC=4;
+function ndef(id,step){const n=Object.assign({id},NODES[id]);const o=step.override&&step.override[id];if(o)Object.assign(n,o);return n;}
+function hC(n){if(n.layer==='S')return n.kind==='sector'?18:n.kind==='uir'?12:22;if(n.layer==='M')return n.kind==='frame'?16:18;return 14;}
+function layoutC(step){const pos={};let maxY=0;const cls=step.clusters||[];
+  for(const L of ['S','M','O']){let y=TOPC;for(const id of step[L]){const cl=L==='M'&&cls.find(c=>c.id===id);
+    if(cl){const n=ndef(id,step);let yy=y+12;for(const mid of cl.members){const mn=ndef(mid,step);const mh=mn.absorbed?10:14;pos[mid]={x:C.M.x+8,y:yy,w:C.M.w-12,h:mh,layer:'M',n:mn,member:true};yy+=mh+3;}
+      pos[id]={x:C.M.x,y,w:C.M.w,h:yy-y+1,layer:'M',n,isCluster:true,lineage:cl.lineage||[]};y+=yy-y+1+GAPC;}
+    else{const n=ndef(id,step);const h=hC(n);pos[id]={x:C[L].x,y,w:C[L].w,h,layer:L,n};y+=h+GAPC;}}
+    maxY=Math.max(maxY,y);}
+  return {pos,height:maxY+6};}
+const aR=p=>({x:p.x+p.w,y:p.y+p.h/2}),aL=p=>({x:p.x,y:p.y+p.h/2});
+const cub=(a,b,k)=>`M${a.x},${a.y} C${a.x+k},${a.y} ${b.x-k},${b.y} ${b.x},${b.y}`;
+
+/* ---------- state ---------- */
+let host=null,svgC=null,svgCy=null,els=new Map(),k=0,timer=null;
+
+function ensureDefs(svg){const d=el('defs',{},svg);const mk=(id,c)=>{const m=el('marker',{id,viewBox:'0 0 10 10',refX:'8',refY:'5',markerWidth:'5',markerHeight:'5',orient:'auto-start-reverse'},d);el('path',{d:'M0,0 L10,5 L0,10 z',fill:c},m);};
+  mk('cm-edge','var(--edge)');mk('cm-and','var(--and)');mk('cm-state','var(--state)');mk('cm-model','var(--model)');mk('cm-fit','var(--fit)');mk('cm-cand','var(--cand)');}
+
+function drawC(stepIdx){const step=GS[stepIdx],prev=GS[stepIdx-1];const {pos,height}=layoutC(step);svgC.setAttribute('viewBox',`0 0 ${VBW} ${Math.max(height,140)}`);
+  let gE=svgC.querySelector('#cedges');if(gE)gE.remove();gE=el('g',{id:'cedges'},svgC);let gN=svgC.querySelector('#cnodes');if(!gN)gN=el('g',{id:'cnodes'},svgC);else svgC.appendChild(gN);
+  let gH=svgC.querySelector('#chdr');if(!gH){gH=el('g',{id:'chdr'},svgC);for(const [L,t] of [['S','State'],['M','Model'],['O','Observable']]){txt(gH,C[L].x,14,t.toUpperCase(),7.5,null,'clab');el('line',{x1:C[L].x,y1:17,x2:C[L].x+C[L].w,y2:17,stroke:`var(--${L==='S'?'state':L==='M'?'model':'obs'})`,'stroke-width':1.5},gH);}}
+  const prevIds=new Set(prev?[...prev.S,...prev.M,...prev.O,...(prev.clusters||[]).flatMap(c=>c.members)]:[]);
+  const rewritten=new Set();if(prev){for(const id of Object.keys(pos)){if(prevIds.has(id)){const a=ndef(id,step).label,b=ndef(id,prev).label;if(a!==b)rewritten.add(id);}}}
+  const morph=step.morph||{};const keep=new Set(Object.keys(pos));
+  for(const [id,g] of els){if(!keep.has(id)){const t=morph[id]&&pos[morph[id]];if(t)g.setAttribute('transform',`translate(${t.x},${t.y})`);g.classList.add('ghost');setTimeout(()=>{if(g.parentNode)g.remove();},600);els.delete(id);}}
+  const explained=new Set();for(const e of step.edges)if(e.k==='m2o'&&e.st!=='cand'&&!e.weak)explained.add(e.t);
+  for(const id of keep){const p=pos[id],n=p.n;let g=els.get(id);const isNew=!g;
+    if(isNew){g=el('g',{},gN);g.classList.add('ghost');g.setAttribute('transform',`translate(${p.x},${p.y})`);els.set(id,g);}
+    g.setAttribute('class','cnode '+p.layer+' '+(n.kind||'')+(n.dashed?' dashed':'')+(p.member?' member':'')+(n.absorbed?' absorbed':''));
+    g.innerHTML='';el('rect',{class:'cbox',x:0,y:0,width:p.w,height:p.h,rx:p.isCluster?4:3},g);
+    if(p.layer==='S'){const lab=plainT(n.label);txt(g,5,p.h/2+2.6,lab.length>22?lab.slice(0,21)+'…':lab,7,null,'ct');
+      if(n.kind==='sector'){for(let i=0;i<4;i++)el('circle',{cx:p.w-40+i*10,cy:p.h/2,r:2.6,class:'cslot'},g);}}
+    else if(p.layer==='M'){const lab=plainT(n.label);const mx=p.isCluster?34:p.member?(n.absorbed?36:30):32;txt(g,p.isCluster?8:5,p.isCluster?9:p.h/2+2.5,lab.length>mx?lab.slice(0,mx-1)+'…':lab,p.isCluster?6.5:6.5,null,'ct'+(p.isCluster?' cb':''));}
+    else{const lab=plainT(n.label);if(n.driver)el('circle',{cx:7,cy:p.h/2,r:3.6,class:'cbadge '+n.driver},g);txt(g,n.driver?13:4,p.h/2+2.4,lab.length>30?lab.slice(0,29)+'…':lab,6.5,null,'ct');
+      if(!explained.has(id))g.classList.add('unexplained');else if(n.untested)g.classList.add('untested');}
+    if(!prevIds.has(id)&&prev)g.classList.add('new');else if(rewritten.has(id))g.classList.add('rewritten');
+    if(g.classList.contains('new')){const b=el('g',{class:'cmark'},g);el('circle',{cx:-3,cy:-3,r:4.2},b);txt(b,-3,-0.7,'+',7,'middle');}
+    else if(g.classList.contains('rewritten')){const b=el('g',{class:'cmark rw'},g);el('circle',{cx:-3,cy:-3,r:4.2},b);txt(b,-3,-0.8,'~',7,'middle');}
+    const tt=el('title',{},g);tt.textContent=plainT(n.label)+(n.years?' · '+n.years:'');
+    if(isNew)requestAnimationFrame(()=>requestAnimationFrame(()=>{g.setAttribute('transform',`translate(${p.x},${p.y})`);g.classList.remove('ghost');}));else g.setAttribute('transform',`translate(${p.x},${p.y})`);}
+  for(const id of keep)if(pos[id].isCluster){const g=els.get(id);if(g)gN.insertBefore(g,gN.firstChild);}
+  /* edges */
+  const hdrR={x:C.S.x+C.S.w,y:12},hdrIn={x:C.S.x+C.S.w,y:19};
+  const prevEdgeKeys=new Set(prev?prev.edges.map(e=>e.f+'>'+e.t):[]);
+  const add=(d,cls,mk,isNew)=>{const p=el('path',{class:'cedge '+cls+(isNew?' new':''),d,'marker-end':mk?`url(#${mk})`:''},gE);return p;};
+  for(const e of step.edges){const isNew=prev&&!prevEdgeKeys.has(e.f+'>'+e.t);
+    if(e.k==='s2m'){const a=e.f==='S'?hdrR:aR(pos[e.f]);const b=pos[e.t]&&aL(pos[e.t]);if(!b)continue;add(cub(a,b,26),'s2m','cm-edge',isNew);}
+    else if(e.k==='m2s'){const a=aL(pos[e.f]);const b=e.t==='S'?hdrIn:aR(pos[e.t]);add(`M${a.x},${a.y} C${a.x-30},${a.y} ${b.x+26},${b.y+6} ${b.x},${b.y}`,'m2s','cm-state',isNew);}
+    else if(e.k==='m2m'){const pa=pos[e.f],pb=pos[e.t];if(!pa||!pb)continue;add(`M${pa.x+pa.w/2},${pa.y+pa.h} L${pb.x+pb.w/2},${pb.y}`,'m2m','cm-model',isNew);}
+    else if(e.k==='m2o'){const pa=pos[e.f],pb=pos[e.t];if(!pa||!pb)continue;const st=e.st||'pred';add(cub(aR(pa),aL(pb),26),'m2o '+st,st==='fit'?'cm-fit':st==='cand'?'cm-cand':'cm-edge',isNew);}}
+  const byT={};(step.ands||[]).forEach(a=>{(byT[a.t]=byT[a.t]||[]).push(a);});
+  const prevRouteKeys=new Set(prev?(prev.ands||[]).map(a=>a.t+'|'+a.legs.map(l=>l.s||l.g).join(',')):[]);
+  for(const t in byT){const list=byT[t],pt=pos[t];if(!pt)continue;list.forEach((a,ai)=>{const isNew=prev&&!prevRouteKeys.has(a.t+'|'+a.legs.map(l=>l.s||l.g).join(','));
+    const legs=[];for(const lg of a.legs){if(lg.s&&pos[lg.s])legs.push(aR(pos[lg.s]));else if(lg.g){const gr=(step.groups||[]).find(x=>x.id===lg.g);if(gr){const ms=gr.members.filter(m=>pos[m]);if(ms.length){const y0=Math.min(...ms.map(m=>pos[m].y)),y1=Math.max(...ms.map(m=>pos[m].y+pos[m].h));legs.push({x:C.S.x+C.S.w+2,y:(y0+y1)/2,group:true,y0,y1});}}}}
+    if(!legs.length)return;const tm=pt.y+pt.h/2;const jy=0.2*legs.reduce((s,l)=>s+l.y,0)/legs.length+0.8*tm+(ai-(list.length-1)/2)*10;const jx=C.M.x-14-(ai%2)*5;
+    for(const l of legs){if(l.group)el('path',{class:'cbr',d:`M${l.x-2},${l.y0+1} H${l.x} V${l.y1-1} H${l.x-2}`},gE);add(cub({x:l.x,y:l.y},{x:jx-3,y:jy},16),a.cand?'andcand':'leg',null,isNew);}
+    const j=el('g',{class:'cj'+(a.cand?' cand':'')+(isNew?' new':'')},gE);el('circle',{cx:jx,cy:jy,r:3},j);add(cub({x:jx+3,y:jy},{x:pt.x,y:tm},10),a.cand?'andcand':'andout',a.cand?'cm-cand':'cm-and',isNew);});}
+  for(const id of keep){const pc=pos[id];if(!pc.isCluster)continue;for(const ln of pc.lineage){const pa=pos[ln.f],pb=pos[ln.t];if(!pa||!pb)continue;add(`M${pa.x},${pa.y+pa.h/2} C${pa.x-7},${pa.y+pa.h/2} ${pb.x-7},${pb.y+pb.h/2} ${pb.x},${pb.y+pb.h/2}`,'m2m','cm-model',true);}}
+}
+
+/* ---------- cycle diagram ---------- */
+function drawCycle(stepIdx){const step=GS[stepIdx];const active=new Set(step.phases||[]);svgCy.innerHTML='';const W=280,H=250,cx=140,cy=122,R=92;const n=PH.length;
+  const pts=PH.map((p,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;return {x:cx+R*Math.cos(a),y:cy+R*Math.sin(a),a};});
+  for(let i=0;i<n;i++){const p=pts[i],q=pts[(i+1)%n];const r=21;const dx=q.x-p.x,dy=q.y-p.y,L=Math.hypot(dx,dy);const sx=p.x+dx/L*r,sy=p.y+dy/L*r,ex=q.x-dx/L*(r+2),ey=q.y-dy/L*(r+2);
+    const mx=(p.x+q.x)/2,my=(p.y+q.y)/2,bx=cx+(mx-cx)*1.18,by=cy+(my-cy)*1.18;const on=active.has(PH[i][0])&&active.has(PH[(i+1)%n][0]);
+    el('path',{d:`M${sx},${sy} Q${bx},${by} ${ex},${ey}`,class:'cyarc'+(on?' on':''),'marker-end':'url(#cy-ar)'},svgCy);}
+  const d=el('defs',{},svgCy);const m=el('marker',{id:'cy-ar',viewBox:'0 0 10 10',refX:'8',refY:'5',markerWidth:'5',markerHeight:'5',orient:'auto'},d);el('path',{d:'M0,0 L10,5 L0,10 z',fill:'var(--muted)'},m);
+  PH.forEach((p,i)=>{const q=pts[i];const g=el('g',{class:'cyph'+(active.has(p[0])?' on':''),transform:`translate(${q.x},${q.y})`},svgCy);el('circle',{r:21,fill:active.has(p[0])?PHC[p[0]]:'var(--panel)',stroke:active.has(p[0])?PHC[p[0]]:'var(--line)','stroke-width':1.4},g);
+    const parts=p[1].split('|');const t=txt(g,0,parts.length>1?-1:3,parts[0],7,'middle','cyt');if(parts.length>1){const t2=txt(g,0,8,parts[1],7,'middle','cyt');if(active.has(p[0]))t2.setAttribute('fill','#fff');}if(active.has(p[0]))t.setAttribute('fill','#fff');const tt=el('title',{},g);tt.textContent=p[1].replace('-|','')+': '+p[2];});
+  const regime=step.driver==='anom'?'anomaly-first: observation precedes theory':step.driver==='pred'?'prediction-first: theory precedes observation':step.driver==='sym'?'symmetry-driven: structure precedes observation':step.driver==='resp'?'model response to a deficit':step.driver==='syn'?'reduction: the history is compressed':'foundation';
+  txt(svgCy,cx,cy-6,'step '+(stepIdx+1),9,'middle','cyc');txt(svgCy,cx,cy+8,step.years,7.5,'middle','cyc2');
+  const r=txt(svgCy,cx,H-6,regime,7.5,'middle','cyc2');}
+
+/* ---------- log & controls ---------- */
+function drawLog(stepIdx){const step=GS[stepIdx];const box=host.querySelector('#mlog');
+  let h=`<div class="mtitle">Step ${stepIdx+1} · ${htmlRich(step.title)} <span class="my">${esc(step.years)}</span></div><ul class="mops">`;
+  for(const o of (step.ops||[])){h+=`<li><span class="op ${OPC[o[0]]||''}">${esc(o[0])}</span><span class="lay">${esc(o[1])}</span><span>${htmlRich(o[2])}</span></li>`;}
+  h+='</ul>';box.innerHTML=h;
+  host.querySelectorAll('.mstep').forEach((b,i)=>b.classList.toggle('cur',i===stepIdx));}
+function show(i){k=Math.max(0,Math.min(GS.length-1,i));drawC(k);drawCycle(k);drawLog(k);host.querySelector('#mprev').disabled=k===0;host.querySelector('#mnext').disabled=k===GS.length-1;}
+function play(){const b=host.querySelector('#mplay');if(timer){clearInterval(timer);timer=null;b.textContent='▶ Play';return;}b.textContent='⏸ Pause';if(k>=GS.length-1)show(0);timer=setInterval(()=>{if(k>=GS.length-1){clearInterval(timer);timer=null;b.textContent='▶ Play';return;}show(k+1);},2200);}
+
+function mount(container){if(host&&host.parentNode===container)return;els=new Map();if(timer){clearInterval(timer);timer=null;}
+  host=document.createElement('div');host.className='method';
+  host.innerHTML=`<h2 class="mh">The method in action: the structure of the graph at every step</h2>
+  <p class="mp">Left: the scientific-method cycle, with the phases active in the current step filled. Right: the whole graph drawn small, re-laid out at every step; a <span class="op add">+</span> marks a node added in this step, a <span class="op rewrite">~</span> a node rewritten, highlighted edges and routes are new, and removed nodes slide into the node that replaces or absorbs them. Hover any node for its name. Below: the operations the step performs on the graph.</p>
+  <div class="mctl"><button id="mprev">←</button><button id="mplay">▶ Play</button><button id="mnext">→</button><div class="msteps">${GS.map((s,i)=>`<button class="mstep" title="${esc(plainT(s.title))}">${i+1}</button>`).join('')}</div></div>
+  <div class="mgrid"><div class="mcyc"><svg id="mcycle" viewBox="0 0 280 250" role="img" aria-label="scientific-method cycle"></svg></div><div class="mschem"><svg id="mschem" viewBox="0 0 604 300" role="img" aria-label="compact graph schematic"></svg></div></div>
+  <div id="mlog"></div>`;
+  container.insertBefore(host,container.firstChild);
+  svgC=host.querySelector('#mschem');svgCy=host.querySelector('#mcycle');ensureDefs(svgC);
+  host.querySelector('#mprev').onclick=()=>show(k-1);host.querySelector('#mnext').onclick=()=>show(k+1);host.querySelector('#mplay').onclick=play;
+  host.querySelectorAll('.mstep').forEach((b,i)=>b.onclick=()=>show(i));
+  show(0);}
+function unmount(){if(timer){clearInterval(timer);timer=null;}}
+return {mount,unmount,show};
+})();
+(function(){const s=document.getElementById('synth');if(s&&s.classList.contains('show'))window.GENMethod.mount(s);})();
 </script>
 
 </body>
