@@ -1,0 +1,194 @@
+% Compile with XeLaTeX:  latexmk -xelatex main.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage{fontspec}
+\setmainfont{FreeSerif}
+\setsansfont{FreeSans}
+\setmonofont[Scale=0.86]{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep}
+\graphicspath{{figures/}}
+\input{numbers.tex}
+\newcommand{\gen}{Great Epistemic Network}
+\newcommand{\live}{\url{https://tahmeedhossain.github.io/GEN_HEP/}}
+\newcommand{\repo}{\url{https://github.com/tahmeedhossain/GEN_HEP}}
+\newcommand{\lay}[1]{\textsf{#1}}
+\newcommand{\id}[1]{\texttt{#1}}
+
+\title{A growing concept graph of particle physics:\\states, models and observables from one-particle quantum mechanics to the electroweak Standard Model}
+\author{Tahmeed Hossain\\[2pt]\small Department of Theoretical Physics, University of Dhaka}
+\date{\small 12 November 2026 \\[4pt] \small Graph data, interactive page and this text are generated with an AI assistant (Claude, Anthropic) under the author's direction; see Section~\ref{sec:ai}.}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We represent the development of particle physics, from one-particle quantum mechanics (1925) to the electroweak Standard Model with its Higgs sector (2012), as a concept graph with three layers: \emph{states} (what the theory says can exist), \emph{models} (the postulates and Lagrangian terms that act on states) and \emph{observables} (what is measured). Edges name the mathematical connection between two nodes, and interaction terms are entered by AND routes from the occupation-number nodes of several field sectors. The graph is built in \nGraphSteps{} steps that follow the historical and logical order: the state layer is partitioned into Wigner's irreducible representations, an unexplained observable (creation and destruction of particles) forces a field node that extends each representation into a Fock ladder, effective interaction nodes (QED vertex, Fermi and muon-decay contact terms, V$-$A) are added as they were discovered and then merged into the fundamental vertices of SU(2)$_L\times$U(1)$_Y$ and the Higgs sector, and the final step clusters every vertex inside the Lagrangian term it belongs to, with the effective nodes absorbed in the term that reproduces them at low energy. From the sequence we read off ten rules that govern how the graph grows (symmetry partition, in-degree-zero drive, Fock extension, route composition, universality merge, absorption, sector refinement, calibration, clustering, and the anomaly/prediction cycle), state them in graph terms, and check each against the step in which it fires. The interactive page, the data (\nNodes{} nodes, \nRefs{} references) and the scripts that generate every table of this paper are public; the paper closes with a pedagogical walk through the history and a reader's guide to the page. Scope: QED and the electroweak sector; the strong sector is left for a later version.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+
+Science starts from observations. An observable is something measured; what is measured hints at the state of a system, whether that state is a point, a vector, a distribution or something else. Hypotheses about how states give rise to observations become models once they are written as mathematics, and a model does two things: it says what will be observed for a given state, and it says how states evolve. The loop observe $\to$ hypothesize $\to$ feed back $\to$ observe again is what turns a set of hypotheses into a theory. The \gen{} (GEN) project records this loop as a graph. Observables, states and models are layered, every edge is a stated mathematical connection between two nodes, and large parts of physical modelling then reduce to establishing edges one at a time, a task that is small, checkable, and often within reach of an AI system working under a physicist's direction.
+
+The project has three aims, stated here because every GEN document states them: to generate research ideas automatically (an edge that the literature should contain but the graph lacks is a research target), to make reviewing a field easy (a field becomes a graph one can step through), and to see a field through its review (the graph is drawn, not only listed). Earlier instances treated classical electromagnetism as a graph that grows while one reads, conservation laws as cycles in such a graph, and quantum foundations and resource theories as theorem graphs. The present instance is the first that follows a theory through its own history: particle physics from one-particle quantum mechanics to the electroweak Standard Model.
+
+The choice of subject is deliberate. Particle physics is the one branch of physics in which the state layer itself was rebuilt several times: a one-particle Hilbert space was partitioned into irreducible representations of the Poincaré group, each representation was extended into a Fock ladder of $N$-particle states, sectors were split (two neutrinos), replaced (nucleons by quarks) and added (W, Z, H). The model layer went through a cycle that is easy to miss in a textbook but obvious in a graph: effective interaction terms with dimensionful couplings proliferated, were merged when they shared a coupling, and were finally absorbed into fundamental vertices with dimensionless couplings. The observable layer changed character from the spectra of single operators to decay widths and cross sections. A graph that records all of this must have operations for partitioning, extending, merging, absorbing and clustering, and the sequence in which those operations fire is the evolution we want to understand.
+
+This paper makes three contributions.
+\begin{enumerate}
+\item A \nSteps-step growing graph (Section~\ref{sec:graph} defines it, Section~\ref{sec:history} walks through it), built in the order the author specified: one-particle quantum mechanics with unitary evolution, Hermitian observables and a particle Lagrangian; the state layer divided by Wigner's classification; an observable, relativistic particle production and decay, that the one-particle framework cannot reach; a field node on Fock space that turns every representation into a sector with $1,2,\dots,N$-particle nodes; effective interaction nodes entered by AND routes from the $N$- and $M$-particle states of different sectors, in the order they were discovered; their merger into the fundamental interactions of the Standard Model; and, in the final step, the clustering of every interaction node inside the Lagrangian term it belongs to. Edges to observables come only from model-layer Lagrangian nodes; edges into model nodes come only from state sectors.
+\item Ten rules of evolution (Section~\ref{sec:laws}), stated in graph terms so that they can be checked on other instances: when the state layer is partitioned into irreducible building blocks, when it is extended into Fock space (and what triggers the extension), when model nodes merge, when an effective node is absorbed, when a cluster forms.
+\item A pedagogical reading of the history (Section~\ref{sec:history}) and a reader's guide to the public page (Section~\ref{sec:guide}), written for a student who wants to use the repository rather than only read about it.
+\end{enumerate}
+
+Scope and honesty. The graph covers QED and the electroweak sector with the sectors $\nu_e$, $e$, $\nu_\mu$, $\mu$, $u$, $d$, $\gamma$, $W^\pm$, $Z^0$, $H$; the strong sector (Yukawa's pion exchange and its absorption into QCD) is omitted so that the pictures stay legible, and Section~\ref{sec:limits} lists what that costs. Every number is a rounded Particle Data Group value~\cite{PDG2024}; every node carries primary references, of which two are flagged for page-number verification; one argument (the unitarity bound of the Fermi theory) is a textbook argument quoted without a primary source. The rules of Section~\ref{sec:laws} are regularities read off one instance, written so that they can be falsified on the next.
+
+\section{The concept graph}\label{sec:graph}
+
+\subsection{Layers and node types}
+The graph has three layers (Figure~\ref{fig:ui} shows them as the three columns of the page).
+\begin{description}[style=nextline]
+\item[\lay{State} layer $V_S$.] What the theory says can exist. Three node types occur: the one-particle Hilbert space $\mathcal H_1$ (Step~1); a unitary irreducible representation (UIR) of the Poincaré group, labelled by mass and spin or helicity (Step~2); and a \emph{Fock sector}, one field species with its occupation ladder $|0\rangle, |1\rangle, |2\rangle, \dots, |N\rangle$ (Step~4 onward). A sector contains particle and antiparticle, because one field creates one and annihilates the other. UIR classes with no known instance (continuous spin, tachyonic) are drawn dashed.
+\item[\lay{Model} layer $V_M$.] What acts on states and predicts observables. Framework nodes (unitary evolution, the observable postulate, the field construction) carry the kinematics; interaction nodes are terms of the Lagrangian. An interaction node is \emph{effective} when its coupling has negative mass dimension (Fermi's $G_F$), \emph{fundamental} when it is a term of the renormalizable Standard-Model Lagrangian, and a \emph{candidate} when the literature offers it but no observation selects it (the neutrino-mass term). In the final step the fundamental nodes are grouped into \emph{clusters}, one per Lagrangian term.
+\item[\lay{Observable} layer $V_O$.] What is measured. Early on these are the Hermitian operators of one-particle quantum mechanics; from Step~4 on they are decay widths, cross sections, masses and couplings. Each observable node carries a badge: \textbf{A} if it was observed before any model node explained it, \textbf{P} if a model node predicted it before it was observed, \textbf{F} if its value fixes a parameter of a model node (a calibration). An observable node with no incoming edge from an interaction or framework node is drawn with a red dashed ring: it is \emph{unexplained}, and Section~\ref{sec:laws} shows that this status is what drives the growth of the model layer. A predicted but untested observable (the Higgs self-coupling) has a blue dashed ring.
+\end{description}
+
+\subsection{Edges and routes}
+Every edge is labelled by the mathematical connection it stands for, visible on the page when the edge is hovered or clicked.
+\begin{itemize}
+\item \lay{State}$\to$\lay{Model}: the states a model node acts on. In Steps~1--3 these are plain edges; from Step~5 on they are \emph{AND routes}: a hyperedge whose legs are occupation-number nodes of several sectors and whose head is one interaction node (drawn as converging blue lines meeting at a junction marked $\wedge$). The route $e(1)\wedge\gamma(1)$ into the QED vertex says that the term $-e\bar\psi\gamma^\mu\psi A_\mu$ connects the one-electron and one-photon states; the route $n(1)\wedge p(1)\wedge e(1)\wedge\bar\nu(1)$ into Fermi's node says that four sectors enter at one point. The legs are the minimal occupation numbers the term changes; the vertex acts on every rung of each ladder, and the selection rule is stated on the edge.
+\item \lay{Model}$\to$\lay{Observable}: a prediction (solid), a calibration (dashed; the observable fixes a parameter), a framework assignment (dotted; the postulate that a self-adjoint operator is an observable), or a candidate (dotted grey). Only model nodes send edges to observables.
+\item \lay{Model}$\to$\lay{State} (back-edges, dashed teal): unitary evolution maps the state layer to itself and, once it represents the Poincaré group, partitions it; the field node builds the Fock ladders. These two back-edges are the only way the model layer changes the state layer.
+\item \lay{Model}$\to$\lay{Model}: a Lagrangian generating the evolution (Steps~1--2) and, inside the final clusters, \emph{lineage} edges that record which node absorbed which.
+\end{itemize}
+
+\subsection{Steps and operations}
+The graph is a sequence $G_1,\dots,G_{\nGraphSteps}$ followed by a synthesis view. Each step changes the previous graph by a few operations: \textsc{add} a node to a layer; \textsc{partition} a state node into irreducible pieces; \textsc{extend} a state node into a ladder; \textsc{split} or \textsc{replace} a sector; \textsc{merge} model nodes that share a coupling; \textsc{absorb} an effective node into a fundamental one (a merge in which a new mediator sector appears and the old node survives as a low-energy limit); and \textsc{cluster} the fundamental nodes by Lagrangian term. Table~\ref{tab:steps} lists the steps with their node counts; the per-step counts are also in \texttt{data/statistics.json}.
+
+\input{tab_steps.tex}
+
+\section{The history as a sequence of graph operations}\label{sec:history}
+
+This section is written for a reader who meets the history for the first time. Each step says what was known, what was observed, and which graph operation records it; the figure for each step is the page itself at that step (graph only; the page also shows the text and references in a side rail). Node identifiers in \texttt{monospace} refer to the catalogue in Appendix~\ref{app:catalog}.
+
+\subsection*{Step 1 (1925--1932): one-particle quantum mechanics}
+A state is a ray in a Hilbert space $\mathcal H_1$. The Hamiltonian $\hat H$ generates the unitary group $U(t)=e^{-i\hat Ht/\hbar}$, which maps $\mathcal H_1$ onto itself (Stone~\cite{Stone1932}); every self-adjoint operator is an observable whose spectrum lists the outcomes (von Neumann~\cite{vonNeumann1932}); the particle Lagrangian $L=\tfrac12 m\dot x^2-V$ fixes $\hat H$ and hence the energy spectrum, e.g.\ $E_n=-13.6\,\mathrm{eV}/n^2$ for hydrogen~\cite{Schrdinger1926,Heisenberg1925,Born1926}. In the graph (Figure~\ref{fig:s1}) the state layer is one node, the model layer has three nodes, and the only back-edge is the evolution. Particle number is not a variable: $\mathcal H_1$ describes one particle by construction. The energy spectrum carries badge A (Balmer lines were measured four decades before they were derived); spin carries A as well (Stern--Gerlach 1922, Uhlenbeck--Goudsmit 1925, Pauli 1927).
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step01.png}\caption{Step 1. One state node, three model nodes, five observables (the Hermitian operators). The dashed teal arrow is the back-edge of unitary evolution.}\label{fig:s1}\end{figure}
+
+\subsection*{Step 2 (1926--1939): Poincaré symmetry and Wigner's classification}
+Requiring $U$ to represent the Poincaré group makes $\mathcal H_1$ decompose into irreducible subspaces. Wigner~\cite{Wigner1939} classified them by the little group of a standard momentum: SO(3) for $m>0$ (spin $s$), ISO(2) for $m=0$ (helicity $h$, or the continuous-spin representations), plus the tachyonic and trivial classes. The relativistic wave equations~\cite{Klein1926,Gordon1926,Dirac1928} are the equations satisfied by the carrier fields of these representations~\cite{BargmannandWigner1948,Weinberg1995}. Graph operation: \textsc{partition} of the state node by the back-edge of $U(\Lambda,a)$; mass and spin, the Casimir invariants, become observables with badge P (Figure~\ref{fig:s2}). Nine representation classes are drawn; the ones with a known instance in 1939 are the massive spin-$\tfrac12$ class (e, p, n, $\mu$), the massless helicity-1 class ($\gamma$) and, as a hypothesis, the massless helicity-$\tfrac12$ class ($\nu$). \emph{Order note.} The field quantization of Step~4 (1927--32) predates Wigner's paper. The step order follows logical dependence (the field is built on the representation) and every node carries its own date.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step02.png}\caption{Step 2. The state layer partitioned into Wigner's representation classes; classes without an instance are dashed. Mass and spin appear as observables.}\label{fig:s2}\end{figure}
+
+\subsection*{Step 3 (1914--1934): an observable with no model edge}
+Three observations share one feature: the final state contains a different number of particles than the initial one. Emission and absorption of light, quantified by Einstein's $A$ and $B$ coefficients~\cite{Einstein1917}; $\beta$ decay with a continuous electron spectrum~\cite{Chadwick1914,EllisandWooster1927}, where the electron is not a nuclear constituent; and $e^+e^-$ pairs created by $\gamma$ rays~\cite{Anderson1933,BlackettandOcchialini1933}. Since $U(\Lambda,a)$ acts within $\mathcal H_1$, and even within a single representation, no node of the model layer can send an edge to this observable. Graph operation: \textsc{add} an observable node with in-degree zero from the model layer (Figure~\ref{fig:s3}, red dashed ring). This is the first firing of the rule that drives the whole evolution (Rule~2 in Section~\ref{sec:laws}).
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step03.png}\caption{Step 3. The observable ``particle production and decay'' has no incoming model edge.}\label{fig:s3}\end{figure}
+
+\subsection*{Step 4 (1927--1940): quantum fields on Fock space}
+The repair is a model node that adds or removes one quantum of a given representation: the quantum field $\phi(x)=\sum_p(a_p u_p+a_p^\dagger u_p^*)$. Dirac~\cite{Dirac1927} built the photon field this way to derive Einstein's $A$ coefficient; Jordan and Wigner~\cite{JordanandWigner1928} gave the fermionic construction, Heisenberg and Pauli~\cite{HeisenbergandPauli1929} the general Lagrangian field theory, Fock~\cite{Fock1932} the space $\bigoplus_N \mathrm{Sym}^N\mathcal H_1$ (bosons) or $\bigoplus_N\Lambda^N\mathcal H_1$ (fermions), and Fierz~\cite{Fierz1939} and Pauli~\cite{Pauli1940} the connection between spin and statistics. Graph operations: \textsc{add} the field node (the one-particle Lagrangian merges into it as the free-field Lagrangian $L_0$), and \textsc{extend} every realized representation into a sector with the ladder $|0\rangle,|1\rangle,|2\rangle,\dots,|N\rangle$ by the new back-edge (Figure~\ref{fig:s4}). The observable layer changes character: the observables of interest are now transition rates, $\Gamma=2\pi|\langle f|H_{\rm int}|i\rangle|^2\rho(E)$ and $\sigma\propto|\langle f|S|i\rangle|^2$~\cite{Wheeler1937,Heisenberg1943,Dyson1949}. They remain unexplained at this step: with $L_{\rm int}=0$ the S-matrix is~1. The free field explains that particle number can change, not which processes occur.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step04.png}\caption{Step 4. Each realized representation becomes a Fock sector with an occupation ladder; the field node sends the back-edge that builds the ladders. $\Gamma$ and $\sigma$ are still unexplained.}\label{fig:s4}\end{figure}
+
+\subsection*{Step 5 (1927--1949): the QED vertex}
+Minimal coupling $p\to p-eA$ applied to the quantized fields gives the single term $-e\bar\psi\gamma^\mu\psi A_\mu$~\cite{Dirac1927,HeisenbergandPauli1929}. One vertex changes $N_\gamma$ by $\pm1$ and $N_e$ by $0$ or $\pm2$; the route is drawn from the minimal configuration $e(1)\wedge\gamma(1)$. At order $\alpha$ the node reproduces the Klein--Nishina cross section~\cite{KleinandNishina1929} and the Bethe--Heitler pair-production cross section~\cite{BetheandHeitler1934}; at order $\alpha^2$ the renormalized theory~\cite{Tomonaga1946,Schwinger1948,Feynman1949,Dyson1949} gives $a_e=\alpha/2\pi=0.00116$ against the measured $0.00119(5)$~\cite{KuschandFoley1948} and a Lamb shift of about 1040~MHz~\cite{Bethe1947} against about 1000~MHz measured~\cite{LambandRetherford1947}. The coupling is not predicted: the edge to $\alpha$ is a calibration (F). Pair production carries badge P (Dirac's hole theory~\cite{Dirac1931} preceded Anderson), the other three carry A. $\beta$ decay stays unexplained (Figure~\ref{fig:s5}).
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step05.png}\caption{Step 5. The first AND route, $e(1)\wedge\gamma(1)$, enters the QED vertex, which reaches four observables and calibrates $\alpha$.}\label{fig:s5}\end{figure}
+
+\subsection*{Step 6 (1934): Fermi's contact term}
+Fermi~\cite{Fermi1934a,Fermi1934b} copied the structure of the QED vertex: a nucleon current $\bar p\gamma^\mu n$ in place of the electron current and the pair $(e,\bar\nu)$ created at a point in place of the photon. The spectrum shape follows from phase space and the matrix element (Kurie plot~\cite{Kurieetal1936}); Gamow and Teller~\cite{GamowandTeller1936} added axial-vector and tensor structure. The route $n(1)\wedge p(1)\wedge e(1)\wedge\bar\nu(1)$ is the first with four legs (Figure~\ref{fig:s6}). The coupling $G_F\approx1.166\times10^{-5}\,\mathrm{GeV}^{-2}$ has dimension mass$^{-2}$: the amplitude grows like $G_F s$ and partial-wave unitarity fails at $\sqrt s$ of a few hundred GeV (a textbook argument), so the node is \emph{effective} and is drawn dashed. The neutron lifetime carries P~\cite{ChadwickandGoldhaber1935,Robson1951}; the neutrino itself was detected in 1956~\cite{Cowanetal1956}.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step06.png}\caption{Step 6. Fermi's effective node (dashed) with its four-leg route; $G_F$ is a calibration.}\label{fig:s6}\end{figure}
+
+\subsection*{Step 7 (1937--1962): the muon and universality}
+The muon~\cite{NeddermeyerandAnderson1937} was first taken for Yukawa's meson; Conversi, Pancini and Piccioni~\cite{Conversietal1947} showed that it does not interact strongly. Its decay is a second four-fermion node. The decisive fact is that one constant fits $\beta$ decay, $\mu$ decay and $\mu$ capture~\cite{Puppi1948,Klein1948,TiomnoandWheeler1949,LeeRosenbluthandYang1949}; $\tau_\mu^{-1}=G_F^2m_\mu^5/192\pi^3$ makes $\tau_\mu$ the most precise source of $G_F$, so the calibration edge moves to the muon node. Michel~\cite{Michel1950} parametrized the electron spectrum. Danby et al.~\cite{Danbyetal1962} showed that neutrinos from $\pi\to\mu\nu$ produce muons and not electrons: graph operation \textsc{split} of the $\nu$ sector into $\nu_e$ and $\nu_\mu$ (Figure~\ref{fig:s7}). Two model nodes sharing one coupling is the signal that they are instances of one node (Rule~6).
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step07.png}\caption{Step 7. A $\mu$ sector and two neutrino sectors; two effective nodes share $G_F$.}\label{fig:s7}\end{figure}
+
+\subsection*{Step 8 (1956--1958): parity violation and V$-$A}
+The $\tau$--$\theta$ puzzle led Lee and Yang~\cite{LeeandYang1956} to propose tests of parity in weak processes; Wu et al.~\cite{Wuetal1957} and Garwin, Lederman and Weinrich~\cite{Garwinetal1957} found the asymmetries. No parity-conserving node can produce a pseudoscalar correlation, so the new observables are unexplained until Feynman and Gell-Mann~\cite{FeynmanandGellMann1958} and Sudarshan and Marshak~\cite{SudarshanandMarshak1958} replace the two contact nodes by one current--current term with vector-minus-axial currents, which fixes $\rho=\tfrac34$ and the neutrino helicity $-1$~\cite{Goldhaberetal1958}; the hadronic current later acquires $\cos\theta_C$~\cite{Cabibbo1963}. Graph operation: \textsc{merge} of the two effective nodes into one, entered by three routes ($\beta$ decay, $\mu$ decay, $\mu$ capture) (Figure~\ref{fig:s8}).
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step08.png}\caption{Step 8. One V$-$A node replaces two contact nodes; three AND routes enter it.}\label{fig:s8}\end{figure}
+
+\subsection*{Step 9 (1954--1983): W, Z and SU(2)$_L\times$U(1)$_Y$}
+Replacing the contact term by the exchange of a massive vector boson~\cite{Schwinger1957,Bludman1958} and demanding a renormalizable gauge structure~\cite{YangandMills1954,Glashow1961,Weinberg1967,Salam1968,tHooft1971,tHooftandVeltman1972} turns the effective node into the low-energy limit of a fundamental one: $G_F/\sqrt2=g^2/8M_W^2$, the four-fermion node being recovered for $q^2\ll M_W^2$ (the effective-field-theory reading of~\cite{Weinberg1979}). The same symmetry forces a neutral current, observed by Gargamelle~\cite{Hasertetal1973} ten years after the prediction, and W and Z production at the SPS~\cite{Arnisonetal1983,Banneretal1983,Arnisonetal1983b}. The nucleon current is rewritten at quark level~\cite{GellMann1964,Bloometal1969}; the QCD sector that binds $u,d$ into $n,p$ is outside this graph, so graph operation \textsc{replace} exchanges the $(n,p)$ sectors for $(u,d)$. The invisible Z width fixes $N_\nu=2.984\pm0.008$~\cite{LEPEWWG2006}, a model-layer prediction about the number of state-layer sectors; the gauge self-couplings were tested at LEP2~\cite{LEP2EWWG2013}. Graph operations: \textsc{absorb} (V$-$A into the charged current), \textsc{add} (neutral current, self-couplings, W and Z sectors), \textsc{replace}. From here the observables carry badge P: they were predicted before they were seen (Figure~\ref{fig:s9}).
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step09.png}\caption{Step 9. Fundamental vertices with dimensionless couplings; W and Z sectors; the $\beta$-decay route enters through $u(1)\wedge d(1)\wedge W(1)$. Observables are now predicted before observed.}\label{fig:s9}\end{figure}
+
+\subsection*{Step 10 (1964--2012): the Higgs sector}
+Explicit mass terms for W, Z and the chiral fermions are forbidden by the gauge symmetry. The Brout--Englert--Higgs mechanism~\cite{EnglertandBrout1964,Higgs1964,GuralnikHagenandKibble1964} adds a scalar doublet whose vacuum value $v=(\sqrt2G_F)^{-1/2}=246$~GeV gives $M_W=gv/2$, $M_Z=M_W/\cos\theta_W$ and, through Yukawa couplings, $m_f=y_fv/\sqrt2$~\cite{Weinberg1967}. The W and Z mass edges of Step~9 are now derived from the Higgs--gauge node. A scalar with $m_H^2=2\lambda v^2$ is predicted; ATLAS and CMS~\cite{ATLAS2012,CMS2012} observed it at 125~GeV and the measured rates match the Standard-Model pattern~\cite{PDG2024}. The fermion masses and $m_H$ remain inputs (calibrations); the trilinear coupling has not been measured, only bounded (Figure~\ref{fig:s10}).
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step10.png}\caption{Step 10. The H sector and the three Higgs-sector nodes; calibration edges for $m_f$ and $m_H$; the untested $\lambda_{HHH}$ has a blue dashed ring.}\label{fig:s10}\end{figure}
+
+\subsection*{Step 11 (1998--): the frontier}
+Super-Kamiokande~\cite{Fukudaetal1998}, SNO~\cite{Ahmadetal2002} and KamLAND~\cite{Eguchietal2003} established flavour oscillation, which requires non-degenerate neutrino masses. In the graph as built the $\nu$ sectors carry the massless representation (helicity $-\tfrac12$ only, no right-handed state), so no Yukawa node can reach them: the observable has in-degree zero from the model layer, the situation of Step~3 again. Candidate repairs are drawn dashed: the dimension-5 operator $(L\Phi)(L\Phi)/\Lambda$~\cite{Weinberg1979b}, which uses only existing sectors, or new $\nu_R$ sectors with Dirac Yukawa couplings and possibly Majorana masses~\cite{Minkowski1977,MohapatraandSenjanovi1980}. Current data do not decide between them (Figure~\ref{fig:s11}).
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step11.png}\caption{Step 11. Neutrino oscillation is unexplained by the established nodes; the candidate node and its route are dashed.}\label{fig:s11}\end{figure}
+
+\subsection*{Step 12: the Standard Model as clusters}
+The final view groups the model layer by the five terms of
+\begin{equation}
+\mathcal L_{\rm SM}=-\tfrac14W^a_{\mu\nu}W^{a\mu\nu}-\tfrac14B_{\mu\nu}B^{\mu\nu}+\sum_f\bar f\,i\gamma^\mu D_\mu f+|D_\mu\Phi|^2-V(\Phi)-\big(y_f\bar f_L\Phi f_R+\text{h.c.}\big),
+\end{equation}
+plus one dashed cluster for the candidate neutrino-mass term. Each cluster is one term; its fundamental vertices are the members; and the effective nodes of Steps~6--8 sit inside the gauge--fermion cluster, greyed, with lineage edges Fermi$\to$V$-$A$\leftarrow\mu$-decay and V$-$A$\to$charged current (the matching condition $G_F/\sqrt2=g^2/8M_W^2$ is the edge). Routes from the sectors now enter the clusters: every fermion sector with $\gamma$, W or Z into the gauge--fermion term (five routes), W with $\gamma$ or Z into the gauge kinetic term, H with W, Z, the massive fermions or itself into the Higgs terms. Edges to observables leave the clusters (Figure~\ref{fig:s12}; Tables~\ref{tab:clusters} and~\ref{tab:routes}). Graph operation: \textsc{cluster}. The count at the end is \nFinalSectors{} sectors, \nFinalClusters{} clusters, \nFinalFund{} fundamental vertices, \nFinalAbsorbed{} absorbed effective nodes, \nFinalRoutes{} routes and \nFinalObs{} observables, of which \nFinalFit{} are calibrations, one is an untested prediction and one is unexplained.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step12.png}\caption{Step 12. The model layer clustered by Lagrangian term. Greyed dashed chips inside the gauge--fermion cluster are the absorbed effective nodes; the dashed cluster at the bottom holds the candidate neutrino-mass term.}\label{fig:s12}\end{figure}
+
+\subsection*{Step 13: synthesis}
+The synthesis view (Figure~\ref{fig:s13}) plots four counts against the step number and tabulates the changes per layer. The counts are the quantitative content of the rules in the next section.
+
+\begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step13.png}\caption{Step 13. Counts per step: state-layer nodes, effective interaction nodes outside clusters, fundamental interaction nodes, observables with no model edge.}\label{fig:s13}\end{figure}
+
+\input{sec_laws.tex}
+
+\section{The final clustered graph}\label{sec:final}
+Table~\ref{tab:clusters} lists the clusters of Step~12 with their members, the effective nodes they absorbed and the observables they reach; Table~\ref{tab:routes} lists the routes. Three things are visible in the clustered picture that are not visible in the step-by-step one.
+\begin{enumerate}
+\item Only the gauge--fermion term has effective precursors. The gauge kinetic term, the Higgs--gauge term, the Yukawa term and the potential were never written as effective nodes first; their vertices were predicted from the symmetry and then tested. In the graph this is the statement that the lineage edges all lie in one cluster.
+\item The number of routes into a cluster counts the sector combinations the term couples: five for the gauge--fermion term (one electromagnetic route for all charged sectors, three charged-current routes, one neutral-current route for all fermions), two for the gauge kinetic term, two for the Higgs--gauge term, one each for the Yukawa term and the potential. A generation structure is a count of routes.
+\item The calibration edges are concentrated: $\alpha$ and $G_F$ leave the gauge--fermion cluster, the fermion masses leave the Yukawa cluster, $m_H$ leaves the potential. Every other edge is a prediction, and exactly one observable has no established edge.
+\end{enumerate}
+
+\input{tab_clusters.tex}
+\input{tab_routes.tex}
+
+\input{sec_guide.tex}
+
+\section{Limitations and open edges}\label{sec:limits}
+\begin{itemize}
+\item \emph{Scope.} The strong sector is omitted. Adding it is a parallel branch: Yukawa's pion--nucleon node (1935), its observables (nucleon--nucleon and pion--nucleon cross sections), and its absorption not into a term that reproduces it as a low-energy limit but into QCD, where the pion is a bound state and the nucleon sectors are replaced rather than merged. That branch would test Rule~7 in a case where absorption and replacement coincide.
+\item \emph{Order.} Steps~2 and~4 are in logical rather than chronological order; the page states this at Step~2.
+\item \emph{Simplifications.} Antiparticles share the sector of the particle; the hadronic current is written at nucleon level until Step~9; each route is drawn from the minimal occupation numbers; colour is not drawn; neutrinos are massless until Step~11; the three-generation CKM structure is reduced to $\cos\theta_C$.
+\item \emph{References.} Two references carry a note that their page numbers were not verified (Puppi 1948; Bludman 1958). The unitarity bound of the Fermi theory is quoted as a textbook argument. Numerical values are rounded PDG 2024 values~\cite{PDG2024}.
+\item \emph{Open edges.} Neutrino oscillation has no established model edge (the candidate cluster is dashed); the Higgs self-coupling has a model edge and no observation. Both are research targets in the GEN sense: an edge the literature does not yet establish.
+\end{itemize}
+
+\section{Conclusion}
+A three-layer concept graph with routes and badges is enough to record how particle physics was built, and the record has structure: the state layer is changed only by symmetry, by a model node's back-edge, or by an observable that distinguishes sectors; the model layer grows only against an unexplained observable or a theory-internal inconsistency; effective nodes proliferate, merge when they share a coupling, and are absorbed by fundamental nodes that reproduce them at low energy; the fundamental nodes finally cluster by Lagrangian term. These are the rules of Section~\ref{sec:laws}. They were read off one instance and are stated so that the next instance, the strong sector, can confirm or break them.
+
+\section{AI-generation disclosure and invitation}\label{sec:ai}
+The graph data, the interactive page, the scripts and the text of this paper were generated by an AI assistant (Claude, Anthropic) in conversation with the author, who specified the layers, the edge conventions, the historical order, the clustering rule and the scope, and reviewed the output. Citations were written from the assistant's knowledge and should be verified against the sources before any formal use; two are already flagged. The repository is open to community review, modification and addition: an edge that the literature establishes and the graph lacks is a defect to be reported, and an edge that the literature does not establish is a research target.
+
+\appendix
+\section{Node catalogue}\label{app:catalog}
+The identifiers below are the ones used in the page's JSON data (\texttt{data/v1.1\_sm\_epistemic\_graph.json}) and in the tables of this paper. Rich markup in labels (super- and subscripts) is rendered as on the page.
+\input{tab_nodes_S.tex}
+\input{tab_nodes_M.tex}
+\input{tab_nodes_O.tex}
+
+\section{Data format}\label{app:data}
+The JSON file has four parts: \texttt{conventions} (layer names, edge kinds, badge meanings, the unexplained rule); \texttt{nodes}, a dictionary from identifier to node (layer, kind, label, sub-label, years, description, instances, references, badge); \texttt{references}, a dictionary from short key to full reference; and \texttt{steps}, the ordered list of steps. A step lists its \texttt{S}, \texttt{M} and \texttt{O} node identifiers, its \texttt{edges} (from, to, kind, status, relation), its AND routes \texttt{ands} (legs as sector--occupation pairs or group--occupation pairs, target, label, relation), optional \texttt{groups} (named sets of sectors used as a single leg), optional \texttt{override} (per-step label changes), optional \texttt{morph} (which old node a removed node animates into), and, for the final step, \texttt{clusters} (members and lineage edges). \texttt{tools/build\_derived.py} regenerates \texttt{data/statistics.json}, \texttt{catalog.md} and every table and macro of this paper from that file.
+
+\input{refs_generated.tex}
+\end{document}

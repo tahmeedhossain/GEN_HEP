@@ -1,0 +1,8 @@
+paper/*.aux
+paper/*.log
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.toc
+paper/*.out
+paper/*.xdv
+paper/build.log

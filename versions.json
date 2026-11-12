@@ -1,0 +1,9 @@
+{
+ "latest": "1.1",
+ "versions": [
+  {"version": "1.0", "path": "v1.0/", "date": "2026-11-12", "data": "data/v1.0_sm_epistemic_graph.json",
+   "summary": "First release: 11 graph steps (one-particle QM to the neutrino-mass frontier) and a synthesis step."},
+  {"version": "1.1", "path": "v1.1/", "date": "2026-11-12", "data": "data/v1.1_sm_epistemic_graph.json",
+   "summary": "Adds Step 12, the final clustered view: the model layer grouped into the five Standard-Model Lagrangian terms, with the effective nodes of Steps 6-8 absorbed inside the gauge-fermion term."}
+ ]
+}

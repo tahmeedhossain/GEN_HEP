@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this graph or paper, please cite it as below."
+title: "A growing concept graph of particle physics: states, models and observables from one-particle quantum mechanics to the electroweak Standard Model"
+authors:
+  - family-names: Hossain
+    given-names: Tahmeed
+    affiliation: "Department of Theoretical Physics, University of Dhaka"
+date-released: 2026-11-12
+version: "1.1"
+repository-code: "https://github.com/tahmeedhossain/GEN_HEP"
+url: "https://tahmeedhossain.github.io/GEN_HEP/"
+license: MIT
+keywords:
+  - concept graph
+  - Standard Model
+  - quantum field theory
+  - history of physics
+  - Great Epistemic Network

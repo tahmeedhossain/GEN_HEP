@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Standard Model Epistemic Graph — particle physics as a graph that grows step by step</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#f4f5f2;--panel:#fff;--fg:#1b1f26;--muted:#5c6370;--line:#d9dce1;--state:#1f7a74;--model:#5748b3;--obs:#a4660c;--and:#2c6cb6;--anom:#c53f3a;
+ --font:"IBM Plex Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#14161b;--panel:#1c1f26;--fg:#e8eaee;--muted:#a3a9b5;--line:#343945;--state:#4ec4b9;--model:#a99cf0;--obs:#e3ad52;--and:#73a9ea;--anom:#f0736c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 var(--font)}
+main{max-width:880px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:28px;line-height:1.2;margin:0 0 8px;letter-spacing:-.01em}h2{font-size:19px;margin:34px 0 8px}h3{font-size:15px;margin:18px 0 4px}
+p{margin:8px 0}a{color:var(--and)}
+.lead{font-size:16px;color:var(--muted)}
+.cta{display:inline-block;margin:10px 10px 0 0;padding:9px 14px;border-radius:7px;background:var(--model);color:#fff;text-decoration:none;font-weight:500}
+.cta.alt{background:var(--panel);color:var(--fg);border:1px solid var(--line)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin:10px 0}
+.card h3{margin-top:0}.tag{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.ver{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;align-items:start}
+.ver .v{font-family:var(--mono);font-weight:500}
+img.shot{width:100%;border:1px solid var(--line);border-radius:8px;margin:10px 0}
+ul{padding-left:20px}li{margin:4px 0}
+.S{color:var(--state)}.M{color:var(--model)}.O{color:var(--obs)}
+code{font-family:var(--mono);font-size:13px;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:1px 5px}
+footer{margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+</style>
+</head>
+<body>
+<main>
+<h1>Particle physics as a graph that grows step by step</h1>
+<p class="lead">A state / model / observable concept graph of particle physics, built in thirteen steps from one-particle quantum mechanics (1925) to the electroweak Standard Model with its Higgs sector (2012), and clustered at the end into the terms of the Standard-Model Lagrangian. Part of the <strong>Great Epistemic Network</strong> project.</p>
+<p><a class="cta" href="latest/">Open the latest version</a> <a class="cta alt" href="paper/main.pdf">Read the paper (PDF)</a> <a class="cta alt" href="https://github.com/tahmeedhossain/GEN_HEP">Source on GitHub</a></p>
+<a href="latest/#step-12"><img class="shot" src="assets/step12.png" alt="Step 12 of the graph: the model layer clustered into the Standard-Model Lagrangian terms"></a>
+<p class="tag">Step 12 of the graph: the model layer clustered by Lagrangian term, with the Fermi, muon-decay and V−A nodes absorbed inside the gauge–fermion term.</p>
+
+<h2>What the graph contains</h2>
+<div class="card">
+<h3><span class="S">State layer</span></h3>
+<p>What the theory says can exist. One node at first (the one-particle Hilbert space), then Wigner's irreducible representations of the Poincaré group, then one <em>Fock sector</em> per field species with its occupation ladder |0⟩, |1⟩, |2⟩, …, |N⟩. Sectors are split (ν → ν<sub>e</sub>, ν<sub>μ</sub>), replaced (n, p → u, d) and added (W, Z, H) as the history demands.</p>
+<h3><span class="M">Model layer</span></h3>
+<p>What acts on states and predicts observables: framework nodes (unitary evolution, the observable postulate, the field construction) and interaction nodes, which are terms of the Lagrangian. An interaction node is <em>effective</em> when its coupling is dimensionful (Fermi's G<sub>F</sub>), <em>fundamental</em> when it is a term of the renormalizable Standard Model, a <em>candidate</em> when no observation selects it. In the final step the fundamental nodes are grouped into <em>clusters</em>, one per Lagrangian term.</p>
+<h3><span class="O">Observable layer</span></h3>
+<p>What is measured: spectra at first, then decay widths, cross sections, masses and couplings. Each carries a badge: <strong>A</strong> observed before explained, <strong>P</strong> predicted before observed, <strong>F</strong> calibration (the measurement fixes a parameter). An observable with no model edge has a red dashed ring: it is the to-do item that drives the next model node.</p>
+<h3>Routes and edges</h3>
+<p>Interaction nodes are entered by <strong>AND routes</strong>: blue lines from the occupation-number nodes of several sectors meet at a junction (∧) and enter one node, e.g. n(1)∧p(1)∧e(1)∧ν̄(1) into Fermi's contact term. Every edge names its mathematical connection; hover or click an edge on the page to read it. Model → observable edges are predictions (solid) or calibrations (dashed); model → state back-edges partition or build the state layer.</p>
+</div>
+
+<h2>Versions and what changed</h2>
+<div class="card ver">
+<div class="v">v1.1 (latest)</div><div>Adds <strong>Step 12, the final clustered view</strong>: the model layer grouped into the five Standard-Model Lagrangian terms plus a dashed “beyond the SM” cluster, with the effective nodes of Steps 6–8 absorbed inside the gauge–fermion term and lineage arrows recording which node absorbed which. Also fixes the synthesis charts. <a href="v1.1/">Open v1.1</a></div>
+<div class="v">v1.0</div><div>First release: eleven graph steps (one-particle QM → Wigner's representations → the particle-production anomaly → fields on Fock space → QED vertex → Fermi contact term → muon and universality → parity violation and V−A → W, Z and SU(2)<sub>L</sub>×U(1)<sub>Y</sub> → Higgs sector → neutrino-mass frontier) and a synthesis step. <a href="v1.0/">Open v1.0</a></div>
+</div>
+<p>Each version is frozen at its own address; <code>latest/</code> always opens the newest. Every page has a version bar at the top; earlier versions show a notice pointing to the newest. The manifest is <a href="versions.json"><code>versions.json</code></a>.</p>
+
+<h2>How to read it</h2>
+<ul>
+<li>Use <strong>Next step</strong> / <strong>Previous</strong> or the arrow keys. Each step has its own address (<code>#step-7</code>).</li>
+<li>The rail on the right gives the step's title, years, driver (anomaly, symmetry, model response, prediction, clustering), what changed in each layer, the narrative and the references.</li>
+<li><strong>Click a node</strong> for its formula, description, instances, edges and references; <strong>hover an edge</strong> for its relation; <strong>click an edge</strong> to open the relation in the rail; Escape returns to the step.</li>
+<li>A productive order for a student: read Steps 1–2 for the kinematics; at Step 3 look for the red ring and ask what model node could reach it; at Step 4 click the field node and the sectors; from Step 5 on, hover every new node's route and observable edges; at Steps 8–9 watch the model column shrink and grow; at Step 12 follow the lineage arrows from Fermi's node to the charged current; read Step 13 for the counts.</li>
+</ul>
+
+<h2>Why build this</h2>
+<p>This repository belongs to the Great Epistemic Network project, which has three aims.</p>
+<ul>
+<li><strong>Generate research ideas automatically.</strong> An edge that the literature should contain but the graph lacks is a research target; here the neutrino-mass term (no established edge) and the Higgs self-coupling (an edge with no observation) are the open items.</li>
+<li><strong>Make reviewing a field easy.</strong> The field becomes thirteen steps one can walk through, with every claim attached to an edge and every edge to a reference.</li>
+<li><strong>See a field through its review.</strong> The graph is drawn, not only listed, and its history is visible as operations: partition, extend, merge, absorb, cluster.</li>
+</ul>
+<p>Science starts from observations; observables hint at the state of a system; hypotheses about how states produce observations become models once written as mathematics; the loop observe → hypothesize → feed back → observe turns hypotheses into a theory. The graph records that loop, and the paper reads ten rules of evolution off it.</p>
+
+<h2>Paper, data and code</h2>
+<ul>
+<li><a href="paper/main.pdf">Paper (PDF)</a>: the graph, the historical walk-through, the rules of evolution, the clustered final graph, and a reader's guide with annotated screenshots. LaTeX source in <code>paper/</code> (XeLaTeX); every table and number is generated from the data.</li>
+<li><a href="data/v1.1_sm_epistemic_graph.json">Graph data v1.1 (JSON)</a> · <a href="data/v1.0_sm_epistemic_graph.json">v1.0</a> · <a href="data/statistics.json">per-step statistics</a> · <a href="catalog.md">catalogue of nodes, edges and routes</a></li>
+<li><code>tools/build_derived.py</code> regenerates the statistics, the catalogue and the paper's tables from the JSON.</li>
+</ul>
+<p>Scope: QED and the electroweak sector with the sectors ν<sub>e</sub>, e, ν<sub>μ</sub>, μ, u, d, γ, W<sup>±</sup>, Z<sup>0</sup>, H. The strong sector (Yukawa's pion exchange and its absorption into QCD) is left for a later version.</p>
+
+<footer>Tahmeed Hossain, Department of Theoretical Physics, University of Dhaka. Graph data, pages, scripts and paper generated with an AI assistant (Claude, Anthropic) under the author's direction; citations should be verified before formal use. Open to community review, modification and addition.</footer>
+</main>
+</body>
+</html>
