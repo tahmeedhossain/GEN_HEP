@@ -6,3 +6,4 @@ paper/*.toc
 paper/*.out
 paper/*.xdv
 paper/build.log
+paper/README_ARXIV.txt

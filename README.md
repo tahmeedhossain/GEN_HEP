@@ -3,7 +3,8 @@
 Particle physics as a state / model / observable concept graph that grows step by step, from one-particle quantum mechanics (1925) to the electroweak Standard Model with its Higgs sector (2012), clustered at the end into the terms of the Standard-Model Lagrangian.
 
 - **Live page:** https://tahmeedhossain.github.io/GEN_HEP/ (landing page with all versions; `latest/` opens the newest)
-- **Paper:** [paper/main.pdf](paper/main.pdf) — the graph, a pedagogical walk through the history, ten rules of evolution read off the graph, the clustered final graph, and a reader's guide with annotated screenshots
+- **Paper:** [paper/main.pdf](paper/main.pdf) — the graph, a pedagogical walk through the history, ten rules of evolution read off the graph, the rules read off the twelve step graphs of the synthesis view (step by step and across the sequence), the clustered final graph, and a reader's guide with annotated screenshots. arXiv-ready source: [paper/arxiv_source.tar.gz](paper/arxiv_source.tar.gz) (XeLaTeX, fonts included)
+- **Note:** [notes/rules-and-step-graphs.md](notes/rules-and-step-graphs.md) — the rules ↔ step-graphs discussion as a standalone text note (same content as paper Section 5, generated from one source)
 - **Data:** [data/v1.2_sm_epistemic_graph.json](data/v1.2_sm_epistemic_graph.json), [data/statistics.json](data/statistics.json), [catalog.md](catalog.md)
 
 Part of the **Great Epistemic Network** (GEN) project, whose aims are to generate research ideas automatically (an edge the literature should contain but the graph lacks is a research target), to make reviewing a field easy (a field becomes a graph one can step through), and to see a field through its review (the graph is drawn, not only listed).
@@ -51,8 +52,11 @@ index.html            landing page (versions, how to read, aims, paper/data link
 v1.0/ v1.1/ v1.2/ latest/   the interactive pages (self-contained HTML; data embedded)
 data/                 graph JSON per version, statistics.json
 catalog.md            nodes, edges and routes of every step (generated)
-paper/                main.tex + sections, figures/, generated tables, main.pdf (XeLaTeX)
+paper/                main.tex + sections, figures/, generated tables, fonts/ (subsets), main.pdf, arxiv_source.tar.gz (XeLaTeX)
+notes/                text notes (rules ↔ step graphs)
 tools/build_derived.py  regenerates statistics.json, catalog.md and the paper tables from the JSON
+tools/rules_steps.py    writes paper/sec_rules_steps.tex, paper/tab_rulematrix.tex and notes/rules-and-step-graphs.md from one source
+tools/make_fonts.py     subsets the fonts into paper/fonts/ so the arXiv source is self-contained
 assets/               images used by the landing page
 ```
 
@@ -60,7 +64,9 @@ assets/               images used by the landing page
 
 ```
 python3 tools/build_derived.py            # statistics, catalogue, paper tables (latest version)
-cd paper && latexmk -xelatex main.tex     # paper (needs the FreeSerif/FreeSans/DejaVu Sans Mono fonts)
+python3 tools/rules_steps.py              # Section 5 of the paper + the note
+cd paper && latexmk -xelatex main.tex     # paper (fonts shipped in paper/fonts/, no system fonts needed)
+sh paper/make_arxiv_bundle.sh             # arXiv source bundle (paper/arxiv_source.tar.gz)
 ```
 
 ## Extending the graph
