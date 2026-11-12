@@ -1,9 +1,11 @@
-% Compile with XeLaTeX:  latexmk -xelatex main.tex
+% !TEX program = xelatex
+%!TEX TS-program = xelatex
+% Compile with XeLaTeX:  latexmk -xelatex main.tex   (fonts are shipped in fonts/, no system fonts needed)
 \documentclass[11pt,a4paper]{article}
 \usepackage{fontspec}
-\setmainfont{FreeSerif}
-\setsansfont{FreeSans}
-\setmonofont[Scale=0.86]{DejaVu Sans Mono}
+\setmainfont{FreeSerif}[Path=fonts/,Extension=.ttf,UprightFont=*,BoldFont=*Bold,ItalicFont=*Italic,BoldItalicFont=*BoldItalic]
+\setsansfont{FreeSans}[Path=fonts/,Extension=.ttf,UprightFont=*,BoldFont=*Bold,ItalicFont=*Oblique,BoldItalicFont=*BoldOblique]
+\setmonofont{DejaVuSansMono}[Path=fonts/,Extension=.ttf,UprightFont=*,BoldFont=*-Bold,ItalicFont=*-Oblique,BoldItalicFont=*-BoldOblique,Scale=0.86]
 \usepackage{amsmath,amssymb}
 \usepackage[margin=2.4cm]{geometry}
 \usepackage{graphicx}
@@ -31,8 +33,10 @@
 \maketitle
 
 \begin{abstract}
-We represent the development of particle physics, from one-particle quantum mechanics (1925) to the electroweak Standard Model with its Higgs sector (2012), as a concept graph with three layers: \emph{states} (what the theory says can exist), \emph{models} (the postulates and Lagrangian terms that act on states) and \emph{observables} (what is measured). Edges name the mathematical connection between two nodes, and interaction terms are entered by AND routes from the occupation-number nodes of several field sectors. The graph is built in \nGraphSteps{} steps that follow the historical and logical order: the state layer is partitioned into Wigner's irreducible representations, an unexplained observable (creation and destruction of particles) forces a field node that extends each representation into a Fock ladder, effective interaction nodes (QED vertex, Fermi and muon-decay contact terms, V$-$A) are added as they were discovered and then merged into the fundamental vertices of SU(2)$_L\times$U(1)$_Y$ and the Higgs sector, and the final step clusters every vertex inside the Lagrangian term it belongs to, with the effective nodes absorbed in the term that reproduces them at low energy. From the sequence we read off ten rules that govern how the graph grows (symmetry partition, in-degree-zero drive, Fock extension, route composition, universality merge, absorption, sector refinement, calibration, clustering, and the anomaly/prediction cycle), state them in graph terms, and check each against the step in which it fires. The interactive page, the data (\nNodes{} nodes, \nRefs{} references) and the scripts that generate every table of this paper are public; the paper closes with a pedagogical walk through the history and a reader's guide to the page. Scope: QED and the electroweak sector; the strong sector is left for a later version.
+We represent the development of particle physics, from one-particle quantum mechanics (1925) to the electroweak Standard Model with its Higgs sector (2012), as a concept graph with three layers: \emph{states} (what the theory says can exist), \emph{models} (the postulates and Lagrangian terms that act on states) and \emph{observables} (what is measured). Edges name the mathematical connection between two nodes, and interaction terms are entered by AND routes from the occupation-number nodes of several field sectors. The graph is built in \nGraphSteps{} steps that follow the historical and logical order: the state layer is partitioned into Wigner's irreducible representations, an unexplained observable (creation and destruction of particles) forces a field node that extends each representation into a Fock ladder, effective interaction nodes (QED vertex, Fermi and muon-decay contact terms, V$-$A) are added as they were discovered and then merged into the fundamental vertices of SU(2)$_L\times$U(1)$_Y$ and the Higgs sector, and the final step clusters every vertex inside the Lagrangian term it belongs to, with the effective nodes absorbed in the term that reproduces them at low energy. From the sequence we read off ten rules that govern how the graph grows (symmetry partition, in-degree-zero drive, Fock extension, route composition, universality merge, absorption, sector refinement, calibration, clustering, and the anomaly/prediction cycle), state them in graph terms, and check each against the step graphs in which it fires, step by step and across the sequence. The interactive page, the data (\nNodes{} nodes, \nRefs{} references) and the scripts that generate every table of this paper are public; the paper closes with a pedagogical walk through the history and a reader's guide to the page. Scope: QED and the electroweak sector; the strong sector is left for a later version.
 \end{abstract}
+
+\noindent\textbf{Keywords:} concept graph; Standard Model; quantum field theory; history of particle physics; scientific method; Great Epistemic Network.
 
 \tableofcontents
 
@@ -47,7 +51,7 @@ The choice of subject is deliberate. Particle physics is the one branch of physi
 This paper makes three contributions.
 \begin{enumerate}
 \item A \nSteps-step growing graph (Section~\ref{sec:graph} defines it, Section~\ref{sec:history} walks through it), built in the order the author specified: one-particle quantum mechanics with unitary evolution, Hermitian observables and a particle Lagrangian; the state layer divided by Wigner's classification; an observable, relativistic particle production and decay, that the one-particle framework cannot reach; a field node on Fock space that turns every representation into a sector with $1,2,\dots,N$-particle nodes; effective interaction nodes entered by AND routes from the $N$- and $M$-particle states of different sectors, in the order they were discovered; their merger into the fundamental interactions of the Standard Model; and, in the final step, the clustering of every interaction node inside the Lagrangian term it belongs to. Edges to observables come only from model-layer Lagrangian nodes; edges into model nodes come only from state sectors.
-\item Ten rules of evolution (Section~\ref{sec:laws}), stated in graph terms so that they can be checked on other instances: when the state layer is partitioned into irreducible building blocks, when it is extended into Fock space (and what triggers the extension), when model nodes merge, when an effective node is absorbed, when a cluster forms.
+\item Ten rules of evolution (Section~\ref{sec:laws}), stated in graph terms so that they can be checked on other instances: when the state layer is partitioned into irreducible building blocks, when it is extended into Fock space (and what triggers the extension), when model nodes merge, when an effective node is absorbed, when a cluster forms; and a reading of those rules off the twelve step graphs of the synthesis view, one step at a time and across the sequence (Section~\ref{sec:rulesteps}), which is the evidence the rules rest on.
 \item A pedagogical reading of the history (Section~\ref{sec:history}) and a reader's guide to the public page (Section~\ref{sec:guide}), written for a student who wants to use the repository rather than only read about it.
 \end{enumerate}
 
@@ -154,6 +158,8 @@ The synthesis view has two parts. The first, ``the method in action'' (Figures~\
 \begin{figure}[htbp]\centering\includegraphics[width=\linewidth]{step13.png}\caption{Step 13, second part. Counts per step: state-layer nodes, effective interaction nodes outside clusters, fundamental interaction nodes, observables with no model edge.}\label{fig:s13}\end{figure}
 
 \input{sec_laws.tex}
+
+\input{sec_rules_steps.tex}
 
 \section{The final clustered graph}\label{sec:final}
 Table~\ref{tab:clusters} lists the clusters of Step~12 with their members, the effective nodes they absorbed and the observables they reach; Table~\ref{tab:routes} lists the routes. Three things are visible in the clustered picture that are not visible in the step-by-step one.
